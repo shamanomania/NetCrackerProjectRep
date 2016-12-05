@@ -1,1 +1,3 @@
 # NetCrackerProjectRep
+
+Pavel Gorkin @pgorkin
