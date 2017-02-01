@@ -1,4 +1,4 @@
-package com.netcracker.domain.entities;
+package netcracker.domain.entities;
 
 import javax.persistence.*;
 

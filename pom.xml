@@ -6,21 +6,29 @@
 
     <groupId>com.netcracker</groupId>
     <artifactId>unc17-kgl</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+
+    <modules>
+        <module>Backend</module>
+        <module>persistence</module>
+        <module>frontend</module>
+    </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.3.RELEASE</version>
     </parent>
 
-    <!-- Kravchenko: I suggest using this to get jdbc driver -->
-    <!--<repositories>-->
-        <!--<repository>-->
-            <!--<id>codelds</id>-->
-            <!--<url>https://code.lds.org/nexus/content/groups/main-repo</url>-->
-        <!--</repository>-->
-    <!--</repositories>-->
+     <!--Kravchenko: I suggest using this to get jdbc driver-->
+    <repositories>
+    <repository>
+    <id>codelds</id>
+    <url>https://code.lds.org/nexus/content/groups/main-repo</url>
+    </repository>
+    </repositories>
+
 
     <dependencies>
         <dependency>
@@ -32,34 +40,14 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <!--<scope>provided</scope>-->
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.4</version>
-            <!-- Kravchenko: I suggest using this to get jdbc driver -->
-            <!--<version>11.2.0.3</version>-->
-        </dependency>
+
+
     </dependencies>
 
     <!--<properties>-->
         <!--<java.version>1.8</java.version>-->
     <!--</properties>-->
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+
 
 </project>
