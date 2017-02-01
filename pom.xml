@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>Backend</module>
+        <module>backend</module>
         <module>persistence</module>
         <module>frontend</module>
     </modules>
