@@ -1,6 +1,6 @@
-package com.netcracker.repository;
+package netcracker.repository;
 
-import com.netcracker.domain.entities.UserTest;
+import netcracker.domain.entities.UserTest;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

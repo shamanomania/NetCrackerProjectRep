@@ -1,13 +1,12 @@
-package com.netcracker.services.impl;
+package netcracker.services.impl;
 
-import com.netcracker.domain.entities.UserTest;
-import com.netcracker.repository.UserRepository;
-import com.netcracker.services.IUserTestService;
+import netcracker.domain.entities.UserTest;
+import netcracker.repository.UserRepository;
+import netcracker.services.IUserTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.util.Iterator;
 import java.util.List;
 
 @Service

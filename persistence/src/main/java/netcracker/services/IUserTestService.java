@@ -1,8 +1,7 @@
-package com.netcracker.services;
+package netcracker.services;
 
-import com.netcracker.domain.entities.UserTest;
+import netcracker.domain.entities.UserTest;
 
-import javax.jws.soap.SOAPBinding;
 import java.util.List;
 
 public interface IUserTestService {
