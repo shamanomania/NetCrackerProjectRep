@@ -9,6 +9,7 @@ import org.springframework.util.Assert;
 
 import java.util.List;
 
+//TODO: Leave only service or repository for working with DB entities
 @Service
 public class UserTestService implements IUserTestService {
 
