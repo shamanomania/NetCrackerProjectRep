@@ -1,6 +1,8 @@
 package netcracker;
 
+import netcracker.domain.entities.UserTest;
 import netcracker.services.IUserTestService;
+import netcracker.services.impl.UserTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,7 @@ public class HelloController {
     public String index() {
         return "Hello, world!";
     }
+
 
 //    @RequestMapping("/getusers")
 //    public String getUsers() {

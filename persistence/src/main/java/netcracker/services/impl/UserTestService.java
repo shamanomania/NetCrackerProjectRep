@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.sql.Connection;
 import java.util.List;
 
 //TODO: Leave only service or repository for working with DB entities
