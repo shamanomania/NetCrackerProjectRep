@@ -1,6 +1,7 @@
 package netcracker;
 
 import netcracker.domain.entities.UserTest;
+import netcracker.services.ICertificateService;
 import netcracker.services.IUserTestService;
 import netcracker.services.impl.UserTestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
     private IUserTestService iUserTestService;
+    private ICertificateService iCertificateService;
 
     @Autowired
     public HelloController(IUserTestService iUserTestService) {
@@ -18,9 +20,11 @@ public class HelloController {
         this.iUserTestService = iUserTestService;
     }
 
+
+
     @RequestMapping("/")
     public String index() {
-        return "Hello, world!";
+        return "Hello, world!" ;
     }
 
 
