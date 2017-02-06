@@ -1,6 +1,7 @@
 package netcracker.domain.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Sid775 on 02.02.2017.
@@ -11,6 +12,9 @@ public class Test {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
+
+    @ManyToMany(mappedBy = "tests")
+    private List<Certificate> certificates;
 
     public Test(){}
 

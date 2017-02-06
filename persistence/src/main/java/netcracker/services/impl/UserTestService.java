@@ -1,23 +1,22 @@
 package netcracker.services.impl;
 
 import netcracker.domain.entities.UserTest;
-import netcracker.repository.UserRepository;
+import netcracker.repository.UserTestRepository;
 import netcracker.services.IUserTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.sql.Connection;
 import java.util.List;
 
 //TODO: Leave only service or repository for working with DB entities
 @Service
 public class UserTestService implements IUserTestService {
 
-    private UserRepository userRepository;
+    private UserTestRepository userRepository;
 
     @Autowired
-    public UserTestService(UserRepository userRepository){
+    public UserTestService(UserTestRepository userRepository){
         Assert.notNull(userRepository);
         this.userRepository = userRepository;
     }
