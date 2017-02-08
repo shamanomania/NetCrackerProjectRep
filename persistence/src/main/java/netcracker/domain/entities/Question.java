@@ -13,8 +13,20 @@ public class Question {
     private Long id;
 
     @Column
-    private String Title;
+    private String title;
 
     @Column
-    private String Answer;
+    private String answer;
+
+    public Long getId() {return id;}
+
+    public void setId(Long id) {this.id = id;}
+
+    public String getTitle() {return title;}
+
+    public void setTitle(String title) {this.title = title;}
+
+    public String getAnswer() {return answer;}
+
+    public void setAnswer(String answer) {this.answer = answer;}
 }

@@ -22,6 +22,9 @@ public class Certificate {
             inverseJoinColumns = @JoinColumn(name = "CertificateId", referencedColumnName = "ID"))
     private List<Test> tests;
 
+    @ManyToMany(mappedBy = "certificates")
+    private List<Company> companies;
+
     public Certificate(){}
 
     public Certificate(String Title){
