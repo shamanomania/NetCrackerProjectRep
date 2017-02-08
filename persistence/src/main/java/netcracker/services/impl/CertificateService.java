@@ -21,7 +21,7 @@ public class CertificateService implements ICertificateService {
 
     @Override
     public Certificate findByTitle(String title) {
+        System.out.println(title);
         return certificateRepository.findByTitle(title);
-
     }
 }

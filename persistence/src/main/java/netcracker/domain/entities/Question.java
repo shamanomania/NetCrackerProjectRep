@@ -2,6 +2,7 @@ package netcracker.domain.entities;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Sid775 on 02.02.2017.
@@ -17,6 +18,13 @@ public class Question {
 
     @Column
     private String answer;
+
+    @ManyToMany
+    @JoinTable(
+            name = "TestQuestion",
+            joinColumns =@JoinColumn(name = "question_id"),
+            inverseJoinColumns = @JoinColumn(name = "test_id"))
+    private List<Test> tests;
 
     public Long getId() {return id;}
 

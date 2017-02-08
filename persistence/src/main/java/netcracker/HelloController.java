@@ -24,7 +24,7 @@ public class HelloController {
 
     @RequestMapping("/")
     public String index() {
-        return "Hello, world!" ;
+        return "Hello, world!" + iCertificateService.findByTitle("1");
     }
 
 

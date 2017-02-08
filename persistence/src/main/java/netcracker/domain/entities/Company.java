@@ -2,7 +2,6 @@ package netcracker.domain.entities;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Sid775 on 02.02.2017.
@@ -19,13 +18,12 @@ public class Company {
     @Column
     private String Address;
 
-    private Set<Person> personSet;
 
     @ManyToMany
     @JoinTable(
-            name = "Certificate",
-            joinColumns=@JoinColumn(name = "CertificateId", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "CompanyId", referencedColumnName = "ID"))
+            name = "CertificateCompany",
+            joinColumns=@JoinColumn(name = "certificate_id"),
+            inverseJoinColumns = @JoinColumn(name = "company_id"))
     private List<Certificate> certificates;
 
 //    @ManyToMany
