@@ -1,6 +1,7 @@
 package netcracker.domain.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Sid775 on 02.02.2017.
@@ -13,6 +14,9 @@ public class Role {
 
     @Column
     private String title;
+
+    @OneToMany(mappedBy = "role")//Маппинг происходит на поле(не нейм)
+    private List<Person> persons;
 
     public Long getId() {return id;}
 

@@ -15,11 +15,7 @@ public class Certificate {
     @Column
     private String Title;
 
-    @ManyToMany
-    @JoinTable(
-            name = "TEST",
-            joinColumns = @JoinColumn(name = "TestId", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "CertificateId", referencedColumnName = "ID"))
+    @ManyToMany(mappedBy = "certificates")
     private List<Test> tests;
 
     @ManyToMany(mappedBy = "certificates")

@@ -13,8 +13,23 @@ public class Test {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToMany(mappedBy = "tests")
+
+    @ManyToMany
+    @JoinTable(
+            name = "CertificateTest",
+            joinColumns = @JoinColumn(name = "certificate_id"),
+            inverseJoinColumns = @JoinColumn(name = "test_id"))
     private List<Certificate> certificates;
+
+    @ManyToMany(mappedBy = "tests")
+    private List<Question> questions;
+
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "person_id"),
+            @JoinColumn(name = "test_id")
+    })
+    private PersonTest personTest;
 
     public Test(){}
 

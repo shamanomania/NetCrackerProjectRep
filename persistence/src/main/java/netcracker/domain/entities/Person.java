@@ -1,8 +1,5 @@
 package netcracker.domain.entities;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
-
 import javax.persistence.*;
 
 /**
@@ -38,21 +35,32 @@ public class Person {
     @Column
     private String Email;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id")
+    private Role role;
+
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "person_id"),
+            @JoinColumn(name = "test_id")
+    })
+    private PersonTest personTest;
+
     //foreyn key?
-    @Column
-    private Long company_id;
+    //@Column
+    //private Long company_id;
 //    @ManyToOne
 //    @JoinColumn(name = "Company_id")
 //    private Company getCompany() {
 //        return company;
 //    }
 
-    @Column
-    private int RoleId;
+    //@Column
+    //private int RoleId;
 
     public Long getId() {return id;}
 
@@ -94,7 +102,7 @@ public class Person {
 
     //public void setCompanyId(Long companyId) {this.companyId = companyId;}
 
-    public int getRoleId() {return RoleId;}
+    //public int getRoleId() {return RoleId;}
 
-    public void setRoleId(int roleId) {RoleId = roleId;}
+    //public void setRoleId(int roleId) {RoleId = roleId;}
 }
