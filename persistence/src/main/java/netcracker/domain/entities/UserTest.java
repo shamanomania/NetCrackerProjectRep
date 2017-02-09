@@ -19,7 +19,16 @@ public class UserTest {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "UserTest{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

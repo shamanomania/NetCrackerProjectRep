@@ -13,7 +13,7 @@ public class Certificate {
     private Long id;
 
     @Column
-    private String Title;
+    private String title;
 
     @ManyToMany(mappedBy = "certificates")
     private List<Test> tests;
@@ -24,7 +24,7 @@ public class Certificate {
     public Certificate(){}
 
     public Certificate(String Title){
-        this.Title = Title;
+        this.title = Title;
     }
 
     public Long getId(){return id;}
@@ -33,20 +33,18 @@ public class Certificate {
         this.id = id;
     }
 
-    public String getTitle(){return Title;}
+    public String getTitle(){return title;}
 
     public void setTitle(String title){
-        this.Title = Title;
+        this.title = title;
     }
 
-    public List<Test> getTests(){
-        return tests;
+    @Override
+    public String toString() {
+        return "Certificate{" +
+                "id=" + id +
+                ", title='" + title +
+                '}';
     }
-
-    public void setTests(List<Test> tests){
-        this.tests = tests;
-    }
-
-
 
 }

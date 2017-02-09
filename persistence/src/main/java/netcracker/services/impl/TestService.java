@@ -13,17 +13,17 @@ import java.util.List;
  */
 public class TestService implements ITestService {
 
-    @Autowired
     private TestRepository testRepository;
 
+    @Autowired
     public TestService(TestRepository testRepository){
         Assert.notNull(testRepository);
         this.testRepository = testRepository;
     }
 
     @Override
-    public List<Test> getAll() {return null;}
+    public List<Test> getAll() {return testRepository.findAll();}
 
     @Override
-    public Test getFirst() {return null;}
+    public Test getFirst() {return testRepository.findAll().iterator().next();}
 }

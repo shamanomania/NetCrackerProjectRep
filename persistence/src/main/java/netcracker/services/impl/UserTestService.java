@@ -8,10 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 //TODO: Leave only service or repository for working with DB entities
 @Service
 public class UserTestService implements IUserTestService {
+
+    private static final Logger log = Logger.getLogger(String.valueOf(UserTestService.class));
 
     private UserTestRepository userRepository;
 
@@ -23,7 +26,7 @@ public class UserTestService implements IUserTestService {
 
     @Override
     public List<UserTest> getAll() {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
@@ -32,7 +35,10 @@ public class UserTestService implements IUserTestService {
     }
 
     @Override
-    public List<UserTest> getByName() {
-        return null;
+    public UserTest findByName(String name) {
+        log.info("Найдена запись с именем: " + name);
+        return userRepository.findByName(name);
     }
+
+
 }
