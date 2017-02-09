@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface IUserTestService {
     public List<UserTest> getAll();
-    public List<UserTest> getByName();
+    public UserTest findByName(String name);
     public UserTest getFirst();
+
 }
