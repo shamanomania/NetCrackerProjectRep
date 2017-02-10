@@ -24,12 +24,15 @@ public class Test {
     @ManyToMany(mappedBy = "tests")
     private List<Question> questions;
 
-    @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "person_id"),
-            @JoinColumn(name = "test_id")
-    })
-    private PersonTest personTest;
+    @OneToMany(mappedBy = "tests")
+    private List<Test> tests;
+
+//    @ManyToOne
+//    @JoinColumns({
+//            @JoinColumn(name = "person_id"),
+//            @JoinColumn(name = "test_id")
+//    })
+//    private PersonTest personTest;
 
     public Test(){}
 
