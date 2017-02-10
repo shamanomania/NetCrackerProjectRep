@@ -1,6 +1,7 @@
 package netcracker.domain.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Sid775 on 02.02.2017.
@@ -43,12 +44,15 @@ public class Person {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "person_id"),
-            @JoinColumn(name = "test_id")
-    })
-    private PersonTest personTest;
+//    @ManyToOne
+//    @JoinColumns({
+//            @JoinColumn(name = "person_id"),
+//            @JoinColumn(name = "test_id")
+//    })
+//    private PersonTest personTest;
+
+    @OneToMany(mappedBy = "persons")
+    private List<Person> persons;
 
     //foreyn key?
     //@Column

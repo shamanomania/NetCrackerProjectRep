@@ -9,8 +9,11 @@ import java.util.List;
  */
 @Entity
 public class PersonTest {
-    @EmbeddedId
-    private PersonTestId id;
+    //@EmbeddedId
+    //private PersonTestId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @Column
     private Date dateOfTest;
@@ -18,15 +21,23 @@ public class PersonTest {
     @Column
     private String result;
 
-    @OneToMany(mappedBy = "personTest")
-    private List<Person> persons;
+    //@OneToMany(mappedBy = "personTest")
+    //private List<Person> persons;
 
-    @OneToMany(mappedBy = "personTest")
-    private List<Test> tests;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id")
+    private Person person;
 
-    public PersonTestId getId() {return id;}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "test_id")
+    private Test test;
 
-    public void setId(PersonTestId id) {this.id = id;}
+    //@OneToMany(mappedBy = "personTest")
+    //private List<Test> tests;
+
+    //public PersonTestId getId() {return id;}
+
+    //public void setId(PersonTestId id) {this.id = id;}
 
     public Date getDate() {return dateOfTest;}
 
