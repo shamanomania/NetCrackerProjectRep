@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Sid775 on 06.02.2017.
  */
 public interface QuestionRepository extends CrudRepository<Question,Long> {
-    @Query("select q from Question q where u.title = :title")
+    @Query("select q from Question q where q.title = :title")
     Question findByTitle(@Param("title") String title);
 
     @Override
