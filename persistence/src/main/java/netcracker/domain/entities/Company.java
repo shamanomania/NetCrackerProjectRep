@@ -13,10 +13,10 @@ public class Company {
     private Long id;
 
     @Column
-    private String Title;
+    private String title;
 
     @Column
-    private String Address;
+    private String address;
 
 
     @ManyToMany
@@ -38,17 +38,17 @@ public class Company {
 
     public Company(){}
 
-    public Company(String Title,String Address){this.Title = Title; this.Address = Address;}
+    public Company(String title,String address){this.title = title; this.address = address;}
 
     public Long getId(){return id;}
 
     public void setId(Long id){this.id = id;}
 
-    public String getTitle(){return Title;}
+    public String getTitle(){return title;}
 
-    public void setTitle(String Title){this.Title = Title;}
+    public void setTitle(String title){this.title = title;}
 
-    public String getAddress(){return Address;}
+    public String getAddress(){return address;}
 
-    public void setAddress(String Address){this.Address = Address;}
+    public void setAddress(String address){this.address = address;}
 }

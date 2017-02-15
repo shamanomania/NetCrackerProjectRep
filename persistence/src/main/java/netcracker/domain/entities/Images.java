@@ -14,13 +14,13 @@ public class Images {
     private Long id;
 
     @Column
-    private BLOB Image;
+    private BLOB image;
 
     public Long getId() {return id;}
 
     public void setId(Long id) {this.id = id;}
 
-    public BLOB getImage() {return Image;}
+    public BLOB getImage() {return image;}
 
-    public void setImage(BLOB image) {Image = image;}
+    public void setImage(BLOB image) {this.image = image;}
 }

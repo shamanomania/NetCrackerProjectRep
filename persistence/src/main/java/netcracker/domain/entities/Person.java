@@ -13,28 +13,28 @@ public class Person {
     private Long id;
 
     @Column
-    private String FirstName;
+    private String firstName;
 
     @Column
-    private String Name;
+    private String name;
 
     @Column
-    private String LastName;
+    private String lastName;
 
     @Column
-    private int Age;
+    private int age;
 
     @Column
-    private int Sex;
+    private int sex;
 
     @Column
-    private String Address;
+    private String address;
 
     @Column
-    private String Education;
+    private String education;
 
     @Column
-    private String Email;
+    private String email;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
@@ -64,49 +64,49 @@ public class Person {
 //    }
 
     //@Column
-    //private int RoleId;
+    //private int roleId;
 
     public Long getId() {return id;}
 
     public void setId(Long id) {this.id = id;}
 
-    public String getFirstName() {return FirstName;}
+    public String getFirstName() {return firstName;}
 
-    public void setFirstName(String firstName) {FirstName = firstName;}
+    public void setFirstName(String firstName) {this.firstName = firstName;}
 
-    public String getName() {return Name;}
+    public String getName() {return name;}
 
-    public void setName(String name) {Name = name;}
+    public void setName(String name) {this.name = name;}
 
-    public String getLastName() {return LastName;}
+    public String getLastName() {return lastName;}
 
-    public void setLastName(String lastName) {LastName = lastName;}
+    public void setLastName(String lastName) {this.lastName = lastName;}
 
-    public int getAge() {return Age;}
+    public int getAge() {return age;}
 
-    public void setAge(int age) {Age = age;}
+    public void setAge(int age) {this.age = age;}
 
-    public int getSex() {return Sex;}
+    public int getSex() {return sex;}
 
-    public void setSex(int sex) {Sex = sex;}
+    public void setSex(int sex) {this.sex = sex;}
 
-    public String getAddress() {return Address;}
+    public String getAddress() {return address;}
 
-    public void setAddress(String address) {Address = address;}
+    public void setAddress(String address) {this.address = address;}
 
-    public String getEducation() {return Education;}
+    public String getEducation() {return education;}
 
-    public void setEducation(String education) {Education = education;}
+    public void setEducation(String education) {this.education = education;}
 
-    public String getEmail() {return Email;}
+    public String getEmail() {return email;}
 
-    public void setEmail(String email) {Email = email;}
+    public void setEmail(String email) {this.email = email;}
 
     //public Long getCompanyId() {return companyId;}
 
     //public void setCompanyId(Long companyId) {this.companyId = companyId;}
 
-    //public int getRoleId() {return RoleId;}
+    //public int getRoleId() {return roleId;}
 
-    //public void setRoleId(int roleId) {RoleId = roleId;}
+    //public void setRoleId(int roleId) {this.roleId = roleId;}
 }
