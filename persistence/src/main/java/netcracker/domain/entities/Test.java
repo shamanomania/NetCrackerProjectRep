@@ -42,6 +42,6 @@ public class Test {
 
     public Long getId(){return id;}
 
-    public void setId(){this.id = id;}
+    public void setId(Long id){this.id = id;}
 
 }
