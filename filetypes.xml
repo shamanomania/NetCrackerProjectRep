@@ -1,8 +1,0 @@
-<application>
-  <component name="FileTypeManager" version="17">
-    <extensionMap>
-      <mapping pattern="BeerSong" type="CLASS" />
-      <mapping pattern="test" type="PLAIN_TEXT" />
-    </extensionMap>
-  </component>
-</application>

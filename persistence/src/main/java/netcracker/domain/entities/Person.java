@@ -34,7 +34,7 @@ public class Person {
     private String education;
 
     @Column
-    private String email;
+    private String mail;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
@@ -98,9 +98,9 @@ public class Person {
 
     public void setEducation(String education) {this.education = education;}
 
-    public String getEmail() {return email;}
+    public String getEmail() {return mail;}
 
-    public void setEmail(String email) {this.email = email;}
+    public void setEmail(String email) {this.mail = email;}
 
     //public Long getCompanyId() {return companyId;}
 

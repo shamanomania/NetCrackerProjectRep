@@ -1,7 +1,5 @@
 package netcracker;
 
-import netcracker.services.ICertificateService;
-import netcracker.services.impl.CertificateService;
 import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
