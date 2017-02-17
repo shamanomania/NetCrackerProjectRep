@@ -23,8 +23,8 @@ public class Certificate {
 
     public Certificate(){}
 
-    public Certificate(String Title){
-        this.title = Title;
+    public Certificate(String title){
+        this.title = title;
     }
 
     public Long getId(){return id;}
