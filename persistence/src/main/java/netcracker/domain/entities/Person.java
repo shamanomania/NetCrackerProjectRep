@@ -7,33 +7,36 @@ import java.util.List;
  * Created by Sid775 on 02.02.2017.
  */
 @Entity
+@Table (name = "PERSON")
 public class Person {
+
     @Id
+    @Column (name = "ID")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column (name = "FIRST_NAME")
     private String firstName;
 
-    @Column
+    @Column (name = "NAME")
     private String name;
 
-    @Column
+    @Column (name = "LAST_NAME")
     private String lastName;
 
-    @Column
+    @Column (name = "AGE")
     private int age;
 
-    @Column
+    @Column (name = "SEX")
     private int sex;
 
-    @Column
+    @Column (name = "ADDRESS")
     private String address;
 
-    @Column
+    @Column (name = "EDUCATION")
     private String education;
 
-    @Column
+    @Column (name = "MAIL")
     private String mail;
 
     @ManyToOne(fetch = FetchType.LAZY)

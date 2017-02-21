@@ -7,15 +7,18 @@ import java.util.List;
  * Created by Sid775 on 02.02.2017.
  */
 @Entity
+@Table (name = "COMPANY")
 public class Company {
+
     @Id
+    @Column (name = "ID")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column (name = "TITLE")
     private String title;
 
-    @Column
+    @Column (name = "ADDRESS")
     private String address;
 
 

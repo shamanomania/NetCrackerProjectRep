@@ -8,17 +8,19 @@ import java.util.List;
  * Created by Sid775 on 09.02.2017.
  */
 @Entity
+@Table (name = "PERSON_TEST")
 public class PersonTest {
     //@EmbeddedId
     //private PersonTestId id;
     @Id
+    @Column (name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column (name = "DATE_OF_TEST")
     private Date dateOfTest;
 
-    @Column
+    @Column (name = "RESULT")
     private String result;
 
     //@OneToMany(mappedBy = "personTest")
