@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 //TODO: Leave only service or repository for working with DB entities
 @Service
