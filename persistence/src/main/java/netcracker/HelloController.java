@@ -38,8 +38,8 @@ public class HelloController {
     }
 
 
-//    @RequestMapping("/getusers")
-//    public String getUsers() {
-//        return iUserTestService.getFirst().getName();
-//    }
+    @RequestMapping("/getusers")
+    public String getUsers() {
+        return iUserTestService.getFirst().getName();
+    }
 }

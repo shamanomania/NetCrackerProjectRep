@@ -22,8 +22,12 @@ public class TestService implements ITestService {
     }
 
     @Override
-    public List<Test> getAll() {return testRepository.findAll();}
+    public List<Test> getAll() {
+        return testRepository.findAll();
+    }
 
     @Override
-    public Test getFirst() {return testRepository.findAll().iterator().next();}
+    public Test getFirst() {
+        return testRepository.findAll().iterator().next();
+    }
 }

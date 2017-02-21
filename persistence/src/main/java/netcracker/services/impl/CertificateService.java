@@ -38,7 +38,7 @@ public class CertificateService implements ICertificateService {
 
     @Override
     public List<Certificate> getAll() {
-        return null;
+        return certificateRepository.findAll();
     }
 
     @Override

@@ -16,4 +16,7 @@ public interface CertificateRepository extends CrudRepository<Certificate, Long>
     @Query("select c.id, c.title from Certificate c where c.title = :title ")
     Certificate findByTitle(@Param("title") String title);
 
+    @Override
+    List<Certificate> findAll();
+
 }
