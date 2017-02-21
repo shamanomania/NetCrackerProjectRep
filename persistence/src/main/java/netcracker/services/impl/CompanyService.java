@@ -4,6 +4,7 @@ import netcracker.domain.entities.Company;
 import netcracker.repository.CompanyRepository;
 import netcracker.services.ICompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 /**
  * Created by Sid775 on 11.02.2017.
  */
+@Service
 public class CompanyService implements ICompanyService {
 
     private CompanyRepository companyRepository;

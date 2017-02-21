@@ -4,6 +4,7 @@ import netcracker.domain.entities.Person;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Locale;
@@ -11,6 +12,7 @@ import java.util.Locale;
 /**
  * Created by Sid775 on 06.02.2017.
  */
+@Repository
 public interface PersonRepository extends CrudRepository<Person,Long> {
     @Query("select p from Person p where p.name = :name")
     Person findByName(@Param("name") String name);
