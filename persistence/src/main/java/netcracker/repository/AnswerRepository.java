@@ -1,6 +1,6 @@
 package netcracker.repository;
 
-import netcracker.domain.entities.Role;
+import netcracker.domain.entities.Answer;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -9,13 +9,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Created by Sid775 on 06.02.2017.
+ * Created by Yaroslav on 21.02.2017.
  */
 @Repository
-public interface RoleRepository extends CrudRepository<Role,Long> {
-    @Query("select r from Role r where r.title = :title")
-    Role findByTitle(@Param("title") String title);
-
-    @Override
-    List<Role> findAll();
+public interface AnswerRepository extends CrudRepository<Answer,Long> {
+    
+    @Query("select a from Answer a where a.question.id = :id")
+    List<Answer> findAnswersByQuestionID(@Param("id") Long id);
+    
 }

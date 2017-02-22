@@ -16,11 +16,11 @@ public class Question {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column (name = "TITLE")
+    @Column(name = "TITLE", nullable = false)
     private String title;
 
-    @Column (name = "ANSWER")
-    private String answer;
+    @Column(name = "TYPE", nullable = false)
+    private String type;
 
     @ManyToMany
     @JoinTable(
@@ -28,6 +28,16 @@ public class Question {
             joinColumns =@JoinColumn(name = "question_id"),
             inverseJoinColumns = @JoinColumn(name = "test_id"))
     private List<Test> tests;
+
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Answer> answers;
+
+    @ManyToMany
+    @JoinTable(
+            name = "CorrectAnswer",
+            joinColumns =@JoinColumn(name = "question_id"),
+            inverseJoinColumns = @JoinColumn(name = "answer_id"))
+    private List<Answer> correctAnswers;
 
     public Long getId() {return id;}
 
@@ -37,7 +47,12 @@ public class Question {
 
     public void setTitle(String title) {this.title = title;}
 
-    public String getAnswer() {return answer;}
+    public String getType() {
+        return type;
+    }
 
-    public void setAnswer(String answer) {this.answer = answer;}
+    public void setType(String type) {
+        this.type = type;
+    }
+
 }

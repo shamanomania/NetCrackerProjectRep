@@ -4,6 +4,7 @@ import netcracker.domain.entities.Test;
 import netcracker.repository.TestRepository;
 import netcracker.services.ITestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 /**
  * Created by Sid775 on 02.02.2017.
  */
+@Service
 public class TestService implements ITestService {
 
     private TestRepository testRepository;

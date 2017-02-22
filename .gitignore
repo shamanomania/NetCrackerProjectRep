@@ -1,2 +1,5 @@
 .idea
 *.iml
+Backend/target/
+persistence/target/
+persistence/src/main/resources/application-yaroslav.properties
