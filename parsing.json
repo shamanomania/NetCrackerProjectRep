@@ -1,0 +1,60 @@
+[
+	{
+		"questions_URLs": [
+			"http://www.studytonight.com/java/tests/1"
+		],
+		"answers_URLs": [
+			"http://www.studytonight.com/java/tests/1"
+		],
+		"correct_answers_URLs": [
+			"http://www.studytonight.com/java/tests/1_answer.json"
+		],
+		"questions": {
+			"file": "HTML",
+			"structure": [
+				{
+					"type": "class",
+					"value": "quiz_content"
+				},
+				{
+					"type": "class",
+					"value": "quiz_question"
+				}
+			]
+		},
+		"answers": {
+			"file": "HTML",
+			"structure": [
+				{
+					"type": "class",
+					"value": "quiz_content",
+				},
+				{
+					"type": "class",
+					"value": "quiz_options"
+				},
+				{
+					"type": "tag",
+					"value": "tbody"
+				}
+			]
+		},
+		"correct_answers": {
+			"file": "JSON",
+			"structure": [
+				{
+					"type": "array",
+					"value": ""
+				},
+				{
+					"type": "object",
+					"value": ""
+				},
+				{
+					"type": "property",
+					"value": "answer"
+				}
+			]
+		}
+	}
+]
