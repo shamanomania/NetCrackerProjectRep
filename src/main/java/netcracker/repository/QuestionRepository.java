@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * Created by Sid775 on 06.02.2017.
  */
+@SuppressWarnings("unchecked")
 @Repository
 public interface QuestionRepository extends CrudRepository<Question,Long> {
     @Query("select q from Question q where q.title = :title")
@@ -18,4 +19,8 @@ public interface QuestionRepository extends CrudRepository<Question,Long> {
 
     @Override
     List<Question> findAll();
+
+    @Override
+    Question save(Question question);
+
 }

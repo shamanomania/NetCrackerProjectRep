@@ -11,10 +11,16 @@ import java.util.List;
 /**
  * Created by Yaroslav on 21.02.2017.
  */
+@SuppressWarnings("unchecked")
 @Repository
 public interface AnswerRepository extends CrudRepository<Answer,Long> {
     
     @Query("select a from Answer a where a.question.id = :id")
     List<Answer> findAnswersByQuestionID(@Param("id") Long id);
-    
+
+    @Override
+    Answer save(Answer answer);
+
+
+
 }
