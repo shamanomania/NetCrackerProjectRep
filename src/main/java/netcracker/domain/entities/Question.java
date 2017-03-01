@@ -11,12 +11,17 @@ import java.util.List;
 @Table (name = "QUESTION")
 public class Question {
 
+    public Question(String title, String type) {
+        this.title = title;
+        this.type = type;
+    }
+
     @Id
     @Column (name = "ID")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "TITLE", nullable = false)
+    @Column(name = "TITLE", nullable = false, length = 1000)
     private String title;
 
     @Column(name = "TYPE", nullable = false)
@@ -25,7 +30,7 @@ public class Question {
     @ManyToMany
     @JoinTable(
             name = "TestQuestion",
-            joinColumns =@JoinColumn(name = "question_id"),
+            joinColumns = @JoinColumn(name = "question_id"),
             inverseJoinColumns = @JoinColumn(name = "test_id"))
     private List<Test> tests;
 
@@ -35,7 +40,7 @@ public class Question {
     @ManyToMany
     @JoinTable(
             name = "CorrectAnswer",
-            joinColumns =@JoinColumn(name = "question_id"),
+            joinColumns = @JoinColumn(name = "question_id"),
             inverseJoinColumns = @JoinColumn(name = "answer_id"))
     private List<Answer> correctAnswers;
 
@@ -55,4 +60,31 @@ public class Question {
         this.type = type;
     }
 
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public List<Answer> getCorrectAnswers() {
+        return correctAnswers;
+    }
+
+    public void setCorrectAnswers(List<Answer> correctAnswers) {
+        this.correctAnswers = correctAnswers;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", type='" + type + '\'' +
+                ", tests=" + tests +
+                ", answers=" + answers +
+                ", correctAnswers=" + correctAnswers +
+                '}';
+    }
 }
