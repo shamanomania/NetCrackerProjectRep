@@ -12,27 +12,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Yaroslav on 09.02.2017.
+ * Created by Yaroslav on 26.02.2017.
  */
-public class MyJSONParser implements MyParser {
+public class MyJSONParser {
 
     private Object jsonData;
 
-    private MyJSONParser(Object jsonData) {
+    public MyJSONParser(Object jsonData) {
         this.jsonData = jsonData;
     }
 
-    public static MyParser getParser(String url) throws IOException, ParseException {
+    public static MyJSONParser getParser(String url) throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         Object jsonData = parser.parse(new InputStreamReader(new URL(url).openStream()));
         return new MyJSONParser(jsonData);
     }
 
-    private static Object getProperty(Object jsonObj, String property) {
-        return ((JSONObject) jsonObj).get(property);
+    private static Object getProperty(Object object, String property) {
+        return ((JSONObject) object).get(property);
     }
 
-    private List<Object> parseJSONElement(Object object, String type, String value) {
+    private List<Object> parseElement(Object object, Data data) {
+        String type = data.getType();
+        String value = data.getValue();
         List<Object> result = new ArrayList<>();
 
         switch (type) {
@@ -58,29 +60,23 @@ public class MyJSONParser implements MyParser {
         return result;
     }
 
-    @Override
-    public List<String> parse(List<Node> structure) {
+    public List<Object> parse(List<Data> structure) {
         if (structure.size() == 0) {
             return new ArrayList<>(0);
         }
 
-        List<Object> parsedJSON = new ArrayList<>();
-        parsedJSON.add(jsonData);
+        List<Object> parsed = new ArrayList<>();
+        parsed.add(jsonData);
 
-        for (Node node : structure) {
+        for (Data data : structure) {
             List<Object> list = new ArrayList<>();
-            for (Object obj : parsedJSON) {
-                list.addAll(parseJSONElement(obj, node.getType(), node.getValue()));
+            for (Object obj : parsed) {
+                list.addAll(parseElement(obj, data));
             }
-            parsedJSON = list;
+            parsed = list;
         }
 
-        List<String> result = new ArrayList<>(parsedJSON.size());
-        for (Object obj : parsedJSON) {
-            result.add(String.valueOf(obj));
-        }
-
-        return result;
+        return parsed;
     }
 
 }

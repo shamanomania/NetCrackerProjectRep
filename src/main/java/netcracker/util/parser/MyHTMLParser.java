@@ -6,40 +6,45 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Yaroslav on 09.02.2017.
+ * Created by Yaroslav on 26.02.2017.
  */
-public class MyHTMLParser implements MyParser {
+public class MyHTMLParser {
 
-    private Document document;
+    private Elements elements;
 
-    private MyHTMLParser(Document document) {
-        this.document = document;
+    public MyHTMLParser(Element... elements) {
+        this.elements = new Elements(elements);
     }
 
-    public static MyParser getParser(String url) throws IOException {
+    public static MyHTMLParser getParser(String url) throws IOException {
         Document document = Jsoup.connect(url).get();
-        return new MyHTMLParser(document);
+        return new MyHTMLParser(document.body());
     }
 
-    private Elements parseElement(Element e, String type, String value) {
+    public void setElements(Element... elements) {
+        this.elements = new Elements(elements);
+    }
+
+    private Elements parseElement(Element element, Data data) {
         Elements elements;
+        String type = data.getType();
+        String value = data.getValue();
 
         switch (type) {
             case "tag":
-                elements = e.getElementsByTag(value);
+                elements = element.getElementsByTag(value);
                 break;
             case "id":
-                elements = new Elements(e.getElementById(value));
+                elements = new Elements(element.getElementById(value));
                 break;
             case "class":
-                elements = e.getElementsByClass(value);
+                elements = element.getElementsByClass(value);
                 break;
             case "attribute":
-                elements = e.getElementsByAttribute(value);
+                elements = element.getElementsByAttribute(value);
                 break;
             default:
                 elements = new Elements();
@@ -48,28 +53,22 @@ public class MyHTMLParser implements MyParser {
         return elements;
     }
 
-    @Override
-    public List<String> parse(List<Node> structure) {
+    public Elements parse(List<Data> structure) {
         if (structure.size() == 0) {
-            return new ArrayList<>(0);
+            return new Elements(0);
         }
 
-        Elements elements = this.document.getElementsByTag("body");
+        Elements parsed = this.elements;
 
-        for (Node node : structure) {
+        for (Data data : structure) {
             Elements parsedElements = new Elements();
-            for (Element e : elements) {
-                parsedElements.addAll(parseElement(e, node.getType(), node.getValue()));
+            for (Element e : parsed) {
+                parsedElements.addAll(parseElement(e, data));
             }
-            elements = parsedElements;
+            parsed = parsedElements;
         }
 
-        List<String> result = new ArrayList<>(elements.size());
-        for (Element e : elements) {
-            result.add(e.text());
-        }
-
-        return result;
+        return parsed;
     }
 
 }
