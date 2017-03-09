@@ -6,13 +6,19 @@ import javax.persistence.*;
  * Created by Yaroslav on 21.02.2017.
  */
 @Entity
+@Table (name = "ANSWER")
 public class Answer {
+
+    public Answer(String title, Question question) {
+        this.title = title;
+        this.question = question;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 300)
     private String title;
 
     @ManyToOne
@@ -43,4 +49,10 @@ public class Answer {
         this.question = question;
     }
 
+    @Override
+    public String toString() {
+        return "Answer{" +
+                "id=" + id +
+                ", title='" + title + "\'}";
+    }
 }

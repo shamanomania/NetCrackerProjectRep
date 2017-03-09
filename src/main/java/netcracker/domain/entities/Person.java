@@ -39,6 +39,9 @@ public class Person {
     @Column (name = "MAIL")
     private String mail;
 
+    @Column
+    private String password;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
@@ -104,6 +107,10 @@ public class Person {
     public String getEmail() {return mail;}
 
     public void setEmail(String email) {this.mail = email;}
+
+    public String getPassword() {return password;}
+
+    public void setPassword(String password) {this.password = password;}
 
     //public Long getCompanyId() {return companyId;}
 
