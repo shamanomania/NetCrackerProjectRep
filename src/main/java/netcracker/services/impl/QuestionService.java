@@ -37,4 +37,10 @@ public class QuestionService implements IQuestionService {
     public Question getFirst() {
         return questionRepository.findAll().iterator().next();
     }
+
+    @Override
+    public Question save(Question question) {
+        return questionRepository.save(question);
+    }
+
 }

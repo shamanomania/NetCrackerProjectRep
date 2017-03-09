@@ -28,4 +28,9 @@ public class AnswerService implements IAnswerService {
         return answerRepository.findAnswersByQuestionID(id);
     }
 
+    @Override
+    public Answer save(Answer answer) {
+        return answerRepository.save(answer);
+    }
+
 }

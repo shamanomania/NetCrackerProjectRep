@@ -1,5 +1,3 @@
-../../../.idea
-../unc17-kgl.iml
-Backend/target/
-persistence/target/
-persistence/src/main/resources/application-yaroslav.properties
+.idea
+*.iml
+target/

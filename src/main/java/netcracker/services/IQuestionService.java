@@ -9,10 +9,12 @@ import java.util.List;
  */
 public interface IQuestionService {
 
-    public Question findByTitle(String title);
+    Question findByTitle(String title);
 
-    public List<Question> getAll();
+    List<Question> getAll();
 
-    public Question getFirst();
+    Question getFirst();
+
+    Question save(Question question);
 
 }

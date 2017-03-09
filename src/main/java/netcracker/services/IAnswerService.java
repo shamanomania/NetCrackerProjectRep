@@ -11,4 +11,6 @@ public interface IAnswerService {
 
     List<Answer> findAnswersByQuestionID(Long id);
 
+    Answer save(Answer answer);
+
 }
