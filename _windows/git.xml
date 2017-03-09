@@ -1,4 +1,7 @@
 <application>
+  <component name="Git.Application.Settings">
+    <option name="myPathToGit" value="C:\Program Files\Git\cmd\git.exe" />
+  </component>
   <component name="Git.netcracker.Application.Settings">
     <option name="myPathToGit" value="C:\Program Files\Git\cmd\git.exe" />
     <option name="SSH_EXECUTABLE" value="IDEA_SSH" />
