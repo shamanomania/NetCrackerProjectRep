@@ -46,6 +46,10 @@ public class Person {
     @JoinColumn(name = "company_id")
     private Company company;
 
+    @Column(name = "roleEnum")//for enumeration role type.....................................
+    @Enumerated(EnumType.STRING)//for enumeration role type
+    private RoleEnum roleEnum;//for enumeration role type
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")
     private Role role;
@@ -119,4 +123,12 @@ public class Person {
     //public int getRoleId() {return roleId;}
 
     //public void setRoleId(int roleId) {this.roleId = roleId;}
+
+    public Role getRole() {return role;}
+
+    public void setRole(Role role) {this.role = role;}
+
+    public RoleEnum getRoleEnum() {return roleEnum;} //for enumeration role type..........................................
+
+    public void setRoleEnum(RoleEnum roleEnum) {this.roleEnum = roleEnum;}//for enumeration role type.................
 }

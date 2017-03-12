@@ -1,8 +1,10 @@
 package netcracker.services.impl;
 
 import netcracker.domain.entities.Person;
+import netcracker.formEntity.UserCreateForm;
 import netcracker.repository.PersonRepository;
 import netcracker.services.IPersonService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -20,6 +22,9 @@ public class PersonService implements IPersonService {
         Assert.notNull(personRepository);
         this.personRepository = personRepository;
     }
+
+    @Override
+    public Person findById(Long id) {return personRepository.findOne(id);}
 
     @Override
     public Person findByName(String name) {
@@ -42,7 +47,14 @@ public class PersonService implements IPersonService {
     }
 
     @Override
-    public Person findByEmail(String mail) {
-        return personRepository.findByEmail(mail);
+    public Person findByEmail(String mail) {return personRepository.findByEmail(mail);}
+
+    @Override
+    public Person create(UserCreateForm form) {
+        Person user = new Person();
+        user.setEmail(form.getEmail());
+        user.setPassword(new BCryptPasswordEncoder().encode(form.getPassword()));
+        user.setRoleEnum(form.getRole());
+        return personRepository.save(user);
     }
 }
