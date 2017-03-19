@@ -3,7 +3,10 @@ package netcracker.domain.entities;
 import javax.persistence.*;
 
 //TODO: Тестовая сущность, создавалась в качестве примера при создании структуры проекта. Подлежит удалению.
+//оно запускалось с этими ошибками!
+//так ты же варку деплоить хочешь
 
+//..там другой принцип подтягивания либ
 @Entity
 @Table (name = "USER_TEST")
 public class UserTest {
