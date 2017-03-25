@@ -1,11 +1,13 @@
 package netcracker.JSFManagedBeans;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 /**
  * Created by Мария on 24.02.2017.
  */
 @ManagedBean (name = "editor")
+@RequestScoped
 public class EditorBean {
     private String value = "!";
     private String save = "save";

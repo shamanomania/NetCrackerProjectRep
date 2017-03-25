@@ -119,11 +119,6 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-        </dependency>
-
         <!-- jsoup HTML parser library @ http://jsoup.org/ -->
         <dependency>
             <groupId>org.jsoup</groupId>
@@ -136,6 +131,12 @@
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

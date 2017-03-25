@@ -1,3 +1,4 @@
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
 <%--
   Created by IntelliJ IDEA.
   User: Sid775
@@ -11,6 +12,8 @@
     <title>Login</title>
 </head>
 <body>
+    <h1>tipa Login</h1>
+
 
 </body>
 </html>
