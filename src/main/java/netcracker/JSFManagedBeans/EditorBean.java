@@ -1,5 +1,10 @@
 package netcracker.JSFManagedBeans;
 
+import netcracker.domain.entities.CurrentUser;
+import netcracker.domain.entities.Person;
+import netcracker.repository.PersonRepository;
+import netcracker.services.impl.PersonService;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -9,7 +14,7 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean (name = "editor")
 @RequestScoped
 public class EditorBean {
-    private String value = "!";
+    private String value = "Main page";
     private String save = "save";
     private String update = "update";
     private String delete = "delete";
