@@ -25,8 +25,8 @@ import java.io.IOException;
  */
 
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -63,7 +63,8 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("/login").usernameParameter("email")
+                .successForwardUrl("/")
                 .permitAll()
                 .and()
                 .logout()

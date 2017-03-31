@@ -16,8 +16,8 @@
         <p:editor value="#{editor.value}" />
     </h:form>
 
-    <h:form role="form" action="/login" method="post">
-    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+    <!--<h:form role="form" action="/login" method="post" >
+    &lt;!&ndash;<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>&ndash;&gt;
     <div>
         <label for="email">Email address</label>
         <input type="text" name="email" id="email" />
@@ -30,8 +30,25 @@
         <label for="remember-me">Remember me</label>
         <input type="checkbox" name="remember-me" id="remember-me" />
     </div>
-    <button type="submit">Sign in</button>
-    </h:form>
+    <button type="submit" >Sign in</button>
+    </h:form>-->
+
+    <form action="/login" method="post">
+        <div>
+            <label for="email">Email address</label>
+            <input type="text" name="email" id="email" />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+        </div>
+        <div>
+            <label for="remember-me">Remember me</label>
+            <input type="checkbox" name="remember-me" id="remember-me" />
+        </div>
+        <button type="submit" >Sign in</button>
+       <!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+    </form>
 
 
 
