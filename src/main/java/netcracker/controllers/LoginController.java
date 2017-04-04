@@ -19,6 +19,7 @@ public class LoginController {
         model.setViewName("login");
         return model;
     }
+
     /*@GetMapping("/login")
     public String login(){
         return "login";
