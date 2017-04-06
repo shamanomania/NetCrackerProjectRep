@@ -60,11 +60,12 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/", "/home").permitAll()
+                .antMatchers("/ide").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login").usernameParameter("email")
-                .successForwardUrl("/")
+                .successForwardUrl("/user")
                 .permitAll()
                 .and()
                 .logout()
@@ -75,10 +76,10 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        /*auth
+        auth
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(new BCryptPasswordEncoder());*/
-        auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+                /*.passwordEncoder(new BCryptPasswordEncoder())*/;
+        /*auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");*/
     }
 
 }
