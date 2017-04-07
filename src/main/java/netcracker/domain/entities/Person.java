@@ -50,7 +50,7 @@ public class Person {
     @Enumerated(EnumType.STRING)//for enumeration role type
     private RoleEnum roleEnum;//for enumeration role type
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne/*(fetch = FetchType.LAZY)*/
     @JoinColumn(name = "role_id")
     private Role role;
 

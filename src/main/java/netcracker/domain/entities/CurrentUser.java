@@ -1,5 +1,6 @@
 package netcracker.domain.entities;
 
+import netcracker.JSFManagedBeans.CurrentUserData;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 /**
@@ -8,9 +9,10 @@ import org.springframework.security.core.authority.AuthorityUtils;
 public class CurrentUser extends org.springframework.security.core.userdetails.User {
 
     private Person user;
+    private CurrentUserData currentUserData;
 
     public CurrentUser(Person user) {
-        super(user.getEmail(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getRoleEnum().toString()));
+        super(user.getEmail(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getRole().getTitle()/*user.getRoleEnum().toString()*/));
         System.out.println(user.getEmail() + "  " + user.getPassword() + "  " + user.getRoleEnum().toString());
         this.user = user;
     }
@@ -26,6 +28,8 @@ public class CurrentUser extends org.springframework.security.core.userdetails.U
     public RoleEnum getRoleEnum() {
         return user.getRoleEnum();
     }
+
+    public Role getRole(){return user.getRole();}
 
     @Override
     public String toString() {
