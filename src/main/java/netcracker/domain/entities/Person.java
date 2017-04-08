@@ -1,6 +1,7 @@
 package netcracker.domain.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  */
 @Entity
 @Table (name = "PERSON")
-public class Person {
+public class Person implements Serializable {
 
     @Id
     @Column (name = "ID")
@@ -25,7 +26,7 @@ public class Person {
     private String lastName;
 
     @Column (name = "AGE")
-    private int age;
+    private int age;//Примитив не даёт установить null значение и устанавливает значение по умолчанию. Менять?
 
     @Column (name = "SEX")
     private int sex;
@@ -50,7 +51,7 @@ public class Person {
     @Enumerated(EnumType.STRING)//for enumeration role type
     private RoleEnum roleEnum;//for enumeration role type
 
-    @ManyToOne/*(fetch = FetchType.LAZY)*/
+    @ManyToOne(cascade = CascadeType.MERGE)/*(fetch = FetchType.LAZY)*/
     @JoinColumn(name = "role_id")
     private Role role;
 
@@ -120,9 +121,9 @@ public class Person {
 
     //public void setCompanyId(Long companyId) {this.companyId = companyId;}
 
-    //public int getRoleId() {return roleId;}
+    //public int getRole() {return roleId;}
 
-    //public void setRoleId(int roleId) {this.roleId = roleId;}
+    //public void setRole(int roleId) {this.roleId = roleId;}
 
     public Role getRole() {return role;}
 
@@ -131,4 +132,46 @@ public class Person {
     public RoleEnum getRoleEnum() {return roleEnum;} //for enumeration role type..........................................
 
     public void setRoleEnum(RoleEnum roleEnum) {this.roleEnum = roleEnum;}//for enumeration role type.................
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (age != person.age) return false;
+        if (sex != person.sex) return false;
+        if (id != null ? !id.equals(person.id) : person.id != null) return false;
+        if (firstName != null ? !firstName.equals(person.firstName) : person.firstName != null) return false;
+        if (name != null ? !name.equals(person.name) : person.name != null) return false;
+        if (lastName != null ? !lastName.equals(person.lastName) : person.lastName != null) return false;
+        if (address != null ? !address.equals(person.address) : person.address != null) return false;
+        if (education != null ? !education.equals(person.education) : person.education != null) return false;
+        if (mail != null ? !mail.equals(person.mail) : person.mail != null) return false;
+        if (password != null ? !password.equals(person.password) : person.password != null) return false;
+        if (company != null ? !company.equals(person.company) : person.company != null) return false;
+        if (roleEnum != person.roleEnum) return false;
+        if (role != null ? !role.equals(person.role) : person.role != null) return false;
+        return persons != null ? persons.equals(person.persons) : person.persons == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + age;
+        result = 31 * result + sex;
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (education != null ? education.hashCode() : 0);
+        result = 31 * result + (mail != null ? mail.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (company != null ? company.hashCode() : 0);
+        result = 31 * result + (roleEnum != null ? roleEnum.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
+        result = 31 * result + (persons != null ? persons.hashCode() : 0);
+        return result;
+    }
 }

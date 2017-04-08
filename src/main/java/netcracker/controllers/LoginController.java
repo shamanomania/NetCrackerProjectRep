@@ -26,6 +26,13 @@ public class LoginController {
         model.setViewName("user");
         return model;
     }
+
+    @RequestMapping(value = "/signup")
+    public ModelAndView getSingUpPage(){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("user_create");
+        return model;
+    }
     /*@GetMapping("/login")
     public String login(){
         return "login";

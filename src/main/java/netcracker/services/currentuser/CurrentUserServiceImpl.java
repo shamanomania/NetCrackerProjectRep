@@ -18,6 +18,6 @@ public class CurrentUserServiceImpl implements CurrentUserService {
     public boolean canAccessUser(CurrentUser currentUser, Long userId) {
         LOGGER.debug("Checking if user={} has access to user={}", currentUser, userId);
         return currentUser != null
-                && (currentUser.getRoleEnum() == RoleEnum.ADMIN || currentUser.getId().equals(userId));
+                && ("ADMIN".equals(currentUser.getRole().toString()) || currentUser.getId().equals(userId));
     }
 }

@@ -1,6 +1,7 @@
 package netcracker.services.impl;
 
 import netcracker.domain.entities.Person;
+import netcracker.domain.entities.Role;
 import netcracker.formEntity.UserCreateForm;
 import netcracker.repository.PersonRepository;
 import netcracker.services.IPersonService;
@@ -52,9 +53,12 @@ public class PersonService implements IPersonService {
     @Override
     public Person create(UserCreateForm form) {
         Person user = new Person();
+        Role role = new Role();
         user.setEmail(form.getEmail());
-        user.setPassword(new BCryptPasswordEncoder().encode(form.getPassword()));
-        user.setRoleEnum(form.getRole());
+//        user.setPassword(new BCryptPasswordEncoder().encode(form.getPassword()));
+        user.setPassword(form.getPassword());
+        role.setId(Long.parseLong(form.getRole()));
+        user.setRole(role);
         return personRepository.save(user);
     }
 }
