@@ -2,33 +2,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
+    <title>Netcracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <link href="../../css/stylesForLogin.css" rel="stylesheet"></link>
+    <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet"></link>
 </h:head>
 <h:body>
-    <h1>Login page</h1>
 
-    <form action="/login?faces-redirect=true" method="post">
-        <div>
-            <label for="email">Email address</label>
-            <input type="text" name="email" id="email" />
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" />
-        </div>
-        <div>
-            <label for="remember-me">Remember me</label>
-            <input type="checkbox" name="remember-me" id="remember-me" />
-        </div>
-        <button type="submit" >Sign in</button>
-       <!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
-    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="active">Test your skills!</p>
 
+                <img src="http://imgdepo.com/id/10486399.jpg" border="0" alt="!"/>
+
+            </div>
+            <!-- <h:form>
+                 <p:editor value="#{editor.value}"/>
+             </h:form>-->
+            <div class="col-md-12 text-left">
+                <button class="btn">Sign in</button>
+                <button class="btn">Sign up</button>
+                <form action="/login" method="post">
+                    <p>
+                        <label class="label" for="email">Email address</label>
+                    </p>
+                    <p><input class="input-lg" type="text" name="email" id="email"/>
+                    </p>
+                    <p>
+                        <label class="label"  for="password">Password</label>
+                    </p>
+                    <p>
+                        <input class="input-lg" type="password" name="password" id="password"/>
+                    </p>
+                    <p>
+                        <label class="label"  for="remember-me">Remember me</label>
+
+                        <input class="checkbox-inline" type="checkbox" name="remember-me" id="remember-me"/>
+                    </p>
+                    <button class="btn center" type="submit">Sign in</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
 
 
 </h:body>
