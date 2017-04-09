@@ -92,7 +92,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                  .deleteCookies("JSESSIONID")
                  .invalidateHttpSession(true)
                  .permitAll();
-       //  http.csrf().disable();
+        http.csrf().disable();
     }
 
     private CsrfTokenRepository csrfTokenRepository() {
