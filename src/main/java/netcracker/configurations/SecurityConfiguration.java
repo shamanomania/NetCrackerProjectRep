@@ -66,7 +66,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login").usernameParameter("email")
-                .successForwardUrl("/user")
+                .successForwardUrl("/user/{id}")
                 .permitAll()
                 .and()
                 .logout()
@@ -79,8 +79,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userDetailsService)
-                /*.passwordEncoder(new BCryptPasswordEncoder())*/;
-        /*auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");*/
+                .passwordEncoder(new BCryptPasswordEncoder());
     }
 
 }

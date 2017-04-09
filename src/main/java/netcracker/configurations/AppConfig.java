@@ -12,8 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
  * Created by Sid775 on 18.03.2017.
  */
 @Configuration
-//@EnableWebMvc
-//@ComponentScan({netcracker.configurations, netcracker.controllers})
+@EnableWebMvc
 public class AppConfig extends WebMvcConfigurerAdapter {
 
     @Bean

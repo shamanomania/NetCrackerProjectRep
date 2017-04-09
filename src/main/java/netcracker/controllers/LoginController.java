@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by Sid775 on 10.03.2017.
  */
 @Controller
-//@RequestMapping(value = "/login")
 public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -33,9 +32,6 @@ public class LoginController {
         model.setViewName("user_create");
         return model;
     }
-    /*@GetMapping("/login")
-    public String login(){
-        return "login";
-    }*/
+
 
 }

@@ -55,8 +55,8 @@ public class PersonService implements IPersonService {
         Person user = new Person();
         Role role = new Role();
         user.setEmail(form.getEmail());
-//        user.setPassword(new BCryptPasswordEncoder().encode(form.getPassword()));
-        user.setPassword(form.getPassword());
+        user.setPassword(new BCryptPasswordEncoder().encode(form.getPassword()));
+//        user.setPassword(form.getPassword());
         role.setId(Long.parseLong(form.getRole()));
         user.setRole(role);
         return personRepository.save(user);

@@ -1,7 +1,6 @@
 package netcracker.services.currentuser;
 
 import netcracker.domain.entities.CurrentUser;
-import netcracker.domain.entities.RoleEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
