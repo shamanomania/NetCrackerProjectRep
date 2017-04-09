@@ -2,11 +2,21 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xml:lang="en"
+      xmlns:p="http://primefaces.org/ui"
+      lang="en">
 <head>
     <title></title>
 </head>
 <body>
+
+<h:form>
+    <h1>Hi #{currentUser.firstName}  #{currentUser.lastName}!</h1>
+    <h3>You have id ##{currentUser.id}</h3>
+    <h3>You have mail: #{currentUser.mail}</h3>
+</h:form>
 
 </body>
 </html>

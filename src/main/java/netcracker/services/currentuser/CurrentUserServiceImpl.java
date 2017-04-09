@@ -1,7 +1,6 @@
 package netcracker.services.currentuser;
 
 import netcracker.domain.entities.CurrentUser;
-import netcracker.domain.entities.RoleEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -18,6 +17,6 @@ public class CurrentUserServiceImpl implements CurrentUserService {
     public boolean canAccessUser(CurrentUser currentUser, Long userId) {
         LOGGER.debug("Checking if user={} has access to user={}", currentUser, userId);
         return currentUser != null
-                && (currentUser.getRoleEnum() == RoleEnum.ADMIN || currentUser.getId().equals(userId));
+                && ("ADMIN".equals(currentUser.getRole().toString()) || currentUser.getId().equals(userId));
     }
 }

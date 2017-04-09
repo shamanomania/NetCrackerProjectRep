@@ -1,6 +1,7 @@
 package netcracker.domain.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  */
 @Entity
 @Table (name = "ROLE")
-public class Role {
+public class Role implements Serializable {
 
     @Id
     @Column (name = "ID")

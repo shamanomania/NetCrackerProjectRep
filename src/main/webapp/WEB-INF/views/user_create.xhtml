@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Sign up</title>
+</h:head>
+<body>
+
+<h1>Create a new user</h1>
+
+<form action="/signup" method="post">
+    <p:panel id="panel"  style="margin-bottom:10px;">
+        <p:messages id="messages" />
+
+        <h:panelGrid columns="4" cellpadding="5">
+            <h:outputLabel for="email" value="Email:" />
+            <p:inputText id="email" value="#{form.email}" required="true" label="Text 1">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+            <p:message for="email" />
+            <h:outputText value="#{form.email}" />
+
+            <h:outputLabel for="password" value="Password: " />
+            <p:inputText id="password" type="password" value="#{form.password}" required="true" label="Text 2" />
+            <p:message for="password" />
+            <h:outputText value="#{form.password}" />
+
+            <h:outputLabel for="passwordRepeated" value="Repeat password: " />
+            <p:inputText id="passwordRepeated" type="password" value="#{form.passwordRepeated}" required="true" label="Text 3" />
+            <p:message for="passwordRepeated" />
+            <h:outputText value="#{form.passwordRepeated}" />
+
+            <h:outputLabel for="role" value="Choose role: " />
+            <h:selectOneMenu id="role" value="#{form.role}" required="true" label="Text 3">
+                <f:selectItem itemLabel="Choose role" itemValue="" noSelectionOption="true" />
+                <f:selectItem itemLabel="USER" itemValue="1" />
+                <f:selectItem itemLabel="ADMIN" itemValue="2" />
+            </h:selectOneMenu>
+            <p:message for="role" />
+            <h:outputText value="#{form.role}" />
+        </h:panelGrid>
+    </p:panel>
+
+    <h:panelGrid columns="5">
+        <p:commandButton update="@(form)" value="All Forms" />
+        <p:commandButton update="@(form:last)" value="Last Form" />
+        <p:commandButton update="@(.ui-panel)" value="All Panels" />
+        <p:commandButton process="@(.ui-panel :input)" update="@(.ui-panel)" value="Inputs of Panel" />
+        <p:commandButton process="@(.ui-panel :input:not(select))" update="@(.ui-panel)" value="Inputs Except Select" />
+    </h:panelGrid>
+
+    <button type="submit">Save</button>
+</form>
+
+
+<!--<h:form>
+    <p:panel id="panel"  style="margin-bottom:10px;">
+        &lt;!&ndash;<p:messages id="messages" />&ndash;&gt;
+
+        <h:panelGrid columns="4" cellpadding="5">
+            <h:outputLabel for="email" value="Email:" />
+            <p:inputText id="email" value="#{form.email}" required="true" label="Text 1">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+            <p:message for="email" />
+            <h:outputText value="#{form.email}" />
+
+            <h:outputLabel for="password" value="Password: " />
+            <p:inputText id="password" value="#{form.password}" required="true" label="Text 2" />
+            <p:message for="password" />
+            <h:outputText value="#{form.password}" />
+
+            <h:outputLabel for="passwordRepeated" value="Repeat password: " />
+            <p:inputText id="passwordRepeated" value="#{form.passwordRepeated}" required="true" label="Text 3" />
+            <p:message for="passwordRepeated" />
+            <h:outputText value="#{form.passwordRepeated}" />
+
+            <h:outputLabel for="role" value="Choose role: " />
+            <h:selectOneMenu id="role" value="#{form.role}" required="true" label="Text 3">
+                <f:selectItem itemLabel="Choose role" itemValue="" noSelectionOption="true" />
+                <f:selectItem itemLabel="User" itemValue="1" />
+                <f:selectItem itemLabel="Admin" itemValue="2" />
+            </h:selectOneMenu>
+            <p:message for="role" />
+            <h:outputText value="#{form.role}" />
+        </h:panelGrid>
+    </p:panel>
+
+    <h:panelGrid columns="5">
+        <p:commandButton update="@(form)" value="All Forms" />
+        <p:commandButton update="@(form:last)" value="Last Form" />
+        <p:commandButton update="@(.ui-panel)" value="All Panels" />
+        <p:commandButton process="@(.ui-panel :input)" update="@(.ui-panel)" value="Inputs of Panel" />
+        <p:commandButton process="@(.ui-panel :input:not(select))" update="@(.ui-panel)" value="Inputs Except Select" />
+    </h:panelGrid>
+</h:form>-->
+
+</body>
+</html>

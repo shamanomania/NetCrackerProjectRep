@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by Sid775 on 10.03.2017.
  */
 @Controller
-//@RequestMapping(value = "/login")
 public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -20,9 +19,19 @@ public class LoginController {
         return model;
     }
 
-    /*@GetMapping("/login")
-    public String login(){
-        return "login";
-    }*/
+    @RequestMapping(value = "/user")
+    public ModelAndView getUserPage() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("user");
+        return model;
+    }
+
+    @RequestMapping(value = "/signup")
+    public ModelAndView getSingUpPage(){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("user_create");
+        return model;
+    }
+
 
 }

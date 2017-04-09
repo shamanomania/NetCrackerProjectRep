@@ -1,6 +1,5 @@
 package netcracker.controllers;
 
-import netcracker.domain.entities.Person;
 import netcracker.formEntity.UserCreateForm;
 import netcracker.services.impl.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.NoSuchElementException;
 
 /**
  * Created by Sid775 on 10.03.2017.
@@ -49,14 +47,15 @@ public class UserController {
     }
 
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/user/create", method = RequestMethod.POST)
+    //@PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "user_create";
         }
         try {
             userService.create(form);
+            System.out.println(form.getEmail() + " " + form.getRole());
         } catch (DataIntegrityViolationException e) {
             bindingResult.reject("email.exists", "Email already exists");
             return "user_create";

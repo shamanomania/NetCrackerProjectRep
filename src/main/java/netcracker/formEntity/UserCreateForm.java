@@ -1,13 +1,14 @@
 package netcracker.formEntity;
 
-import netcracker.domain.entities.RoleEnum;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.faces.bean.ManagedBean;
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by Sid775 on 10.03.2017.
  */
+@ManagedBean(name = "form")
 public class UserCreateForm {
 
     @NotEmpty
@@ -20,7 +21,7 @@ public class UserCreateForm {
     private String passwordRepeated = "";
 
     @NotNull
-    private RoleEnum role = RoleEnum.USER;
+    private String role = "";
 
 
     public String getEmail() {
@@ -35,5 +36,23 @@ public class UserCreateForm {
         return passwordRepeated;
     }
 
-    public RoleEnum getRole() {return role;}
+    public String getRole() {
+        return role;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setPasswordRepeated(String passwordRepeated) {
+        this.passwordRepeated = passwordRepeated;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
