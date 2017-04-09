@@ -8,12 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by sivko on 02.04.2017.
  */
 @Controller
-@RequestMapping("/fbInt")
 public class FacebookController {
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
@@ -23,7 +23,7 @@ public class FacebookController {
         this.connectionRepository = connectionRepository;
     }
 
-    @GetMapping
+    @RequestMapping("/fbInt")
     public String helloFacebook(Model model) {
         if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
             return "redirect:/connect/facebook";
@@ -33,5 +33,11 @@ public class FacebookController {
         PagedList<Post> feed = facebook.feedOperations().getFeed();
         model.addAttribute("feed", feed);
         return "hello";
+    }
+    @RequestMapping("/fbConnect")
+    public ModelAndView getFaceBookLoginPage (){
+        ModelAndView model = new ModelAndView();
+        model.setViewName("fbConnect");
+        return model;
     }
 }
