@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class FacebookController {
-    private Facebook facebook;
+ /*   private Facebook facebook;
     private ConnectionRepository connectionRepository;
 
     public FacebookController(Facebook facebook, ConnectionRepository connectionRepository) {
@@ -33,7 +33,7 @@ public class FacebookController {
         PagedList<Post> feed = facebook.feedOperations().getFeed();
         model.addAttribute("feed", feed);
         return "hello";
-    }
+    }*/
     @RequestMapping("/fbConnect")
     public ModelAndView getFaceBookLoginPage (){
         ModelAndView model = new ModelAndView();
