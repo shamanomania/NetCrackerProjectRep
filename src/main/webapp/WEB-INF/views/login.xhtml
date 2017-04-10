@@ -14,18 +14,13 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
-                <p class="active">Test your skills!</p>
 
-                <img src="http://imgdepo.com/id/10486399.jpg" border="0" alt="!"/>
-
-            </div>
             <!-- <h:form>
                  <p:editor value="#{editor.value}"/>
              </h:form>-->
-            <div class="col-md-12 text-left">
-                <button class="btn">Sign in</button>
-                <button class="btn">Sign up</button>
+            <div class="col-xs-12 text-left">
+                <a href="login.xhtml"> <button class="btn">Sign in</button></a>
+                <a href="user_create.xhtml"> <button class="btn">Sign up</button></a>
                 <form action="/login" method="post">
                     <p>
                         <label class="label" for="email">Email address</label>
@@ -45,6 +40,12 @@
                     </p>
                     <button class="btn center" type="submit">Sign in</button>
                 </form>
+
+            </div>
+            <div class="col-xs-12 text-center">
+                <p class="active">Test your skills!</p>
+
+                <img src="http://imgdepo.com/id/10486399.jpg" border="0" alt="!"/>
 
             </div>
         </div>
