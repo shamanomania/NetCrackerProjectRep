@@ -14,8 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by sivko on 02.04.2017.
  */
 @Controller
+@RequestMapping("/fbInt")
 public class FacebookController {
- /*   private Facebook facebook;
+    private Facebook facebook;
     private ConnectionRepository connectionRepository;
 
     public FacebookController(Facebook facebook, ConnectionRepository connectionRepository) {
@@ -23,7 +24,8 @@ public class FacebookController {
         this.connectionRepository = connectionRepository;
     }
 
-    @RequestMapping("/fbInt")
+
+    @GetMapping
     public String helloFacebook(Model model) {
         if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
             return "redirect:/connect/facebook";
@@ -32,12 +34,15 @@ public class FacebookController {
         model.addAttribute("facebookProfile", facebook.userOperations().getUserProfile());
         PagedList<Post> feed = facebook.feedOperations().getFeed();
         model.addAttribute("feed", feed);
+
+
         return "hello";
-    }*/
-    @RequestMapping("/fbConnect")
+    }
+
+    /*@RequestMapping("/fbConnect")
     public ModelAndView getFaceBookLoginPage (){
         ModelAndView model = new ModelAndView();
         model.setViewName("fbConnect");
         return model;
-    }
+    }*/
 }
