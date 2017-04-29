@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+    <title>Hello Twitter</title>
+</head>
+<html>
+<body>
+<h3>Connect to Twitter</h3>
+<span th:if="${social_provider_error}">Provider error</span>
+<form action="/connect/twitter" method="POST">
+    <div class="formInfo">
+        <p>You aren't connected to Twitter yet. Click the button to connect this application with your Twitter account.</p>
+    </div>
+    <p><button type="submit">Connect to Twitter</button></p>
+</form>
+</body>
+</html>

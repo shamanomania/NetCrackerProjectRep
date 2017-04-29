@@ -69,7 +69,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                  .addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/home","/fbConnect","/fbInt","/connect/facebook").permitAll()
+                .antMatchers("/", "/home","/fbConnect","/fbInt","/connect/facebook","/twitterInt","/connect/twitter").permitAll()
                 .antMatchers("/ide").permitAll()
                 .anyRequest().authenticated()
                 .and()

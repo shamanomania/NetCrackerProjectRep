@@ -1,4 +1,4 @@
-package netcracker.controllers;
+package netcracker.controllers.socialcontrollers;
 
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.facebook.api.Facebook;
@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.inject.Inject;
+
 /**
  * Created by sivko on 02.04.2017.
  */
@@ -19,6 +21,7 @@ public class FacebookController {
     private Facebook facebook;
     private ConnectionRepository connectionRepository;
 
+    @Inject
     public FacebookController(Facebook facebook, ConnectionRepository connectionRepository) {
         this.facebook = facebook;
         this.connectionRepository = connectionRepository;
