@@ -12,26 +12,18 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView getLoginPage() {
         ModelAndView model = new ModelAndView();
         model.setViewName("login");
         return model;
     }
 
-    @RequestMapping(value = "/user")
-    public ModelAndView getUserPage() {
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView getLoginPageGET() {
         ModelAndView model = new ModelAndView();
-        model.setViewName("user");
+        model.setViewName("login");
         return model;
     }
-
-    @RequestMapping(value = "/signup")
-    public ModelAndView getSingUpPage(){
-        ModelAndView model = new ModelAndView();
-        model.setViewName("user_create");
-        return model;
-    }
-
 
 }

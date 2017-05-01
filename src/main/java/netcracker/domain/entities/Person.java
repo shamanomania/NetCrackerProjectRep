@@ -98,4 +98,21 @@ public class Person implements Serializable {
 
     public void setRole(Role role) {this.role = role;}
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", address='" + address + '\'' +
+                ", education='" + education + '\'' +
+                ", mail='" + mail + '\'' +
+                ", password='" + password + '\'' +
+                ", company=" + company +
+                ", role=" + role +
+                '}';
+    }
 }

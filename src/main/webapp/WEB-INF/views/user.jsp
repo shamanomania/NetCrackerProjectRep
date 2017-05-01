@@ -12,11 +12,8 @@
 </head>
 <body>
 
-<h:form>
-    <h1>Hi #{currentUser.firstName}  #{currentUser.lastName}!</h1>
-    <h3>You have id ##{currentUser.id}</h3>
-    <h3>You have mail: #{currentUser.mail}</h3>
-</h:form>
+<h2>Hi ${userEmail}</h2>
+${loggedUser}
 
 </body>
 </html>

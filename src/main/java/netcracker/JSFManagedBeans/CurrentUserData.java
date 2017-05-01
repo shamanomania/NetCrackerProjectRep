@@ -8,7 +8,7 @@ import javax.faces.bean.ManagedBean;
 /**
  * Created by Sid775 on 07.04.2017.
  */
-@ManagedBean(name = "currentUser")
+
 public class CurrentUserData {
 
     private CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

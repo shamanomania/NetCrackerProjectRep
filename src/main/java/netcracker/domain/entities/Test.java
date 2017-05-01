@@ -46,4 +46,12 @@ public class Test {
 
     public void setId(Long id){this.id = id;}
 
+    @Override
+    public String toString() {
+        return "Test{" +
+                "id=" + id +
+                ", certificates=" + certificates +
+                ", questions=" + questions +
+                '}';
+    }
 }

@@ -14,11 +14,9 @@ import java.util.List;
 @Repository
 public interface CompanyRepository extends CrudRepository<Company, Long>{
 
-    @Query("select c from Company c where c.title = :title")
-    Company findByTitle(@Param("title") String title);
+    Company findByTitle(String title);
 
-    @Query("select c from Company c where c.address = :address")
-    Company findByAddress(@Param("address") String address);
+    Company findByAddress(String address);
 
     @Override
     List<Company> findAll();

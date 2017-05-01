@@ -14,14 +14,12 @@ import java.util.Locale;
  */
 @Repository
 public interface PersonRepository extends CrudRepository<Person,Long> {
-    @Query("select p from Person p where p.name = :name")
-    Person findByName(@Param("name") String name);
 
-    @Query("select p from Person p where p.sex = :sex")
-    List<Person> getByGender(@Param("sex") int sex);
+    Person findByName(String name);
 
-    @Query("select p from Person p where p.mail = :mail")
-    Person findByEmail(@Param("mail") String mail);
+    List<Person> findBySex(int sex);
+
+    Person findByMail(String mail);
 
     @Override
     List<Person> findAll();

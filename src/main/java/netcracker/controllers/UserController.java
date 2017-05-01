@@ -1,10 +1,14 @@
 package netcracker.controllers;
 
-import netcracker.formEntity.UserCreateForm;
+import netcracker.domain.entities.CurrentUser;
+import netcracker.domain.entities.Person;
+import netcracker.viewsForms.UserCreateForm;
+import netcracker.repository.PersonRepository;
 import netcracker.services.impl.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 /**
  * Created by Sid775 on 10.03.2017.
@@ -20,24 +25,32 @@ import javax.validation.Valid;
 public class UserController {
 
     private final PersonService userService;
-    private final UserCreateFormValidator userCreateFormValidator;
-
+    private final PersonRepository personRepository;
     @Autowired
-    public UserController(PersonService userService, UserCreateFormValidator userCreateFormValidator) {
+    public UserController(PersonService userService, PersonRepository personRepository) {
         this.userService = userService;
-        this.userCreateFormValidator = userCreateFormValidator;
-    }
-
-    @InitBinder("form")
-    public void initBinder(WebDataBinder binder) {
-        binder.addValidators(userCreateFormValidator);
+        this.personRepository = personRepository;
     }
 
     @PreAuthorize("@currentUserServiceImpl.canAccessUser(principal, #id)")
     @RequestMapping("/user/{id}")
     public ModelAndView getUserPage(@PathVariable Long id) {
-        return new ModelAndView("user", "user", userService.findById(id)
-                /*.orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id)))*/);
+        ModelAndView model = new ModelAndView();
+        model.setViewName("user");
+        return model;
+
+        /*return new ModelAndView("user", "user", userService.findById(id)
+                *//*.orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id)))*//*);*/
+    }
+
+    @RequestMapping(value = "/user", method = RequestMethod.GET)//////////////////////////////////
+    public String getUserPage(Map<String,Object> model) {
+        CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long id = currentUser.getUser().getId();
+        Person user = personRepository.findOne(id);
+        model.put("loggedUser",user);
+        model.put("userEmail",user.getEmail());
+        return "user";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
@@ -48,7 +61,7 @@ public class UserController {
 
 
     //@PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "user_create";
@@ -61,6 +74,6 @@ public class UserController {
             return "user_create";
         }
         return "redirect:/users";
-    }
+    }*/
 
 }

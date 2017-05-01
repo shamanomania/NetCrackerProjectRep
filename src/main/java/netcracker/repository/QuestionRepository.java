@@ -14,8 +14,8 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 @Repository
 public interface QuestionRepository extends CrudRepository<Question,Long> {
-    @Query("select q from Question q where q.title = :title")
-    Question findByTitle(@Param("title") String title);
+
+    Question findByTitle(String title);
 
     @Override
     List<Question> findAll();

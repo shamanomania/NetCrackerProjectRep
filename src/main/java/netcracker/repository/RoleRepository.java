@@ -13,8 +13,8 @@ import java.util.List;
  */
 @Repository
 public interface RoleRepository extends CrudRepository<Role,Long> {
-    @Query("select r from Role r where r.title = :title")
-    Role findByTitle(@Param("title") String title);
+
+    Role findByTitle(String title);
 
     @Override
     List<Role> findAll();

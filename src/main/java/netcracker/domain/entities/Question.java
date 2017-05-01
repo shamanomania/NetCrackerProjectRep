@@ -44,6 +44,9 @@ public class Question {
             inverseJoinColumns = @JoinColumn(name = "answer_id"))
     private List<Answer> correctAnswers;
 
+    public Question() {
+    }
+
     public Long getId() {return id;}
 
     public void setId(Long id) {this.id = id;}
@@ -82,7 +85,6 @@ public class Question {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", type='" + type + '\'' +
-                ", tests=" + tests +
                 ", answers=" + answers +
                 ", correctAnswers=" + correctAnswers +
                 '}';

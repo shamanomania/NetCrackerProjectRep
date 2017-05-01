@@ -25,7 +25,7 @@ public class AnswerService implements IAnswerService {
 
     @Override
     public List<Answer> findAnswersByQuestionID(Long id) {
-        return answerRepository.findAnswersByQuestionID(id);
+        return answerRepository.findAnswersByQuestionId(id);
     }
 
     @Override

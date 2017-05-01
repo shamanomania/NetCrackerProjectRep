@@ -1,26 +1,28 @@
-package netcracker.formEntity;
+package netcracker.viewsForms;
 
+
+import netcracker.viewsForms.validator.FieldEquals;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.faces.bean.ManagedBean;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by Sid775 on 10.03.2017.
  */
-@ManagedBean(name = "form")
+@FieldEquals(field = "password" , equalsTo = "passwordRepeated")
 public class UserCreateForm {
 
-    @NotEmpty
+    @Email
     private String email = "";
 
-    @NotEmpty
+    @NotEmpty(message = "Enter password!")
+    @Size(min=3, message = "Password min size 3!")
     private String password = "";
 
-    @NotEmpty
+    @NotEmpty(message = "Enter password approve!")
     private String passwordRepeated = "";
 
-    @NotNull
     private String role = "";
 
 

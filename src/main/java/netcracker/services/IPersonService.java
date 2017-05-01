@@ -1,7 +1,7 @@
 package netcracker.services;
 
 import netcracker.domain.entities.Person;
-import netcracker.formEntity.UserCreateForm;
+import netcracker.viewsForms.UserCreateForm;
 
 import java.util.List;
 
