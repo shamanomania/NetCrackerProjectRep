@@ -15,6 +15,9 @@ public class Test {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column
+    private String title;
+
 
     @ManyToMany
     @JoinTable(
@@ -23,7 +26,7 @@ public class Test {
             inverseJoinColumns = @JoinColumn(name = "test_id"))
     private List<Certificate> certificates;
 
-    @ManyToMany(mappedBy = "tests")
+    @ManyToMany(mappedBy = "tests",cascade = CascadeType.ALL)
     private List<Question> questions;
 
     @OneToMany(mappedBy = "tests")
@@ -38,18 +41,43 @@ public class Test {
 
     public Test(){}
 
-    public Test(Long id){
-        this.id = id;
+    public Test(String title) {
+        this.title = title;
     }
 
     public Long getId(){return id;}
 
     public void setId(Long id){this.id = id;}
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<Certificate> getCertificates() {
+        return certificates;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setCertificates(List<Certificate> certificates) {
+        this.certificates = certificates;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
     @Override
     public String toString() {
         return "Test{" +
                 "id=" + id +
+                ", title='" + title + '\'' +
                 ", certificates=" + certificates +
                 ", questions=" + questions +
                 '}';

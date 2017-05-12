@@ -34,10 +34,10 @@ public class Question {
             inverseJoinColumns = @JoinColumn(name = "test_id"))
     private List<Test> tests;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL/*, fetch = FetchType.LAZY*/)
     private List<Answer> answers;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "CorrectAnswer",
             joinColumns = @JoinColumn(name = "question_id"),
@@ -77,6 +77,14 @@ public class Question {
 
     public void setCorrectAnswers(List<Answer> correctAnswers) {
         this.correctAnswers = correctAnswers;
+    }
+
+    public List<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(List<Test> tests) {
+        this.tests = tests;
     }
 
     @Override

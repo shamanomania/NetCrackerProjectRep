@@ -1,5 +1,6 @@
 package netcracker.repository;
 
+import netcracker.domain.entities.Question;
 import netcracker.domain.entities.Test;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

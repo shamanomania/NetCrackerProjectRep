@@ -9,11 +9,6 @@ import javax.persistence.*;
 @Table (name = "ANSWER")
 public class Answer {
 
-    public Answer(String title, Question question) {
-        this.title = title;
-        this.question = question;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -24,6 +19,14 @@ public class Answer {
     @ManyToOne
     @JoinColumn(name = "question_id", nullable = false)
     private Question question;
+
+    public Answer() {
+    }
+
+    public Answer(String title, Question question) {
+        this.title = title;
+        this.question = question;
+    }
 
     public Long getId() {
         return id;

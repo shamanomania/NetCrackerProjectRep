@@ -10,5 +10,6 @@
 <h1>HOME</h1>
 <a href="/login">Login</a>
 <a href="/signup">Sign up</a>
+<a href="/tests">Tests</a>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package netcracker.viewsForms;
 
+import netcracker.domain.entities.Answer;
 import netcracker.domain.entities.Question;
 import netcracker.domain.entities.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class TestForm {
     private Long id;
 
     private List<Question> questions;
+
+    private List<Answer> answer;
 
     public Test getTest() {
         return test;

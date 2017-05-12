@@ -3,7 +3,6 @@ package netcracker.services.currentuser;
 import netcracker.domain.entities.CurrentUser;
 import netcracker.domain.entities.Person;
 import netcracker.repository.PersonRepository;
-import netcracker.services.impl.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
