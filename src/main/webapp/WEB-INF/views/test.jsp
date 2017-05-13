@@ -23,6 +23,9 @@
             obj = JSON.stringify(obj);
             console.log(obj);
 
+            var answersF = [];
+            var correctAnswersF = [];
+
             $.ajax({
                 type: "POST",
                 url: "/test/${id}",
@@ -31,15 +34,46 @@
                 data: obj,
                 success: function(response) {
                     console.log("test finished " + response.answers[0].id);
-                    for (var i =0; i <response.answers.length;i++){
-                        $('#answer_'+i)
+                    for (var i =0; i <response.answers.length; i++){
+                        /*$('#answer_'+i)
                             .append(
                                 $('<p>')
                                     .append(
                                         response.answers[i].id
                                     )
-                            )
+                            )*/
+                        if (response.answers[i].id.length <= 3){
+                            response.answers[i].id = response.answers[i].id.toString().match(/\d+/g);
+                            if (response.answers[i].id[0] != response.answers[i].id[1]){
+                                $('#aAnswer_'+ i +'_'+response.answers[i].id[0])
+                                    .append(
+                                        $('<p>')
+                                            .append(
+                                                "Выбранный ответ"
+                                            )
+                                    );
+                            }
+
+                            $('#aAnswer_'+ i +'_'+response.answers[i].id[1])
+                                .append(
+                                    $('<p>')
+                                        .append(
+                                            "Верный ответ"
+                                        )
+                                );
+                        }else {
+                            $('#bAnswer_'+i)
+                                .append(
+                                    $('<p>')
+                                        .append(
+                                            response.answers[i].id
+                                        )
+                                )
+                        }
+
+                        answersF.push(response.answers[i].id);
                     }
+                    console.log(answersF);
                 }});
         }
     </script>
@@ -51,15 +85,15 @@
         <c:forEach var="i" items="${test.getQuestions()}" varStatus="iterator">
             <div id="answer_${iterator.index}">
                 <c:if test="${i.getType() eq '1' }">
-                    <p>${i.getTitle()}</p>
-                    <c:forEach items="${i.getAnswers()}" var="answer">
-                        <p><input type="radio" name="answers[${iterator.index}]" value="${answer.getTitle()}"/>${answer.getTitle()}</p>
+                    <div>${i.getTitle()}</div>
+                    <c:forEach items="${i.getAnswers()}" var="answer" varStatus="innerIterator">
+                        <div id="aAnswer_${iterator.index}_${innerIterator.index}"><input type="radio" name="answers[${iterator.index}]" id="answers[${iterator.index}]" value="${answer.getTitle()}"/>${answer.getTitle()}</div>
                     </c:forEach>
                 </c:if>
 
                 <c:if test="${i.getType() eq '2' }">
-                    <p>${i.getTitle()}</p>
-                    <p><input type="text" name="answers[${iterator.index}]" /></p>
+                    <div>${i.getTitle()}</div>
+                    <div id="bAnswer_${iterator.index}"><input type="text" name="answers[${iterator.index}]" /></div>
                 </c:if>
             </div>
             </c:forEach>
