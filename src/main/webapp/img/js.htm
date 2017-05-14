@@ -1,0 +1,528 @@
+
+
+
+<!DOCTYPE html><!-- template templates/new/base.html -->
+<html lang="en-US">
+<head>
+    <meta name="google-site-verification" content="siHYw3StNVhv5AJYLZXJ_D5RMYC8waabmuNPqr5vGJ8" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <title>Центр Сертификации</title>
+
+    
+        
+        <meta property="og:type" content="website" />
+<meta property="og:title" content="Certification.mail.ru">
+<meta property="og:description" content="Проверь свои знания по программированию и получи сертификат!" />
+<meta property="og:image" content="https://certification.mail.ru/static/images/share/programming.jpg">
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:title" content="Certification.mail.ru" />
+<meta property="twitter:description" content="Проверь свои знания по программированию и получи сертификат!" />
+<meta property="twitter:image:src" content="https://certification.mail.ru/static/images/share/programming.jpg" />
+<meta name="mrc__share_title" content="Certification.mail.ru">
+<link rel="image_src" href="https://certification.mail.ru/static/images/share/programming.jpg">
+    
+
+    <link href="/static/vendor2/images/ico/favicon-16x16.png" rel="icon" type="image/x-icon" />
+
+    <link href="/static/vendor2/css/font-awesome.min.css" media="screen" rel="stylesheet" />
+    <link href="/static/vendor/css/style.css?v=3.7.78" media="screen" rel="stylesheet" />
+    <link href="/static/vendor2/css/design.css?v=3.7.78" media="screen" rel="stylesheet" />
+    <link href="/static/vendor2/css/design-popup.css?v=3.7.78" media="screen" rel="stylesheet" />
+
+    <link href="/static/vendor2/css/early.css" media="screen" rel="stylesheet" />
+    <link href="/static/vendor2/css/jquery.formstyler.css" media="screen" rel="stylesheet" />
+    <link href="/static/vendor2/css/tooltipster.css" media="screen" rel="stylesheet" />
+	<link href="/static/vendor2/css/tooltipster-shadow.css" media="screen" rel="stylesheet" />
+    <link href="/static/vendor2/css/glyphter.css" media="screen" rel="stylesheet" />
+
+	<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/95C6C0CA-2296-CB4C-96D8-94E67ADFD474/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/474DFDA76E49-8D69-C4BC-6922-AC0C6C59/abn/main.css"/><script src="/static/vendor2/scripts/jquery-1.7.1.min.js"></script>
+	<script src="/static/vendor2/scripts/jquery.jscrollpane.min.js"></script>
+	<script src="/static/vendor2/scripts/jquery.mousewheel.js"></script>
+    <script src="/static/vendor2/scripts/jquery.formstyler.min.js"></script>
+    <script src="/static/vendor2/scripts/jquery.tooltipster.min.js"></script>
+
+	<script src="/static/vendor2/scripts/base.js?v=3.7.78"></script>
+
+    <script src="/static/base/signin.js?v=3.7.78"></script>
+	<script src="/static/base/popup.js?v=3.7.78"></script>
+	<script src="/static/base/main.js?v=3.7.78"></script>
+	<script src="/static/base/notification-manager.js?v=3.7.78"></script>
+	<script src="/static/base/feedback-manager.js?v=3.7.78"></script>
+
+    
+
+    <style>
+        .bit-ico-brain-small{background-image: url(/static/vendor/img/itmailru-logo.svg);background-size: 100%;background-repeat: no-repeat;width: 20px;height: 17px;}
+        .bit-ico {
+            display:inline-block;
+            vertical-align:middle;
+        }
+    </style>
+
+	<!--[if lt IE 9]>
+	<script src="/static/vendor2/scripts/ie8.js"></script>
+	<![endif]-->
+
+    
+    <script src="/static/startexam/test-detail.js?v=3.7.78"></script>
+
+
+
+    <link href="/static/vendor2/css/adaptive.css" media="screen" rel="stylesheet" />
+
+    
+
+    
+    
+    
+</head>
+<body class=" not-authenticated">
+    <div id="auth_popup"></div>
+    <div class="b-popup_holder">
+        <div class="overlay"></div>
+
+<div class="b-popup p-note">
+    
+
+    <div class="b-popup-frame notification-template" style="display: none;">
+        <div class="b-popup-window">
+            <a href="#" class="b-popup-close"></a>
+            <div class="b-popup-window-content">
+                <i class="b-ico i-note"></i>
+                <span class="b-note-text"></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="error-form" class="b-popup p-feedback hidden">
+    <div class="b-popup-frame">
+        <div class="b-popup-window">
+            <a href="#" class="b-popup-close"></a>
+            <div class="b-popup-window-content">
+                <div class="b-form">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+        <div class="b-popup p-quiz pretest noselect hidden">
+            <div class="b-popup-frame">
+                <div class="b-popup-window">
+                    <a href="#" class="b-popup-close"></a>
+                    <div class="b-popup-window-content">
+                        <form action="/tests/copy-javascript/start/" method="post" class="require-one">
+                            <input type='hidden' name='csrfmiddlewaretoken' value='IhEji8hWaQvv3KUfv57MJqhKzoLbF2P8' />
+                            <h1 class="b-section-title">Как вы оцениваете уровень своих знаний по JS?</h1>
+                            <div class="b-quiz-form">
+                                
+                                    <label>
+                                        <input type="radio" name="pre_test" value="1" >
+                                        Эксперт - я знаю его глубоко, включая детали
+                                    </label>
+                                
+                                    <label>
+                                        <input type="radio" name="pre_test" value="2" >
+                                        Профессионал - это мой основной рабочий инструмент
+                                    </label>
+                                
+                                    <label>
+                                        <input type="radio" name="pre_test" value="3" >
+                                        Постольку-поскольку - сталкивался с ним немного или давно
+                                    </label>
+                                
+                                    <label>
+                                        <input type="radio" name="pre_test" value="4" >
+                                        Совсем не знаю
+                                    </label>
+                                
+                            </div>
+                            <div class="b-options">
+                                <a href="#" class="button_grey js-add-new-test-cancel disagre">Отменить</a>
+                                <input type="submit" class="b-button p-size-sm p-color-yellow p-disabled" value="Начать тест" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    </div>
+
+    <div class="b-wrapper">
+
+        
+
+            <header class="b-header">
+                
+
+
+    <script src="/static/base/js-api.js?v=3.7.78"></script>
+    <script src="/static/auth_popup/auth-popup.js?v=3.7.78"></script>
+
+
+<div class="b-section_wrapper">
+    <a href="/" class="b-logo">
+        <img src="/static/vendor2/images/base/logo.png" class="a-desktop" alt="" />
+        <img src="/static/vendor2/images/base/mobile@logo.png" class="a-mobile" alt="" />
+    </a>
+    <div class="b-burger"><i></i></div>
+
+    
+        <div class="b-header-right tooltip-login" title="Авторизуйтесь, используя e-mail, или через социальные сети">
+        
+            
+                <a class="b-button p-size-mid p-color-transparent js-login_button">Вход / Регистрация</a>
+            
+        
+        </div>
+    
+
+    <nav class="b-header-menu">
+        <ul class="b-header-menu-list">
+            
+                <li class="b-header-menu-list-item a-mobile">
+
+                    
+                        
+                                <a class="b-header-menu-list-item-url js-login_button">Вход</a>
+                            
+                    
+                </li>
+            
+
+            
+                
+                    <li class="b-header-menu-list-item">
+                        <a href="/lc/" class="b-header-menu-list-item-url">
+                            
+                                Ideal code
+                            
+                        </a>
+                    </li>
+                
+            
+                
+                    <li class="b-header-menu-list-item">
+                        <a href="/tests/" class="b-header-menu-list-item-url p-active">
+                            
+                                Тесты
+                            
+                        </a>
+                    </li>
+                
+            
+                
+                    <li class="b-header-menu-list-item">
+                        <a href="/tests/userquestion/list/" class="b-header-menu-list-item-url">
+                            
+                                <span>
+                                    U.G.Q.
+                                    
+                                </span>
+                            
+                        </a>
+                    </li>
+                
+            
+                
+                    <li class="b-header-menu-list-item">
+                        <a href="/companies/" class="b-header-menu-list-item-url">
+                            
+                                Компаниям
+                            
+                        </a>
+                    </li>
+                
+            
+                
+                    <li class="b-header-menu-list-item">
+                        <a href="/blog/" class="b-header-menu-list-item-url">
+                            
+                                Блог
+                            
+                        </a>
+                    </li>
+                
+            
+                
+                    <li class="b-header-menu-list-item">
+                        <a href="/contribute/" class="b-header-menu-list-item-url">
+                            
+                                Авторам
+                            
+                        </a>
+                    </li>
+                
+            
+
+            
+        </ul>
+    </nav>
+</div>
+
+                
+            </header>
+        
+
+        <div class="b-content">
+            
+
+                <div class="b-content_wrapper">
+                    
+    <div class="b-path">
+        <a href="/tests/">Вернуться к списку тестов</a>
+    </div>
+
+    <article class="b-article">
+        <div class="b-article-cols">
+            <section class="b-article-left need-authentication">
+                <h1 class="b-page-title">JS</h1>
+                <p>Тест повышенной сложности составлен для версии языка JavaScript (ECMAScript 5, если в вопросе не указана иная) без использования сторонних библиотек. Тестировались в последних версиях браузеров, если не указана конкретная версия: Chrome 32+, FireFox 24+
+Сертификат - да</p>
+
+                
+
+                <p>
+                    
+                        Всего попыток:  <b>3</b>.
+                    
+
+                    Время на прохождение теста <b>30 минут</b>
+                </p>
+
+                <div class="b-options">
+
+                    
+
+                    
+                        <a href="#" class="b-button p-size-sm p-color-yellow i-ready-to-test"
+                            
+                        >
+                            Я готов начать тест
+                        </a>
+                    
+
+                    
+                    
+                </div>
+            </section>
+
+            
+                <section class="b-article-right a-desktop">
+                    <div class="b-content_block">
+                        <a href="#" class="b-ico i-close"></a>
+                        <div class="b-content_block-title"><i class="b-ico i-att"></i> Обратите внимание</div>
+                        <div class="b-content_block-text">
+                            <ul class="attention-block-list">
+    <li>При прохождении теста не используйте кнопку "Назад" в браузере. </li>
+    <li>Пропускать задания: <strong>разрешено</strong></li>
+    <li>Оставлять комментарии к заданиям: <strong>разрешено</strong></li>
+</ul>
+                        </div>
+                    </div>
+                </section>
+            
+        </div>
+    </article>
+
+
+                </div>
+
+            
+        </div>
+
+    </div>
+
+    
+    <footer class="b-footer">
+    <div class="b-section_wrapper">
+        <nav class="b-footer_menu">
+            <div class="b-footer_menu-col">
+                <div class="b-footer_menu-col-title">Проект</div>
+                <ul class="b-footer_menu-list b-footer_menu-col">
+                    <li class="b-footer_menu-list-item"><a href="/about/" class="b-footer_menu-list-item-url">О проекте</a></li>
+                    <li class="b-footer_menu-list-item"><a href="#enter-form" class="b-footer_menu-list-item-url">Вход/Регистрация</a></li>
+                    <li class="b-footer_menu-list-item"><a href="#error-form" class="b-footer_menu-list-item-url feedback-link">Обратная связь</a></li>
+                </ul>
+                <ul class="b-footer_menu-list b-footer_menu-col">
+                    <li class="b-footer_menu-list-item"><a href="/contribute/" class="b-footer_menu-list-item-url">Стань автором</a></li>
+                    <li class="b-footer_menu-list-item"><a href="/tests/" class="b-footer_menu-list-item-url">Все тесты</a></li>
+                    <li class="b-footer_menu-list-item"><a href="/agreement/" class="b-footer_menu-list-item-url">Соглашение</a></li>
+                </ul>
+            </div>
+            <div class="b-footer_menu-col">
+                <div class="b-footer_menu-col-title">Разработчикам</div>
+                <ul class="b-footer_menu-list b-footer_menu-col">
+                    <li class="b-footer_menu-list-item"><a href="https://sfera-mail.ru/" class="b-footer_menu-list-item-url">Техносфера</a></li>
+                    <li class="b-footer_menu-list-item"><a href="https://www.youtube.com/user/TPMGTU" class="b-footer_menu-list-item-url">On-line курсы Технопарка</a></li>
+                    <li class="b-footer_menu-list-item"><a href="https://cups.mail.ru/" class="b-footer_menu-list-item-url">Russian Code Cups</a></li>
+                </ul>
+                <ul class="b-footer_menu-list b-footer_menu-col">
+                    <li class="b-footer_menu-list-item"><a href="https://russiandevcup.ru/" class="b-footer_menu-list-item-url">Russian Developers Cup</a></li>
+                    <li class="b-footer_menu-list-item"><a href="https://it.mail.ru/" class="b-footer_menu-list-item-url">IT.Mail.Ru</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="b-footer-copyright">
+            <div class="b-footer-copyright-text">© Mail.Ru Group, 2017</div>
+            <img src="/static/vendor2/images/base/logo-mailru-small.png" class="a-desktop" alt="Mail.Ru Group" />
+            <img src="/static/vendor2/images/base/mobile@logo-mailru-small.png" class="a-mobile" alt="Mail.Ru Group" />
+        </div>
+    </div>
+</footer>
+
+
+    
+
+    <!-- Rating@Mail.ru counter -->
+<script type="text/javascript">
+    var _tmr = _tmr || [];
+    _tmr.push({id: "2580376", type: "pageView", start: (new Date()).getTime()});
+    (function (d, w) {
+        var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true;
+        ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+        var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+        if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+    })(document, window);
+</script>
+<noscript>
+    <div style="position:absolute;left:-10000px;">
+        <img src="//top-fwz1.mail.ru/counter?id=2580376;js=na" style="border:0;" height="1" width="1" alt="Рейтинг@Mail.ru" />
+    </div>
+</noscript>
+<!-- //Rating@Mail.ru counter -->
+
+<!-- GA counter -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function()
+{ (i[r].q=i[r].q||[]).push(arguments)}
+,i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-62968137-1', 'auto');
+    
+ga('send', 'pageview');
+
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+{'gtm.start': new Date().getTime(),event:'gtm.js'}
+);var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WQL7TN');
+</script>
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-WQL7TN" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- /GA counter -->
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter31838661 = new Ya.Metrika({
+                    id:31838661,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/31838661" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<script>
+$(function() {
+    $("#select-complexity").on('change', function() {
+        ga('send', 'event', 'click', 'dropdown_complexity');
+    });
+});
+</script>
+
+    
+
+</body>
+</html>
