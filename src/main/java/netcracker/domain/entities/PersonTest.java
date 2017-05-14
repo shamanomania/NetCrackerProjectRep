@@ -65,4 +65,15 @@ public class PersonTest {
     public String getResult() {return result;}
 
     public void setResult(String result) {this.result = result;}
+
+    @Override
+    public String toString() {
+        return "PersonTest{" +
+                "id=" + id +
+                ", dateOfTest=" + dateOfTest +
+                ", result='" + result + '\'' +
+                ", person=" + person +
+                ", test=" + test +
+                '}';
+    }
 }
