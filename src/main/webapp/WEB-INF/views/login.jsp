@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-xs-12 text-left">
+            <div class="col-md-5 col-xs-5 text-left">
 
                 <form action="login" method="post">
                     <p>
@@ -46,7 +46,7 @@
                 </form>
 
             </div>
-            <div class="col-xs-12 text-center">
+            <div class="col-md-5 col-xs-5 text-center">
                 <p class="active">Test your skills!</p>
                 <img src="http://imgdepo.com/id/10486399.jpg" border="0" alt="!"/>
 
