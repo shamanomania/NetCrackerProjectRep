@@ -41,15 +41,16 @@
                 </tr>
                 <tr>
                     <td>Role:</td>
-                    <td><form:password path="role" /></td>
+                    <form:select size="1" path="role">
+                        <form:option value="1">User</form:option>
+                        <form:option value="2">Company</form:option>
+                    </form:select>
+                    <%--<td><form:password path="role" /></td>--%>
                     <td><span class="error"><form:errors path="role" /></span></td>
-                    <select size="2">
-                        <option value="1">USER</option>
-                        <option value="2">ADMIN</option>
-                    </select>
+
                 </tr>
                 <p>
-                    <label class="label" for="remember-me">Remember me</label>
+                    <%--<label class="label" for="remember-me">Remember me</label>--%>
 
                     <input class="checkbox-inline" type="checkbox" name="remember-me" id="remember-me"/>
                 </p>

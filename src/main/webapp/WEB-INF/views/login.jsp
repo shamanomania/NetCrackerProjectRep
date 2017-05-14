@@ -18,8 +18,7 @@
         <div class="row">
 
             <div class="col-xs-12 text-left">
-                <%--<a href="login.jsp"> <button class="btn">Sign in</button></a>
-                <a href="user_create.jsp"> <button class="btn">Sign up</button></a>--%>
+
                 <form action="login" method="post">
                     <p>
                         <label class="label" for="email">Email address</label>
@@ -38,8 +37,9 @@
                         <input class="checkbox-inline" type="checkbox" name="remember-me" id="remember-me"/>
                     </p>
                     <button class="btn center" type="submit">Sign in</button>
-                </form>
 
+                </form>
+                <form action="/signup" method="get"> <button type="submit" class="btn">Sign up</button></form>
                 <form action="/signin/facebook" method="POST">
                     <input type="hidden" name="scope" value="public_profile" />
                     <input type="submit" value="Login using Facebook"/>
