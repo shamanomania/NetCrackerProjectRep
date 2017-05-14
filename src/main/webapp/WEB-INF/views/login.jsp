@@ -39,8 +39,9 @@
                     <button class="btn center" type="submit">Sign in</button>
 
                 </form>
-                <form action="/signup" method="get"> <button type="submit" class="btn">Sign up</button></form>
+                <button type="button" class="btn" onclick="location.href='/signup'">Sign up</button>
                 <form action="/signin/facebook" method="POST">
+
                     <input type="hidden" name="scope" value="public_profile" />
                     <input type="submit" value="Login using Facebook"/>
                 </form>
