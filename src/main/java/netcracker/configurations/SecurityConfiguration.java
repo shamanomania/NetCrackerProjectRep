@@ -1,49 +1,39 @@
 package netcracker.configurations;
 
+import netcracker.controllers.socialcontrollers.FacebookSignInAdapter;
+import netcracker.services.impl.FacebookConnectionSignup;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
-import org.springframework.security.web.DefaultRedirectStrategy;
-import org.springframework.security.web.RedirectStrategy;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.csrf.CsrfTokenRepository;
-import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import org.springframework.social.connect.ConnectionFactoryLocator;
+import org.springframework.social.connect.UsersConnectionRepository;
+import org.springframework.social.connect.mem.InMemoryUsersConnectionRepository;
+import org.springframework.social.connect.web.ProviderSignInController;
 
 /**
  * Created by Sid775 on 08.03.2017.
  */
 
 @Configuration
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
-//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
 
-    private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+    @Autowired
+    private ConnectionFactoryLocator connectionFactoryLocator;
 
+    @Autowired
+    private UsersConnectionRepository usersConnectionRepository;
 
-    //@Value("${security.oauth2.custom.server-logout-url}") private String serverLogoutUrl;
-
-    //@Value("${security.oauth2.custom.server-logouted-redirect-url}") private String serverLogoutedRedirectUrl;
+    @Autowired
+    private FacebookConnectionSignup facebookConnectionSignup;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -74,8 +64,8 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                  .addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/home","/protected","/signup").permitAll()
-                .antMatchers("/", "/home","/fbConnect","/fbInt","/connect/facebook","/twitterInt","/connect/twitter").permitAll()
+               // .antMatchers("/", "/home","/protected","/signup").permitAll()
+                .antMatchers("/", "/home","/fbConnect","/connect/facebook","/signin/**","/signup/**","/login*").permitAll()
                 .antMatchers("/ide").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -85,13 +75,25 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                   .permitAll()
                 .and()
                 .logout()
-                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                 .deleteCookies("JSESSIONID")
-                 .invalidateHttpSession(true)
                  .permitAll();
         http.csrf().disable();
     }
 
+    @Bean
+    public ProviderSignInController providerSignInController() {
+        ((InMemoryUsersConnectionRepository) usersConnectionRepository)
+                .setConnectionSignUp(facebookConnectionSignup);
+
+        return new ProviderSignInController(
+                connectionFactoryLocator,
+                usersConnectionRepository,
+                new FacebookSignInAdapter());
+    }
+
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {

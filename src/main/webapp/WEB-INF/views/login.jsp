@@ -38,6 +38,11 @@
                     <button class="btn center" type="submit">Sign in</button>
                 </form>
 
+                <form action="/signin/facebook" method="POST">
+                    <input type="hidden" name="scope" value="public_profile" />
+                    <input type="submit" value="Login using Facebook"/>
+                </form>
+
             </div>
             <div class="col-xs-12 text-center">
                 <p class="active">Test your skills!</p>
