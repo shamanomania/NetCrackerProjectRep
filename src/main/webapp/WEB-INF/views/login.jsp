@@ -37,11 +37,10 @@
                         <input class="checkbox-inline" type="checkbox" name="remember-me" id="remember-me"/>
                     </p>
                     <button class="btn center" type="submit">Sign in</button>
-
+                    <button type="button" class="btn" onclick="location.href='/signup'">Sign up</button>
                 </form>
-                <button type="button" class="btn" onclick="location.href='/signup'">Sign up</button>
-                <form action="/signin/facebook" method="POST">
 
+                <form action="/signin/facebook" method="POST">
                     <input type="hidden" name="scope" value="public_profile" />
                     <input type="submit" value="Login using Facebook"/>
                 </form>

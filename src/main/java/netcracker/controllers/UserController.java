@@ -2,6 +2,7 @@ package netcracker.controllers;
 
 import netcracker.domain.entities.CurrentUser;
 import netcracker.domain.entities.Person;
+import netcracker.repository.PersonTestRepository;
 import netcracker.viewsForms.UserCreateForm;
 import netcracker.repository.PersonRepository;
 import netcracker.services.impl.PersonService;
@@ -24,11 +25,13 @@ import java.util.Map;
 @Controller
 public class UserController {
 
-    private final PersonService userService;
-    private final PersonRepository personRepository;
     @Autowired
-    public UserController(PersonService userService, PersonRepository personRepository) {
-        this.userService = userService;
+    private PersonTestRepository personTestRepository;
+
+    private final PersonRepository personRepository;
+
+    @Autowired
+    public UserController(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 
@@ -51,6 +54,7 @@ public class UserController {
         Person user = personRepository.findOne(id);
         model.put("loggedUser",user);
         model.put("userEmail",user.getEmail());
+        model.put("testsPassedByUser",personTestRepository.findByPersonId(id));
 
         if ("USER".equals(currentUser.getRole().getTitle())){
             return "user";
