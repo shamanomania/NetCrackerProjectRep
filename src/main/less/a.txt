@@ -1,0 +1,22 @@
+
+
+
+
+body {
+  div {
+    div.row {
+      width: 1200px;
+      margin-left: -15%;
+      margin-top: -50px;
+    }
+  }
+
+}
+
+@media (min-width: 900px) and (max-width: 1300px) {
+  .need-hide {
+    background-image: none;
+  }
+}
+
+
