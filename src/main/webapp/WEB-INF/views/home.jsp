@@ -13,6 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         <%@include file="/css/stylesForIndex1.css"%>
+        header{
+
+        }
     </style>
     <link href="../../css/stylesForIndex1.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet">
@@ -23,8 +26,8 @@
 </h:head>
 
 <h:body>
-    <header>
-        <div><img class="pull-left" src="<c:url value="/images/logo.png" />" alt="Netcracker"></div>
+    <header   >
+        <div  ><img class="pull-left" src="<c:url value="../images/logo.png" />" alt="Netcracker"></div>
 
         <div>
             <nav class="navbar" role="navigation">

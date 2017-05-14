@@ -41,7 +41,6 @@
             </div>
             <div class="col-xs-12 text-center">
                 <p class="active">Test your skills!</p>
-
                 <img src="http://imgdepo.com/id/10486399.jpg" border="0" alt="!"/>
 
             </div>
