@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -26,6 +27,9 @@ public class UserController {
 
     private final PersonService userService;
     private final PersonRepository personRepository;
+
+    //private SecurityContextHolderAwareRequestWrapper securityContextHolderAwareRequestWrapper = new SecurityContextHolderAwareRequestWrapper();
+
     @Autowired
     public UserController(PersonService userService, PersonRepository personRepository) {
         this.userService = userService;
@@ -43,6 +47,7 @@ public class UserController {
                 *//*.orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id)))*//*);*/
     }
 
+
     @RequestMapping(value = "/user", method = RequestMethod.GET)//////////////////////////////////
     public String getUserPage(Map<String,Object> model) {
         CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -50,7 +55,12 @@ public class UserController {
         Person user = personRepository.findOne(id);
         model.put("loggedUser",user);
         model.put("userEmail",user.getEmail());
-        return "user";
+        /*if (securityContextHolderAwareRequestWrapper.isUserInRole("USER")){
+            return "user";
+        } else if (securityContextHolderAwareRequestWrapper.isUserInRole("ADMIN")){
+            return "company";
+        }*/
+        return null;
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
