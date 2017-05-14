@@ -46,27 +46,18 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)//////////////////////////////////
     public String getUserPage(Map<String,Object> model) {
 
-        if(SecurityContextHolder.getContext().getAuthentication().getPrincipal().getClass().getSimpleName().equals("String")) {
-            String currName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Person user = personRepository.findByMail(currName);
-            model.put("loggedUser",user);
-            model.put("userEmail",user.getEmail());
+        CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long id = currentUser.getUser().getId();
+        Person user = personRepository.findOne(id);
+        model.put("loggedUser",user);
+        model.put("userEmail",user.getEmail());
+
+        if ("USER".equals(currentUser.getRole().getTitle())){
             return "user";
-        }
-        else {
-            CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Long id = currentUser.getUser().getId();
-            Person user = personRepository.findOne(id);
-            model.put("loggedUser",user);
-            model.put("userEmail",user.getEmail());
-            return "user";
-        }
-        /*if (securityContextHolderAwareRequestWrapper.isUserInRole("USER")){
-            return "user";
-        } else if (securityContextHolderAwareRequestWrapper.isUserInRole("ADMIN")){
+        } else if ("ADMIN".equals(currentUser.getRole().getTitle())){
             return "company";
         }
-        return null;*/
+        return "login";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")

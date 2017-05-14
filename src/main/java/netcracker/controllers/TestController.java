@@ -24,7 +24,7 @@ public class TestController {
     @Autowired
     private TestService testService;
 
-    @RequestMapping(value = "/test/{id}", method = RequestMethod.GET)
+    @RequestMapping(value ="/test/{id}", method = RequestMethod.GET)
     public ModelAndView getTestPageGET(@PathVariable Long id, ModelMap modelMap){
 
         ModelAndView model = new ModelAndView();

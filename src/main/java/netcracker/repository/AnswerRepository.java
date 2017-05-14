@@ -20,6 +20,4 @@ public interface AnswerRepository extends CrudRepository<Answer,Long> {
     @Override
     Answer save(Answer answer);
 
-
-
 }

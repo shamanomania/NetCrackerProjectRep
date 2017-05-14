@@ -11,7 +11,10 @@
 <head>
     <title>Netcracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-    <link href="../../css/stylesForLogin.css" rel="stylesheet"></link>
+    <style>
+        <%@include file="/css/stylesForLogin.css"%>
+    </style>
+    <%--<link href="../../css/stylesForLogin.css" rel="stylesheet"></link>--%>
     <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet"></link>
 </head>
 <body>

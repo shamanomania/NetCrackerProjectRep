@@ -41,6 +41,23 @@ public class PersonTest {
 
     //public void setId(PersonTestId id) {this.id = id;}
 
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
     public Date getDate() {return dateOfTest;}
 
     public void setDate(Date date) {this.dateOfTest = date;}

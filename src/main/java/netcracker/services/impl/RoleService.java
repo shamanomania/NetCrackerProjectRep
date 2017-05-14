@@ -23,18 +23,4 @@ public class RoleService implements IRoleService {
         this.roleRepository = roleRepository;
     }
 
-    @Override
-    public List<Role> getAll() {
-        return roleRepository.findAll();
-    }
-
-    @Override
-    public Role getFirst() {
-        return roleRepository.findAll().iterator().next();
-    }
-
-    @Override
-    public Role findByTitle(String title) {
-        return roleRepository.findByTitle(title);
-    }
 }

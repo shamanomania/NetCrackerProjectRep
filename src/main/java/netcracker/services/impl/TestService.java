@@ -3,6 +3,7 @@ package netcracker.services.impl;
 import netcracker.domain.entities.Answer;
 import netcracker.domain.entities.Question;
 import netcracker.domain.entities.Test;
+import netcracker.repository.PersonTestRepository;
 import netcracker.repository.TestRepository;
 import netcracker.services.ITestService;
 import netcracker.viewsForms.jsonMap.test.JsonResponse;
@@ -23,6 +24,12 @@ import java.util.List;
 public class TestService implements ITestService {
 
     private TestRepository testRepository;
+
+    @Autowired
+    PersonTestRepository personTestRepository;
+
+    @Autowired
+    PersonTestService personTestService;
 
     @Autowired
     public TestService(TestRepository testRepository){
@@ -92,53 +99,49 @@ public class TestService implements ITestService {
     }
 
     public JsonResponse testPassTest(netcracker.viewsForms.jsonMap.test.JsonTest jsonTest){
+        Integer countOfAnswers;
+        Integer countOfCorrectAnswers = 0;
+        String resultOfTest;
+
         System.out.println(testRepository.findOne(jsonTest.getId()));
         Test test = testRepository.findOne(jsonTest.getId());
         JsonResponse jsonResponse = new JsonResponse();
         JsonResponseAnswer jsonResponseAnswers[] = new JsonResponseAnswer[jsonTest.getAnswers().length];
-        //JsonResponseCorrectAnswer jsonResponseCorrectAnswers[] = new JsonResponseCorrectAnswer[jsonTest.getAnswers().length];
+        countOfAnswers = jsonTest.getAnswers().length;
         for (int i = 0; i < jsonTest.getAnswers().length; i++){
             JsonResponseAnswer answer = new JsonResponseAnswer();
 
             if (test.getQuestions().get(i).getType().equals("1")){
-                //System.out.println(jsonTest.getAnswers()[i]);
-                //answer.setId(jsonTest.getAnswers()[i].getAnswer());
-                //System.out.println(test.getQuestions().get(i).getAnswers().size());
-                for (int j=0; j < test.getQuestions().get(i).getAnswers().size(); j++){
+                if (jsonTest.getAnswers()[i].getAnswer().equals(test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle())){
+                    countOfCorrectAnswers++;
+                }
+                for (int j=0; j < test.getQuestions().get(i).getAnswers().size(); j++){//set chosen answer
                     if (test.getQuestions().get(i).getAnswers().get(j).getTitle().equals(jsonTest.getAnswers()[i].getAnswer())){
-                        //System.out.println(j);
                         answer.setId(String.valueOf(j));
                     }
-                    //System.out.println(test.getQuestions().get(i).getAnswers().get(j).getTitle() +"   "+ jsonTest.getAnswers()[i].getAnswer());
                 }
-                for (int j=0; j < test.getQuestions().get(i).getAnswers().size(); j++){
+                for (int j=0; j < test.getQuestions().get(i).getAnswers().size(); j++){//set correct answer
                     if (test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle().equals(test.getQuestions().get(i).getAnswers().get(j).getTitle())){
-                        //System.out.println(j);
                         answer.setId(answer.getId() + "," + j);
                     }
                 }
             }else if (test.getQuestions().get(i).getType().equals("2")){
-                if (jsonTest.getAnswers()[i].getAnswer().equals(test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle())){
-//                    System.out.println("верный кейс");
-//                    System.out.println("Верно: " + jsonTest.getAnswers()[i].getAnswer());
+                if (jsonTest.getAnswers()[i].getAnswer().equals(test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle())){//Form result is chosen correct
+                    countOfCorrectAnswers++;
                     answer.setId("Верно: " + jsonTest.getAnswers()[i].getAnswer());
-                }else {
-//                    System.out.println("неверный кейс");
-//                    System.out.println("Неверно: " + jsonTest.getAnswers()[i].getAnswer() + "Верно: " + test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle());
+                }else {//Form result is chosen incorrect
                     answer.setId("Неверно: " + jsonTest.getAnswers()[i].getAnswer() + ", верный ответ: " + test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle());
                 }
             }
             System.out.println(answer.getId());
-            /*if (jsonTest.getAnswers()[i].getAnswer().equals(test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle())){
-                System.out.println("Верно: " + jsonTest.getAnswers()[i].getAnswer());
-            }else {
-                System.out.println("Неверно: " + jsonTest.getAnswers()[i].getAnswer() + "Верно: " + test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle());
-            }*/
             jsonResponseAnswers[i] = answer;
 
         }
         jsonResponse.setAnswers(jsonResponseAnswers);
-        //jsonResponse.setCorrectAnswers(jsonResponseCorrectAnswers);
+        System.out.println(countOfAnswers + "   " + countOfCorrectAnswers);
+        resultOfTest = countOfCorrectAnswers + "/" + countOfAnswers;
+        personTestRepository.save(personTestService.matchTestToUser(test,resultOfTest));
+
         return jsonResponse;
     }
 

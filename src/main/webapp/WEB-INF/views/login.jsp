@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>Netcracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
     <link href="../../css/stylesForLogin.css" rel="stylesheet">
+    <style>
+        <%@include file="/css/stylesForLogin.css"%>
+    </style>
     <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet"></link>
 </head>
 <body>
@@ -16,8 +18,8 @@
         <div class="row">
 
             <div class="col-xs-12 text-left">
-                <a href="login.jsp"> <button class="btn">Sign in</button></a>
-                <a href="user_create.jsp"> <button class="btn">Sign up</button></a>
+                <%--<a href="login.jsp"> <button class="btn">Sign in</button></a>
+                <a href="user_create.jsp"> <button class="btn">Sign up</button></a>--%>
                 <form action="login" method="post">
                     <p>
                         <label class="label" for="email">Email address</label>

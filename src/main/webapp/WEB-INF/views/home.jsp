@@ -13,11 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         <%@include file="/css/stylesForIndex1.css"%>
-        header{
-
-        }
     </style>
-    <link href="../../css/stylesForIndex1.css" rel="stylesheet">
+    <%--<link href="../../css/stylesForIndex1.css" rel="stylesheet">--%>
     <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -26,16 +23,16 @@
 </h:head>
 
 <h:body>
-    <header   >
-        <div  ><img class="pull-left" src="<c:url value="../images/logo.png" />" alt="Netcracker"></div>
+    <header>
+        <div><img class="pull-left" src="<c:url value="/images/logo.png" />" alt="Netcracker"></div>
 
         <div>
             <nav class="navbar" role="navigation">
                 <ul class="nav navbar-nav">
-                    <li><a href="../home.html">О нас</a></li>
-                    <li class="active"><a href="/about/">Тесты</a></li>
+                    <li><a href="../home">О нас</a></li>
+                    <li class="active"><a href="/tests">Тесты</a></li>
                     <li><a href="/partners/">Компании</a></li>
-                    <li><a href="/partners/">Вход/Регистрация</a></li>
+                    <li><a href="/login">Вход/Регистрация</a></li>
                 </ul>
             </nav>
         </div>
