@@ -146,7 +146,39 @@
 
         }
 
-        function addQuestionField () {
+        function chooseAnswerTypeC(button) {
+            choseTypeFieldID = button.name;
+            choseTypeFieldID = choseTypeFieldID.toString().match(/\d+/g); //parseInt(choseTypeFieldID.slice(-1));//have last char(id of button) from string(button name)
+            $('<div>')
+                .attr('id', 'answer_' + total)
+                .append(
+                    $('<input>')
+                        .attr('type', 'hidden')
+                        .attr('name', 'questions[' + total + '][type]')
+                        .attr('value', '3')
+                )
+                .append(
+                    $('<input>')
+                        .attr('type', 'text')
+                        .attr('name', 'questions[' + total + '][answers][0]')
+                ).append('<br>')
+                .append(
+                    $('<input>')
+                        .attr('type', 'text')
+                        .attr('name', 'questions[' + total + '][answers][1]')
+                )
+                .append(
+                    $('<input>')
+                        .attr('type', 'hidden')
+                        .attr('name', 'questions[' + total + '][rightAnswers]')
+                        .attr('value', '1')
+                )
+                .appendTo('#question_' + choseTypeFieldID);
+
+            $('#answer_type_div' + choseTypeFieldID).remove();
+        }
+
+            function addQuestionField () {
             total++;
             $('<div>')
             .attr('id','question_'+total)
@@ -188,6 +220,17 @@
                             )
                             .append(
                                 'B'
+                            )
+                            .append(
+                                $('<input>')
+                                    .attr('type','radio')
+                                    .attr('name','answer_type'+total)
+                                    .attr('value','C')
+                                    .attr('id','answer_type'+total)
+                                    .attr('onclick','chooseAnswerTypeC(this)')
+                            )
+                            .append(
+                                'C'
                             )
                 )
             .appendTo('#test');

@@ -68,7 +68,14 @@
                                         .append(
                                             response.answers[i].id
                                         )
-                                )
+                                );
+                            $('#cAnswer_'+i+'_2')
+                                .append(
+                                    $('<p>')
+                                        .append(
+                                            response.answers[i].id
+                                        )
+                                );
                         }
 
                         answersF.push(response.answers[i].id);
@@ -94,6 +101,16 @@
                 <c:if test="${i.getType() eq '2' }">
                     <div>${i.getTitle()}</div>
                     <div id="bAnswer_${iterator.index}"><input type="text" name="answers[${iterator.index}]" /></div>
+                </c:if>
+
+                <c:if test="${i.getType() eq '3'}">
+                    <div>${i.getTitle()}</div>
+                    <div id="cAnswer_${iterator.index}_1"><input type="text" name="answers[${iterator.index}]" value="${i.getAnswers().get(0).getTitle()}"/></div>
+                    <%--<script>
+                        $('#cAnswer_${iterator.index}_1')
+                            .attr('value',${i.getAnswers().get(0).getTitle()})
+                    </script>--%>
+                    <div id="cAnswer_${iterator.index}_2"><input type="text" name="answers[${iterator.index}]" /></div>
                 </c:if>
             </div>
             </c:forEach>

@@ -132,6 +132,13 @@ public class TestService implements ITestService {
                 }else {//Form result is chosen incorrect
                     answer.setId("Неверно: " + jsonTest.getAnswers()[i].getAnswer() + ", верный ответ: " + test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle());
                 }
+            }else if (test.getQuestions().get(i).getType().equals("3")){
+                if (jsonTest.getAnswers()[i].getAnswer().equals(test.getQuestions().get(i).getCorrectAnswers().get(0).getTitle())){//Form result is chosen correct
+                    countOfCorrectAnswers++;
+                    answer.setId("Верно!");
+                }else {//Form result is chosen incorrect
+                    answer.setId("Неверно!");
+                }
             }
             System.out.println(answer.getId());
             jsonResponseAnswers[i] = answer;

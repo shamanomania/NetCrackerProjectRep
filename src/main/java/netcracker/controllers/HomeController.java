@@ -25,4 +25,9 @@ public class HomeController {
         return "ide";
     }
 
+    @RequestMapping("/ide2")
+    public String getIDE2Page(){
+        return "ide2";
+    }
+
 }

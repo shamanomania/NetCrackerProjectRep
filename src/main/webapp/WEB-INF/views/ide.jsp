@@ -13,8 +13,8 @@
 <script src="https://repl.it/lib/api.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-    TOKEN   = { time_created: 1493666998000,
-        msg_mac: 'ZnRDMT0HMR5Tpk1orwN2jQOr0mFJ1i92eEPKc6dBS5E=' };
+    TOKEN   = { time_created: 1494844313000,
+        msg_mac: 'JtqiNFpRsMzyp9018405/dwEIs6V0y8cZSJyNymv4Qk=' };
 
     var repl = new ReplitClient('api.repl.it', '80', 'java', TOKEN);
 
