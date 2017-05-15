@@ -42,7 +42,7 @@
             <%--<form:form commandName="testsForm" modelAttribute="testsForm">--%>
                 <c:forEach items="${tests}" var="test">
 
-                    <article class="col-md-7 col-xs-10">
+                    <article class="col-md-3 col-xs-4">
                         <div class="text-hide"><img src="<c:url value="/images/apple.png" />" class="img-responsive" alt="Netcracker"></div>
                         <div class="text-info">
                             <p>
@@ -53,7 +53,7 @@
                     </article>
                 </c:forEach>
             <%--</form:form>--%>
-            <article class="col-md-7 col-xs-10">
+            <article class="col-md-3 col-xs-4">
                 <div class="text-hide"><img src="<c:url value="/images/apple.png" />" class="img-responsive" alt="Netcracker"></div>
                 <div class="text-info">
                 <p>
@@ -63,7 +63,7 @@
                     nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
                 <button class="btn-default">Пройти тест <img src="<c:url value="/images/certificate.png" />" class="img-responsive" alt="Netcracker"></button></div>
             </article>
-            <article class="col-md-7 col-xs-10">
+            <article class="col-md-3 col-xs-4">
                 <div class="text-hide"><img src="../../img/android.png" class="img-responsive" alt="Netcracker"></div>
                 <div class="text-info">
                 <p>
@@ -73,7 +73,7 @@
                     nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
                     <button class="btn-default">Пройти тест <img src="../../img/certificate.png" class="img-responsive" alt="Netcracker"></button></div>
             </article>
-            <article class="col-md-7 col-xs-10">
+            <article class="col-md-3 col-xs-4">
                 <div class="text-hide"><img src="../../img/ruby.png" class="img-responsive" alt="Netcracker"></div>
                 <div class="text-info"><p>
 
@@ -82,7 +82,7 @@
                     nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
                     <button class="btn-default">Пройти тест <img src="../../img/certificate.png" class="img-responsive" alt="Netcracker"></button></div>
             </article>
-            <article class="col-md-7 col-xs-10">
+            <article class="col-md-3 col-xs-4">
                 <div class="text-hide"><img src="../../img/css.png" class="img-responsive" alt="Netcracker"></div>
                 <div class="text-info">
                 <p>
@@ -92,7 +92,7 @@
                     nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
                     <button class="btn-default">Пройти тест <img src="../../img/certificate.png" class="img-responsive" alt="Netcracker"></button></div>
             </article>
-            <article class="col-md-7 col-xs-10">
+            <article class="col-md-3 col-xs-4">
                 <div class="text-hide"><img src="../../img/java.png" class="img-responsive" alt="Netcracker"></div>
                 <div class="text-info">
                 <p>
@@ -102,7 +102,7 @@
                     nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
                     <button class="btn-default">Пройти тест <img src="../../img/certificate.png" class="img-responsive" alt="Netcracker"></button></div>
             </article>
-            <article class="col-md-7 col-xs-10">
+            <article class="col-md-3 col-xs-4">
                 <div class="text-hide"><img src="../../img/ruby.png" class="img-responsive" alt="Netcracker"></div>
                 <div class="text-info">
                 <p> Описание:

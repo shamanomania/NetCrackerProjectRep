@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <head>
     <title>Netcracker</title>
@@ -42,13 +43,13 @@
 
                 <form action="/signin/facebook" method="POST">
                     <input type="hidden" name="scope" value="public_profile" />
-                    <input type="submit" value="Login using Facebook"/>
+                    <input  class="social-icon facebook btn" type="submit" value="Login using Facebook"/>
                 </form>
 
             </div>
             <div class="col-md-5 col-xs-5 text-center">
                 <p class="active">Test your skills!</p>
-                <img src="http://imgdepo.com/id/10486399.jpg" border="0" alt="!"/>
+                <img class="pull-left" src="<c:url value="/images/login.jpg" />" alt="Netcracker">
 
             </div>
         </div>
