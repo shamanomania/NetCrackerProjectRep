@@ -40,10 +40,10 @@
                 </tr >
                 <tr>
                     <td class="label"><br>Role:<br><%--<form:password class="input-lg" path="role"/>--%>
-                        <select size="1" class="input-lg lable">
-                        <option value="1">USER</option>
-                        <option value="2">ADMIN</option>
-                    </select></td>
+                        <form:select path="role" size="1" class="input-lg lable">
+                        <form:option value="1">USER</form:option>
+                        <form:option value="2">ADMIN</form:option>
+                    </form:select></td>
 
                         <td><span class="error"><form:errors path="role" />
                             </span></td>
