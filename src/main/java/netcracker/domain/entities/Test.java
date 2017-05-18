@@ -26,6 +26,10 @@ public class Test {
             inverseJoinColumns = @JoinColumn(name = "test_id"))
     private List<Certificate> certificates;
 
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
+
     @ManyToMany(mappedBy = "tests",cascade = CascadeType.ALL)
     private List<Question> questions;
 

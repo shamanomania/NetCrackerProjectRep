@@ -102,6 +102,8 @@ public class TestService implements ITestService {
         Integer countOfAnswers;
         Integer countOfCorrectAnswers = 0;
         String resultOfTest;
+        System.out.println(jsonTest.getcPartResult());
+        String cPartResult = jsonTest.getcPartResult();
 
         System.out.println(testRepository.findOne(jsonTest.getId()));
         Test test = testRepository.findOne(jsonTest.getId());
@@ -142,12 +144,11 @@ public class TestService implements ITestService {
             }
             System.out.println(answer.getId());
             jsonResponseAnswers[i] = answer;
-
         }
         jsonResponse.setAnswers(jsonResponseAnswers);
         System.out.println(countOfAnswers + "   " + countOfCorrectAnswers);
         resultOfTest = countOfCorrectAnswers + "/" + countOfAnswers;
-        personTestRepository.save(personTestService.matchTestToUser(test,resultOfTest));
+        personTestRepository.save(personTestService.matchTestToUser(test,resultOfTest,cPartResult));
 
         return jsonResponse;
     }

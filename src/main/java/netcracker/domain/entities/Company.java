@@ -36,6 +36,9 @@ public class Company {
 //            inverseJoinColumns=@JoinColumn(name = "CompanyId", referencedColumnName = "ID"))
 //    private List<Person> persons;
 
+    @OneToMany(mappedBy = "company")
+    private List<Test> tests;
+
     @OneToMany(mappedBy = "company")//Маппинг происходит на поле(не нейм)
     private List<Person> persons;
 

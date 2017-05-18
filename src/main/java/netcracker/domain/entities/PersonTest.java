@@ -2,7 +2,6 @@ package netcracker.domain.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.List;
 
 /**
  * Created by Sid775 on 09.02.2017.
@@ -22,6 +21,9 @@ public class PersonTest {
 
     @Column (name = "RESULT")
     private String result;
+
+    @Column (name = "CPartAnswer")
+    private String cPartAnswer;
 
     //@OneToMany(mappedBy = "personTest")
     //private List<Person> persons;
@@ -65,6 +67,14 @@ public class PersonTest {
     public String getResult() {return result;}
 
     public void setResult(String result) {this.result = result;}
+
+    public String getcPartAnswer() {
+        return cPartAnswer;
+    }
+
+    public void setcPartAnswer(String cPartAnswer) {
+        this.cPartAnswer = cPartAnswer;
+    }
 
     @Override
     public String toString() {
