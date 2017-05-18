@@ -53,7 +53,6 @@ public class UserController {
         Long id = currentUser.getUser().getId();
         Person user = personRepository.findOne(id);
         model.put("loggedUser",user);
-        model.put("userEmail",user.getEmail());
         model.put("testsPassedByUser",personTestRepository.findByPersonId(id));
 
         if ("USER".equals(currentUser.getRole().getTitle())){
