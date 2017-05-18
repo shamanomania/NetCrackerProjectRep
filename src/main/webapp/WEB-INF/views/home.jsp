@@ -33,6 +33,7 @@
                     <li class="active"><a href="/tests">Тесты</a></li>
                     <li><a href="/partners/">Компании</a></li>
                     <li><a href="/login">Вход/Регистрация</a></li>
+                    <li><a href="/login">Личный кабинет</a></li>
                 </ul>
             </nav>
         </div>
