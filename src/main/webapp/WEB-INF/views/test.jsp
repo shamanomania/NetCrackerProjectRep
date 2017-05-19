@@ -19,7 +19,8 @@
         var id;
 
         function checkInput() {
-            if ($('div:not(:has(:radio:checked))').length) {
+
+            if ($('div[name^=answer_]:not(:has(:radio:checked))').length) {
                 alert("At least one group is blank");
             }
         }
@@ -113,21 +114,23 @@
                             response.answers[i].id = response.answers[i].id.toString().match(/\d+/g);
                             if (response.answers[i].id[0] != response.answers[i].id[1]){
                                 $('#aAnswer_'+ i +'_'+response.answers[i].id[0])
-                                    .append(
-                                        $('<p>')
-                                            .append(
+                                    /*.append(
+                                        $('<p>')*/
+                                            /*.append(
                                                 "Выбранный ответ"
-                                            )
-                                    );
+                                            )*/
+                                    .after("Выбранный ответ");
+//                                    );
                             }
 
                             $('#aAnswer_'+ i +'_'+response.answers[i].id[1])
-                                .append(
-                                    $('<p>')
-                                        .append(
+                                /*.append(
+                                    $('<p>')*/
+                                        /*.append(
                                             "Верный ответ"
-                                        )
-                                );
+                                        )*/
+                                .after("Верный ответ");
+//                                );
                         }else {
                             $('#bAnswer_'+i)
                                 .append(
@@ -157,11 +160,11 @@
         <script>id = ${test.getId()};</script>
         <input type="hidden" name="id" value="${id}">
         <c:forEach var="i" items="${test.getQuestions()}" varStatus="iterator">
-            <div id="answer_${iterator.index}">
+            <div id="answer_${iterator.index}" name="answer_${iterator.index}">
                 <c:if test="${i.getType() eq '1' }">
                     <div>${i.getTitle()}</div>
                     <c:forEach items="${i.getAnswers()}" var="answer" varStatus="innerIterator">
-                        <div id="aAnswer_${iterator.index}_${innerIterator.index}"><input type="radio" name="answers[${iterator.index}]" id="answers[${iterator.index}]" value="${answer.getTitle()}"/>${answer.getTitle()}</div>
+                        <%--<div id="aAnswer_${iterator.index}_${innerIterator.index}">--%><label id="aAnswer_${iterator.index}_${innerIterator.index}"><input type="radio" name="answers[${iterator.index}]" id="answers[${iterator.index}]" <%--id="aAnswer_${iterator.index}_${innerIterator.index}"--%> value="${answer.getTitle()}"/>${answer.getTitle()}</label> <br><%--</div>--%>
                     </c:forEach>
                 </c:if>
 
