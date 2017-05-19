@@ -127,7 +127,6 @@ public class FacebookController {
         String email = obj.getString("email");
         String lastname = obj.getString("last_name");
 
-
         Person person = userService.findByEmail(email);
         //Register user
         String password = randomAlphabetic(8);
