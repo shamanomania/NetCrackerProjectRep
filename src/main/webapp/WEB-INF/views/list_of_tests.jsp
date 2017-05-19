@@ -41,7 +41,7 @@
 
         <div class="row">
             <%--<form:form commandName="testsForm" modelAttribute="testsForm">--%>
-                <c:forEach items="${tests}" var="test">
+                <c:forEach items="${tests}" var="passedTest">
 
                     <article class="col-md-3 col-xs-4">
                         <div class="text-hide"><img src="<c:url value="/images/apple.png" />" class="img-responsive" alt="Netcracker"></div>
@@ -49,8 +49,8 @@
                             <p>
                                 Описание:
                             </p>
-                            ${test.getTitle()}<br>
-                            <form method="get" action="/test/${test.getId()}"><button class="btn-default">Пройти тест <img src="<c:url value="/images/certificate.png" />" class="img-responsive" alt="Netcracker" ></button></form></div>
+                            ${passedTest.getTitle()}<br>
+                            <form method="get" action="/test/${passedTest.getId()}"><button class="btn-default">Пройти тест <img src="<c:url value="/images/certificate.png" />" class="img-responsive" alt="Netcracker" ></button></form></div>
                     </article>
                 </c:forEach>
             <%--</form:form>--%>

@@ -10,6 +10,7 @@ public class JsonTest {
 
     private Long id;
     private JsonAnswer[] answers;
+    private String cPartResult;
 
     public Long getId() {
         return id;
@@ -25,6 +26,14 @@ public class JsonTest {
 
     public void setAnswers(JsonAnswer[] answers) {
         this.answers = answers;
+    }
+
+    public String getcPartResult() {
+        return cPartResult;
+    }
+
+    public void setcPartResult(String cPartResult) {
+        this.cPartResult = cPartResult;
     }
 
     @Override

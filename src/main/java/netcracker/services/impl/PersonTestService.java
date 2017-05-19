@@ -24,7 +24,7 @@ public class PersonTestService implements IPersonTestService {
     public PersonTestService() {
     }
 
-    public PersonTest matchTestToUser(Test test,String resultOfTest){
+    public PersonTest matchTestToUser(Test test,String resultOfTest,String cPartAnswer){
         CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         PersonTest personTest = new PersonTest();
         Person person = personRepository.findOne(currentUser.getId());
@@ -32,6 +32,7 @@ public class PersonTestService implements IPersonTestService {
         personTest.setPerson(person);
         personTest.setDate( new java.sql.Date( new Date().getTime()));
         personTest.setResult(resultOfTest);
+        personTest.setcPartAnswer(cPartAnswer);
         return personTest;
     }
 }
