@@ -49,6 +49,14 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)//////////////////////////////////
     public String getUserPage(Map<String,Object> model) {
 
+       /* if(SecurityContextHolder.getContext().getAuthentication().getPrincipal().getClass().getSimpleName().equals("String")) {
+            String currName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Person user = personRepository.findByMail(currName);
+            model.put("loggedUser",user);
+            model.put("userEmail",user.getEmail());
+            return "user";
+        }*/
+
         CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long id = currentUser.getUser().getId();
         Person user = personRepository.findOne(id);

@@ -41,9 +41,24 @@
                     <button type="button" class="btn" onclick="location.href='/signup'">Sign up</button>
                 </form>
 
-                <form action="/signin/facebook" method="POST">
-                    <input type="hidden" name="scope" value="public_profile" />
-                    <input  class="social-icon facebook btn" type="submit" value="Login using Facebook"/>
+
+                <form name="Login using Facebook" action="facebook/signin" >
+                    <button type="submit" class="social-icon vk btn">
+                        Login using Facebook
+                    </button>
+                </form>
+
+
+                <form name="VkLoginForm" action="/hh/signin" >
+                    <button type="submit" class="social-icon vk btn">
+                       Login using HeadHunter
+                    </button>
+                </form>
+
+                <form name="googleLoginForm" method="post" action="/google_oauth2_login">
+                    <button type="submit" class="social-icon google btn">
+                        Login using Google
+                    </button>
                 </form>
 
             </div>

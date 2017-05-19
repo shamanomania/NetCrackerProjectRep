@@ -1,11 +1,24 @@
 package netcracker.domain.entities;
 
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Sid775 on 12.03.2017.
  */
 public class CurrentUser extends org.springframework.security.core.userdetails.User {
+
+    public static final List<GrantedAuthority> DEFAULT_ROLES;
+
+    static {
+        DEFAULT_ROLES = new ArrayList<GrantedAuthority>(1);
+        GrantedAuthority defaultRole = new SimpleGrantedAuthority("USER");
+        DEFAULT_ROLES.add(defaultRole);
+    }
 
     private Person user;
 
