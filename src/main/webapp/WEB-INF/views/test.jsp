@@ -17,24 +17,48 @@
     </script>
     <script>
         var id;
+        var testHaveCType = false;
 
+        function passTest() {
+            var obj = $("#testForm").serializeJSON();
+            console.log(obj);
+            if (checkInput()){
+                blockInput();
+                if (testHaveCType){
+                    passTestWithC();
+                }else {
+                    passTestWithoutC();
+                }
+            }else {
+                alert("Выбраны ответы не на все вопросы!");
+            }
+        }
+        
+        function blockInput() {
+            $(':input:radio').attr('onclick','return false;');
+            $(':text').prop('readonly',true);
+        }
+        
         function checkInput() {
-
-            if ($('div[name^=answer_]:not(:has(:radio:checked))').length) {
-                alert("At least one group is blank");
+            if ($('div[name^=answer_]:not(:has(:radio:checked))').filter($('div[name^=answer_]:has(input:radio)')).length) {
+                console.log($('div[name^=answer_]:not(:has(:radio:checked))').filter($('div[name^=answer_]:has(input:radio)')).length);
+                return false;
+            }else {
+                console.log($('div[name^=answer_]:not(:has(:radio:checked))').filter($('div[name^=answer_]:has(input:radio)')).length);
+                return true;
             }
         }
 
-        function getCPartAnswer() {
+        function passTestWithC() {
             var TOKEN = '047f8b1993984d03550a8acd891bd114';
             var finish = false;
 
             var data = {
                 "language": 10,
-                "sourceCode":$('#cPartCode').val()/*'\#include<iostream>\nusing namespace std;\nint main(){\n\tcout << \"Hello!\" << endl;\n\treturn 0;\n}\n'*/
+                "sourceCode":$('#cPartCode').val()
             };
 
-            var load = function(){
+            var loadIDEResult = function(){
                 var extra = '';
                 if( finish ){
                     extra = '&withSource=1&withInput=1&withOutput=1&withStderr=1&withCmpinfo=1'
@@ -47,17 +71,17 @@
 
                         if(!finish){
                             if(data['status'] != 0){
-                                setTimeout(load, 1000);
+                                setTimeout(loadIDEResult, 1000);
                             } else {
                                 finish = true;
-                                setTimeout(load, 1);
+                                setTimeout(loadIDEResult, 1);
                             }
                         } else {
                             console.log(JSON.stringify(data));
                             $('#cPartResult')
                                 .attr('value',data.output);
                             console.log()
-                            passTest();
+                            passTestWithoutC();
                         }
                     },
                     error: function(data){
@@ -75,7 +99,7 @@
                 success: function(data){
                     sId = data['id'];
                     console.log(sId);
-                    load();
+                    loadIDEResult();
                 },
                 error: function(data){
                     console.log("connect error");
@@ -83,11 +107,10 @@
             });
         }
 
-        function passTest() {
-
+        function passTestWithoutC() {
+            checkInput();
             var obj = $("#testForm").serializeJSON();
             console.log(obj);
-            checkInput();
             obj = JSON.stringify(obj);
             console.log(obj);
 
@@ -103,34 +126,15 @@
                 success: function(response) {
                     console.log("test finished " + response.answers[0].id);
                     for (var i =0; i <response.answers.length; i++){
-                        /*$('#answer_'+i)
-                            .append(
-                                $('<p>')
-                                    .append(
-                                        response.answers[i].id
-                                    )
-                            )*/
                         if (response.answers[i].id.length <= 3){
                             response.answers[i].id = response.answers[i].id.toString().match(/\d+/g);
                             if (response.answers[i].id[0] != response.answers[i].id[1]){
                                 $('#aAnswer_'+ i +'_'+response.answers[i].id[0])
-                                    /*.append(
-                                        $('<p>')*/
-                                            /*.append(
-                                                "Выбранный ответ"
-                                            )*/
                                     .after("Выбранный ответ");
-//                                    );
                             }
 
                             $('#aAnswer_'+ i +'_'+response.answers[i].id[1])
-                                /*.append(
-                                    $('<p>')*/
-                                        /*.append(
-                                            "Верный ответ"
-                                        )*/
                                 .after("Верный ответ");
-//                                );
                         }else {
                             $('#bAnswer_'+i)
                                 .append(
@@ -164,7 +168,7 @@
                 <c:if test="${i.getType() eq '1' }">
                     <div>${i.getTitle()}</div>
                     <c:forEach items="${i.getAnswers()}" var="answer" varStatus="innerIterator">
-                        <%--<div id="aAnswer_${iterator.index}_${innerIterator.index}">--%><label id="aAnswer_${iterator.index}_${innerIterator.index}"><input type="radio" name="answers[${iterator.index}]" id="answers[${iterator.index}]" <%--id="aAnswer_${iterator.index}_${innerIterator.index}"--%> value="${answer.getTitle()}"/>${answer.getTitle()}</label> <br><%--</div>--%>
+                        <label id="aAnswer_${iterator.index}_${innerIterator.index}"><input type="radio" name="answers[${iterator.index}]" id="answers[${iterator.index}]" value="${answer.getTitle()}"/>${answer.getTitle()}</label> <br>
                     </c:forEach>
                 </c:if>
 
@@ -175,17 +179,19 @@
 
                 <c:if test="${i.getType() eq '3'}">
                     <div>${i.getTitle()}</div>
-                    <div id="cAnswer_${iterator.index}_1"><input type="text" name="cPartResult" id="cPartCode" <%--value="${i.getAnswers().get(0).getTitle()}"--%>/></div>
-                    <%--<script>
-                        $('#cAnswer_${iterator.index}_1')
-                            .attr('value',${i.getAnswers().get(0).getTitle()})
-                    </script>--%>
-                    <div id="cAnswer_${iterator.index}_2"><input type="text" name="answers[${iterator.index}]" id="cPartResult"/></div>
+                    <div id="cAnswer_${iterator.index}_1"><input type="text" name="cPartResult" id="cPartCode" /></div>
+                    <div id="cAnswer_${iterator.index}_2"><input type="text" name="answers[${iterator.index}]" id="cPartResult" hidden/></div>
+                    <script>
+                        testHaveCType = true;
+                    </script>
                 </c:if>
             </div>
             </c:forEach>
-        <button class="btn center" type="submit" onclick="passTest()">End test</button>
-        <button type="button" onclick="getCPartAnswer()" >Pass test</button>
+        <script>
+            console.log(testHaveCType);
+        </script>
+        <button class="btn center" type="submit" onclick="passTestWithoutC()">End test</button>
+        <button type="button" onclick="passTest()" >Pass test</button>
     </form:form>
 </body>
 </html>

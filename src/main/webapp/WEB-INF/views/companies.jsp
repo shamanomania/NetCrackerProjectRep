@@ -9,9 +9,9 @@
 <head>
     <title>Netcracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<style>
+    <style>
         <%@include file="/css/stylesForCompanies.css"%>
-    </style>-->
+    </style>
     <%--<link href="../../css/stylesForCompanies.css" rel="stylesheet">--%>
     <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -28,7 +28,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="../home">О нас</a></li>
                 <li class="active"><a href="/about/">Тесты</a></li>
-                <li><a href="/partners/">Компании</a></li>
+                <li><a href="/companies">Компании</a></li>
                 <li><a href="/login">Вход/Регистрация</a></li>
                 <li><a href="/login">Личный кабинет</a></li>
             </ul>
@@ -41,7 +41,7 @@
 
     <div class="row">
         <%--<form:form commandName="testsForm" modelAttribute="testsForm">--%>
-        <c:forEach items="${tests}" var="test">
+        <c:forEach items="${companies}" var="company">
 
             <article class="col-md-3 col-xs-4">
                 <div class="text-hide"><img src="<c:url value="/images/apple.png" />" class="img-responsive" alt="Netcracker"></div>
@@ -49,8 +49,8 @@
                     <p>
                         Описание:
                     </p>
-                    ${test.getTitle()}<br>
-                    <form method="get" action="/test/${test.getId()}"><button class="btn-default">Информация</button></form></div>
+                    ${company.getTitle()}<br>
+                    <form method="get" action="/company/${company.getId()}"><button class="btn-default">Информация</button></form></div>
             </article>
         </c:forEach>
         <%--</form:form>--%>
