@@ -37,7 +37,7 @@
             <button class="btn-block">Создать компанию</button>
             <button class="btn-block">На главную</button>
         </div>
-        <div class="col-md-9 col-xs-9"><p class="text-center">Your contribution</p>
+        <div class="col-md-9 col-xs-9"><p class="text-center">Личный кабинет</p>
             <div id="exTab1">
                 <ul class="nav nav-pills">
                     <li class="active">

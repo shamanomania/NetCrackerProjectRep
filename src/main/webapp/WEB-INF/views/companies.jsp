@@ -37,7 +37,7 @@
 </header>
 
 <div class="wrapper container">
-    <div class="text-center">Our companies</div>
+    <div class="text-center">Наши компании</div>
 
     <div class="row">
         <%--<form:form commandName="testsForm" modelAttribute="testsForm">--%>
