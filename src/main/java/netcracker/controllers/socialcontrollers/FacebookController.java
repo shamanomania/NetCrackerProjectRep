@@ -116,15 +116,16 @@ public class FacebookController {
         final Response resourceResponse = oauthRequest.send();
 
        // logger.info("code:{}", resourceResponse.getCode());
-     //   logger.info("body:{}", resourceResponse.getBody());
+       //   logger.info("body:{}", resourceResponse.getBody());
       //  logger.info("message:{}",resourceResponse.getMessage());
 
+
        final JSONObject obj = new JSONObject(resourceResponse.getBody());
-     //  logger.info("json:{}" ,obj.toString());
+       logger.info("json:{}" ,obj.toString());
 
         String facdebookId = obj.getString("id");
         String name = obj.getString("first_name");
-        String email = obj.getString("email");
+        String email = obj.getString("name").toLowerCase().replaceAll(" ","")+"@facebook.com";
         String lastname = obj.getString("last_name");
 
         Person person = userService.findByEmail(email);

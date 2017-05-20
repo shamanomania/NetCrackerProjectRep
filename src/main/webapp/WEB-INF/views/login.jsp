@@ -42,12 +42,11 @@
                 </form>
 
 
-                <form name="Login using Facebook" action="facebook/signin" >
-                    <button type="submit" class="social-icon vk btn">
+                    <form name="FbLoginForm" action="/facebook/signin" >
+                    <button type="submit" class="btn btn-block btn-social btn-facebook">
                         Login using Facebook
                     </button>
                 </form>
-
 
                 <form name="VkLoginForm" action="/hh/signin" >
                     <button type="submit" class="social-icon vk btn">
@@ -56,7 +55,7 @@
                 </form>
 
                 <form name="googleLoginForm" method="post" action="/google_oauth2_login">
-                    <button type="submit" class="social-icon google btn">
+                    <button type="submit" class="btn btn-block btn-social btn-google">
                         Login using Google
                     </button>
                 </form>
