@@ -76,6 +76,10 @@
             $('<div>')
             .attr('id','answer_'+questionNumber)
                 .append(
+                    $('<p>')
+                        .append('Введите варианты ответа, правильный отметьте чекбоксом:')
+                )
+                .append(
                     $('<input class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + questionNumber + '][type]')
@@ -122,6 +126,10 @@
             $('<div>')
                 .attr('id','answer_'+total)
                 .append(
+                    $('<p>')
+                        .append('Введите верный ответ:')
+                )
+                .append(
                     $('<input class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][type]')
@@ -150,6 +158,10 @@
             choseTypeFieldID = choseTypeFieldID.toString().match(/\d+/g); //parseInt(choseTypeFieldID.slice(-1));//have last char(id of button) from string(button name)
             $('<div>')
                 .attr('id', 'answer_' + total)
+                .append(
+                    $('<p>')
+                        .append('Введите верный ответ(то, что должна будет вывести программа пользователя):')
+                )
                 .append(
                     $('<input class="input-lg text-center">')
                         .attr('type', 'hidden')
@@ -182,11 +194,11 @@
             var $questionBlock = $('<div>')
                 .attr('id','question_'+total)
                 .css({lineHeight:'20px'})
-                .append('Title')
+                .append('Введите вопрос')
                 .append(
                     $('<input class="btn-defaul">')
                         .attr('type', 'button')
-                        .attr('value', 'delete test')
+                        .attr('value', 'Удалить вопрос')
                         .attr('onclick', '$(\'#question_' + total + '\').remove();')
                 )
                 .append('</br>')
@@ -198,6 +210,10 @@
 
                 var $typeBlock = $('<div>')
                     .attr('id','answer_type_div'+total)
+                    .append(
+                        $('<p>')
+                            .append('Выберите вид ответа:')
+                    )
                     .append(
                         $('<input>')
                             .attr('type','radio')
@@ -272,7 +288,7 @@
         <form:form action="/tests/create" method="post" commandName="testCreateForm" modelAttribute="testCreateForm"
                    name="testCreateForm" id="testCreateForm">
             <div id="test">
-
+                <p>Введите описание теста</p>
                 <input type="text" name="OfTest" class="input-lg text-center">
             </div>
             <br/>
