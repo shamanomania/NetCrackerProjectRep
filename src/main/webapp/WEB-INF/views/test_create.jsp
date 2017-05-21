@@ -17,8 +17,9 @@
 
         var total = -1;
         var choseTypeFieldID;
+        var cChoosen = false;
 
-        function check() {
+        function check(){
             var obj = $("#testCreateForm").serializeJSON();
             console.log(obj);
             obj = JSON.stringify(obj);
@@ -29,7 +30,7 @@
                 contentType: "application/json",
                 dataType: "json",
                 data: obj,
-                success: function (obj) {
+                success: function(obj) {
                     alert(obj.toString());
                 }
             });
@@ -37,24 +38,24 @@
 
         function addAnswer(field) {
             var choseAddAnswerFieldID = field.name;
-            var choseAddAnswerID;//= parseInt(choseAddAnswerFieldID.slice(-2,-1));
+            var choseAddAnswerID ;
             choseAddAnswerID = choseAddAnswerFieldID.toString().match(/\d+/g);
             console.log(choseAddAnswerID);
 
-            $('input[name=questions\\[' + choseAddAnswerID[0] + '\\]\\[answers\\]\\[' + choseAddAnswerID[1] + '\\]]').removeAttr('onclick');
-            $('input[name=questions\\[' + choseAddAnswerID[0] + '\\]\\[answers\\]\\[' + choseAddAnswerID[1] + '\\]]').removeAttr('placeholder');
+            $('input[name=questions\\['+choseAddAnswerID[0]+'\\]\\[answers\\]\\['+choseAddAnswerID[1]+'\\]]').removeAttr('onclick');
+            $('input[name=questions\\['+choseAddAnswerID[0]+'\\]\\[answers\\]\\['+choseAddAnswerID[1]+'\\]]').removeAttr('placeholder');
 
-            $('#answer_' + choseAddAnswerID[0])
+            $('#answer_'+choseAddAnswerID[0])
                 .append(
-                    $('<input >')
-                        .attr('type', 'radio')
-                        .attr('name', 'questions[' + choseAddAnswerID[0] + '][rightAnswers]')
-                        .attr('value', choseAddAnswerID[1])
+                    $('<input>')
+                        .attr('type','radio')
+                        .attr('name','questions['+choseAddAnswerID[0]+'][rightAnswers]')
+                        .attr('value',choseAddAnswerID[1])
                 );
 
             ++choseAddAnswerID[1];
 
-            $('#answer_' + choseAddAnswerID[0]).append('<br>');
+            $('#answer_'+choseAddAnswerID[0]).append('<br>');
 
             console.log(choseAddAnswerID);
             $('<input class="input-lg text-center">')
@@ -73,7 +74,7 @@
 
 
             $('<div>')
-                .attr('id', 'answer_' + questionNumber)
+            .attr('id','answer_'+questionNumber)
                 .append(
                     $('<input class="input-lg text-center">')
                         .attr('type', 'hidden')
@@ -86,10 +87,10 @@
                         .attr('name', 'questions[' + questionNumber + '][answers][0]')
                 )
                 .append(
-                    $('<input >')
-                        .attr('type', 'radio')
-                        .attr('name', 'questions[' + questionNumber + '][rightAnswers]')
-                        .attr('value', '0')
+                    $('<input>')
+                        .attr('type','radio')
+                        .attr('name','questions['+questionNumber+'][rightAnswers]')
+                        .attr('value','0')
                 ).append('<br>')
                 .append(
                     $('<input class="input-lg text-center">')
@@ -97,10 +98,10 @@
                         .attr('name', 'questions[' + questionNumber + '][answers][1]')
                 )
                 .append(
-                    $('<input >')
-                        .attr('type', 'radio')
-                        .attr('name', 'questions[' + questionNumber + '][rightAnswers]')
-                        .attr('value', '1')
+                    $('<input>')
+                        .attr('type','radio')
+                        .attr('name','questions['+questionNumber+'][rightAnswers]')
+                        .attr('value','1')
                 ).append('<br>')
                 .append(
                     $('<input class="input-lg text-center">')
@@ -119,7 +120,7 @@
             choseTypeFieldID = button.name;
             choseTypeFieldID = choseTypeFieldID.toString().match(/\d+/g); //parseInt(choseTypeFieldID.slice(-1));//have last char(id of button) from string(button name)
             $('<div>')
-                .attr('id', 'answer_' + total)
+                .attr('id','answer_'+total)
                 .append(
                     $('<input class="input-lg text-center">')
                         .attr('type', 'hidden')
@@ -144,6 +145,7 @@
         }
 
         function chooseAnswerTypeC(button) {
+            cChoosen = true;
             choseTypeFieldID = button.name;
             choseTypeFieldID = choseTypeFieldID.toString().match(/\d+/g); //parseInt(choseTypeFieldID.slice(-1));//have last char(id of button) from string(button name)
             $('<div>')
@@ -158,29 +160,29 @@
                     $('<input class="input-lg text-center">')
                         .attr('type', 'text')
                         .attr('name', 'questions[' + total + '][answers][0]')
-                ).append('<br>')
-                .append(
-                    $('<input class="input-lg text-center">')
+                )/*.append('<br>')*/
+                /*.append(
+                    $('<input>')
                         .attr('type', 'text')
                         .attr('name', 'questions[' + total + '][answers][1]')
-                )
+                )*/
                 .append(
                     $('<input class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][rightAnswers]')
-                        .attr('value', '1')
+                        .attr('value', '0')
                 )
                 .appendTo('#question_' + choseTypeFieldID);
 
             $('#answer_type_div' + choseTypeFieldID).remove();
         }
 
-        function addQuestionField() {
+            function addQuestionField () {
             total++;
-            $('<div>')
-                .attr('id', 'question_' + total)
-                .css({lineHeight: '20px'})
-                .append('Title&nbsp;&nbsp;&nbsp;')
+            var $questionBlock = $('<div>')
+                .attr('id','question_'+total)
+                .css({lineHeight:'20px'})
+                .append('Title')
                 .append(
                     $('<input class="btn-defaul">')
                         .attr('type', 'button')
@@ -189,48 +191,58 @@
                 )
                 .append('</br>')
                 .append(
-                    $('<input class="input-lg text-center">')
-                        .attr('type', 'text')
-                        .attr('name', 'questions[' + total + '][question]')
-                )
+                    $('<input>')
+                        .attr('type','text')
+                        .attr('name','questions['+total+'][question]')
+                );
+
+                var $typeBlock = $('<div>')
+                    .attr('id','answer_type_div'+total)
+                    .append(
+                        $('<input>')
+                            .attr('type','radio')
+                            .attr('name','answer_type'+total)
+                            .attr('value','A')
+                            .attr('id','answer_type'+total)
+                            .attr('onclick','chooseAnswerTypeA(this)')
+                    )
+                    .append(
+                        'A'
+                    )
+                    .append(
+                        $('<input>')
+                            .attr('type','radio')
+                            .attr('name','answer_type'+total)
+                            .attr('value','B')
+                            .attr('id','answer_type'+total)
+                            .attr('onclick','chooseAnswerTypeB(this)')
+                    )
+                    .append(
+                        'B'
+                    );
+
+            $questionBlock
                 .append(
-                    $('<div>')
-                        .attr('id', 'answer_type_div' + total)
-                        .append(
-                            $('<input >')
-                                .attr('type', 'radio')
-                                .attr('name', 'answer_type' + total)
-                                .attr('value', 'A')
-                                .attr('id', 'answer_type' + total)
-                                .attr('onclick', 'chooseAnswerTypeA(this)')
-                        )
-                        .append(
-                            'A'
-                        )
-                        .append(
-                            $('<input >')
-                                .attr('type', 'radio')
-                                .attr('name', 'answer_type' + total)
-                                .attr('value', 'B')
-                                .attr('id', 'answer_type' + total)
-                                .attr('onclick', 'chooseAnswerTypeB(this)')
-                        )
-                        .append(
-                            'B'
-                        )
-                        .append(
-                            $('<input >')
-                                .attr('type', 'radio')
-                                .attr('name', 'answer_type' + total)
-                                .attr('value', 'C')
-                                .attr('id', 'answer_type' + total)
-                                .attr('onclick', 'chooseAnswerTypeC(this)')
-                        )
-                        .append(
-                            'C'
-                        )
-                )
-                .appendTo('#test');
+                    $typeBlock
+                );
+
+                if (!cChoosen){
+                $typeBlock
+                    .append(
+                        $('<input>')
+                            .attr('type','radio')
+                            .attr('name','answer_type'+total)
+                            .attr('value','C')
+                            .attr('id','answer_type'+total)
+                            .attr('onclick','chooseAnswerTypeC(this)')
+                    )
+                    .append(
+                        'C'
+                    );
+                }
+
+            $questionBlock
+            .appendTo('#test');
         }
 
     </script>

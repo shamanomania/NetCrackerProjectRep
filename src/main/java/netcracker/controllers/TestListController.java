@@ -19,7 +19,6 @@ public class TestListController {
 
     @RequestMapping(value = "/tests", method = RequestMethod.GET)
     public ModelAndView getTestListPageGET(ModelMap modelMap){
-
         ModelAndView model = new ModelAndView();
         model.setViewName("list_of_tests");
         modelMap.put("tests", testRepository.findAll());
