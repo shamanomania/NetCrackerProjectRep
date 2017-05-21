@@ -191,7 +191,7 @@
                 )
                 .append('</br>')
                 .append(
-                    $('<input>')
+                    $('<input class="input-lg text-center">')
                         .attr('type','text')
                         .attr('name','questions['+total+'][question]')
                 );
