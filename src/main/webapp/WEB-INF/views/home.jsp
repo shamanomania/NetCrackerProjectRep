@@ -31,14 +31,10 @@
             <nav class="navbar" role="navigation">
                 <ul class="nav navbar-nav">
                     <li><a href="../home">О нас</a></li>
-                    <li class="active"><a href="/tests">Тесты</a></li>
-                    <li><a href="/partners/">Компании</a></li>
-                    <sec:authorize access="isAnonymous()">
-                        <li><a href="/login">Вход/Регистрация</a></li>
-                    </sec:authorize>
-                    <sec:authorize access="isAuthenticated()">
-                        <li><a href="/user">Личный кабинет</a></li>
-                    </sec:authorize>
+                    <li class="active"><a href="/about/">Тесты</a></li>
+                    <li><a href="/companies">Компании</a></li>
+                    <li><a href="/login">Вход/Регистрация</a></li>
+                    <li><a href="/login">Личный кабинет</a></li>
                 </ul>
             </nav>
         </div>
