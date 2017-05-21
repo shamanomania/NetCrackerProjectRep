@@ -31,8 +31,8 @@
 <div class="wrapper container">
     <div class="row text-danger">
         <div class="col-md-3 col-xs-3 left">
-            <div class="text-muted">
-
+            <div class="text-muted left">
+                <img src="../../images/avatar.png" alt="netckracker"/>
                 <br>
                 <p class="text-success">Личные данные: </p>
                 <p class="text-success">Фамилия: ${loggedUser.getLastName()}</p>
