@@ -57,7 +57,7 @@
             </a>--%>
 
         </div>
-        <div class="col-xs-5 col-md-5">
+        <div class="col-xs-5 col-md-5 text-center">
             <p class="active">Test your skills!</p>
 
             <img class="pull-left" src="<c:url value="/images/login.jpg" />" alt="Netcracker">

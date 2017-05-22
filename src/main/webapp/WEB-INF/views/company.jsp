@@ -20,6 +20,12 @@
     <![endif]-->
 </head>
 <body>
+<script type="text/javascript">
+    $('#my-tabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
 <div class="wrapper container">
     <div class="row text-danger">
         <div class="col-md-3 col-xs-3 ">
@@ -37,48 +43,61 @@
                 <button class="btn-block">На главную</button>
             </div>
         </div>
-        <div class="col-md-9 col-xs-9"><p class="text-center">Личный кабинет</p>
+        <div class="col-md-9 col-xs-4"><p class="text-center">Your contribution</p>
             <div id="exTab1">
                 <ul class="nav nav-pills">
                     <li class="active">
                         <a href="#1a" data-toggle="tab">Пройденные тесты</a>
                     </li>
-                    <li><a href="#2a" data-toggle="tab">Тесты компании</a>
+                    <li><a href="#2a" data-toggle="tab">Созданные тесты</a>
                     </li>
-                    <li>
-                        <a href="#3a" data-toggle="tab">Сертификаты компании</a>
+                    <li><a href="#3a" data-toggle="tab">Созданные сертификаты</a>
                     </li>
                 </ul>
 
                 <div class="tab-content clearfix">
                     <div class="tab-pane active" id="1a">
                         <div class="row text-left">
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
-                                </div>
+                            <c:forEach items="${testsPassedByUser}" var="passedTest" varStatus="t">
+                                <article class="col-xs-5 col-md-5">
+                                    <div class="left">Тест
+                                        #${passedTest.getTest().getId()}<br>Описание:<br>${passedTest.getTest().getTitle()}
+                                        <br>Результат: ${passedTest.result} <br>
+                                    </div>
+                                    <div class="text-primary">
+                                        <button class="btn"
+                                                onclick="location.href='/test/${passedTest.getTest().getId()}'">
+                                            Перейти к тесту
+                                        </button>
+                                    </div>
+                                </article>
+                            </c:forEach>
+                            <%--
+                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat.
+                                <button class="btn">Перейти к тесту</button>
                             </article>
+                            --%>
+                            <%--
+                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat.
+                                <button class="btn">Перейти к тесту</button>
+                            </article>
+                            --%>
                         </div>
                     </div>
                     <div class="tab-pane" id="2a">
                         <div class="row text-left">
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
-                                </div>
+                            <article class="col-xs-5 col-md-5">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea commodo consequat.
                             </article>
+
                         </div>
                     </div>
                     <div class="tab-pane" id="3a">
@@ -88,21 +107,13 @@
                                 aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                                 aliquip ex ea commodo consequat.
                             </article>
-                            <article class="col-xs-5 col-md-5">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                            </article>
-                            <article class="col-xs-5 col-md-5">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                            </article>
+
                         </div>
                     </div>
                 </div>
             </div>
-
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         </div>
     </div>
 </div>
