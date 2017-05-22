@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,12 +20,6 @@
     <![endif]-->
 </head>
 <body>
-<script type="text/javascript">
-    $('#my-tabs a').click(function (e) {
-        e.preventDefault()
-        $(this).tab('show')
-    })
-</script>
 <div class="wrapper container">
     <div class="row text-danger">
         <div class="col-md-3 col-xs-3 ">
@@ -105,8 +102,7 @@
                     </div>
                 </div>
             </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
         </div>
     </div>
 </div>
