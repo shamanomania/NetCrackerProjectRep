@@ -3,7 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+         pageEncoding="UTF-8"%>
 <head>
     <title>Netcracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,9 +12,11 @@
     <style>
         <%@include file="/css/stylesForLogin.css"%>
         <%@include file="/css/font-awesome_min (2).css"%>
+        <%@include file="/css/font-awesome.min.css"%>
     </style>
     <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+    <link href="../../css/font-awesome_min.css"/>
 </head>
 <body>
 
@@ -41,18 +44,12 @@
                 </p>
                 <button class="btn center" type="submit">Sign in</button>
                 <button type="button" class="btn" onclick="location.href='/signup'">Sign up</button>
-            </form>
-            <div>
-                <form action="social">
 
                     <div class="icon-circle">
                         <a href="/facebook/signin" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
                         <a href="/hh/signin" class="ihh" title="HeadHunter"><i class="fa fa-headhunter"></i></a>
                         <a href="/google_oauth2_login" class="igoogle" title="Google+"><i class="fa fa-google-plus"></i></a>
                     </div>
-
-                </form>
-            </div>
 
         </div>
         <div class="col-md-5 col-xs-5 text-center">
