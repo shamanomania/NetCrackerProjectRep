@@ -6,13 +6,13 @@
 
 <head>
     <title>Netcracker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="../../css/stylesForLogin.css" rel="stylesheet">
     <style>
         <%@include file="/css/stylesForLogin.css"%>
         <%@include file="/css/font-awesome_min (2).css"%>
     </style>
-    <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet"></link>
+    <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
 
         <div class="col-md-5 col-xs-5 text-left">
 
-            <form action="login" method="post">
+            <form action="/login" method="post">
                 <p>
                     <label class="label" for="email">Email address</label>
                 </p>
