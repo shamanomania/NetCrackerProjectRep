@@ -36,11 +36,13 @@
                 <p class="text-success">Имя: ${loggedUser.getFirstName()}</p>
                 <p class="text-success">e-mail: ${loggedUser.getEmail()}</p>
                 <p class="text-success">Адрес: ${loggedUser.getAddress()}</p>
-                <button class="btn-block">Тесты</button>
-                <button class="btn-block">Компании</button>
-                <button class="btn-block">Присоединиться к компании</button>
-                <button class="btn-block">Создать компанию</button>
-                <button class="btn-block">На главную</button>
+                <button class="btn-block" onclick="location.href='/tests'">Тесты</button>
+                <button class="btn-block" onclick="location.href='/testresults'">Результаты тестов</button>
+                <button class="btn-block" onclick="location.href='/companies'">Компании</button>
+                <button class="btn-block" onclick="location.href='/tests'">Присоединиться к компании</button>
+                <button class="btn-block" onclick="location.href='/companyregistration'">Создать компанию</button>
+                <button class="btn-block" onclick="location.href='/createsertificate'">Создать сертификат</button>
+                <button class="btn-block" onclick="location.href='/'">На главную</button>
             </div>
         </div>
         <div class="col-md-9 col-xs-4"><p class="text-center">Your contribution</p>
@@ -92,12 +94,19 @@
                     </div>
                     <div class="tab-pane" id="2a">
                         <div class="row text-left">
-                            <article class="col-xs-5 col-md-5">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
+                            <c:forEach items="${createdTests}" var="createdTest" varStatus="t">
+                            <article class="col-xs-5 col-md-5">
+                                <div class="left">Тест
+                                #${createdTest.getId()}<br>Описание:<br>${createdTest.getTitle()}
+                                </div>
+                                <div class="text-primary">
+                                    <button class="btn"
+                                            onclick="location.href='/test/${passedTest.getId()}'">
+                                        Перейти к тесту
+                                    </button>
+                                </div>
                             </article>
-
+                            </c:forEach>
                         </div>
                     </div>
                     <div class="tab-pane" id="3a">

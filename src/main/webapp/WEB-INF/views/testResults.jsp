@@ -38,92 +38,18 @@
 </header>
 <div class="container">
     <c:forEach items="${tests}" var="passedTest">
-        ${passedTest.testId}
+        <div class="row">
+            <article>
+                <table>
+                    <tr>
+                        <td>Номер теста : ${passedTest.getTest().getId()}</td>
+                        <td>Пользователь : <a href="/user/${passedTest.getPerson().getId()}">${passedTest.getPerson().getFirstName()}</a></td>
+                        <td>Результат : ${passedTest.getResult()}</td>
+                    </tr>
+                </table>
+            </article>
+        </div>
     </c:forEach>
-    <div class="row">
-        <article>
-            <table>
-                <tr>
-                    <td>Название теста : тест1</td>
-                    <td>Пользователь : <a>Иванов Иван Иванович</a></td>
-                    <td>Результат : 5/5</td>
-                </tr>
-            </table>
-        </article>
-
-    </div>
-    <div class="row">
-        <article>
-            <table>
-                <tr>
-                    <td>Название теста : тест1</td>
-                    <td>Пользователь : <a>Иванов Иван Иванович</a></td>
-                    <td>Результат : 5/5</td>
-                </tr>
-            </table>
-        </article>
-
-    </div>
-    <div class="row">
-        <article>
-            <table>
-                <tr>
-                    <td>Название теста : тест1</td>
-                    <td>Пользователь : <a>Иванов Иван Иванович</a></td>
-                    <td>Результат : 5/5</td>
-                </tr>
-            </table>
-        </article>
-
-    </div>
-    <div class="row">
-        <article>
-            <table>
-                <tr>
-                    <td>Название теста : тест1</td>
-                    <td>Пользователь : <a>Иванов Иван Иванович</a></td>
-                    <td>Результат : 5/5</td>
-                </tr>
-            </table>
-        </article>
-
-    </div>
-    <div class="row">
-        <article>
-            <table>
-                <tr>
-                    <td>Название теста : тест1</td>
-                    <td>Пользователь : <a>Иванов Иван Иванович</a></td>
-                    <td>Результат : 5/5</td>
-                </tr>
-            </table>
-        </article>
-
-    </div>
-    <div class="row">
-        <article>
-            <table>
-                <tr>
-                    <td>Название теста : тест1</td>
-                    <td>Пользователь : <a>Иванов Иван Иванович</a></td>
-                    <td>Результат : 5/5</td>
-                </tr>
-            </table>
-        </article>
-
-    </div>
-    <div class="row">
-        <article>
-            <table>
-                <tr>
-                    <td>Название теста : тест1</td>
-                    <td>Пользователь : <a>Иванов Иван Иванович</a></td>
-                    <td>Результат : 5/5</td>
-                </tr>
-            </table>
-        </article>
-
-    </div>
 </div>
 </body>
 </html>

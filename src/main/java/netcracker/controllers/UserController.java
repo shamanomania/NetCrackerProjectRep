@@ -3,6 +3,7 @@ package netcracker.controllers;
 import netcracker.domain.entities.CurrentUser;
 import netcracker.domain.entities.Person;
 import netcracker.repository.PersonTestRepository;
+import netcracker.repository.TestRepository;
 import netcracker.viewsForms.UserCreateForm;
 import netcracker.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,13 @@ public class UserController {
 
     private final PersonRepository personRepository;
 
+    private final TestRepository testRepository;
+
     @Autowired
-    public UserController(PersonRepository personRepository, PersonTestRepository personTestRepository) {
+    public UserController(PersonRepository personRepository, PersonTestRepository personTestRepository, TestRepository testRepository) {
         this.personRepository = personRepository;
         this.personTestRepository = personTestRepository;
+        this.testRepository = testRepository;
     }
 
     @PreAuthorize("@currentUserServiceImpl.canAccessUser(principal, #id)")
@@ -59,6 +63,7 @@ public class UserController {
         if ("USER".equals(currentUser.getRole().getTitle())){
             return "user";
         } else if ("ADMIN".equals(currentUser.getRole().getTitle())){
+            model.put("createdTests",testRepository.findByCompanyId(currentUser.getUser().getCompany().getId()));
             return "company";
         }
         return "login";

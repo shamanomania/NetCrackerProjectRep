@@ -1,14 +1,13 @@
 package netcracker.domain.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by Sid775 on 02.02.2017.
- */
+
 @Entity
 @Table (name = "COMPANY")
-public class Company {
+public class Company implements Serializable{
 
     @Id
     @Column (name = "ID")

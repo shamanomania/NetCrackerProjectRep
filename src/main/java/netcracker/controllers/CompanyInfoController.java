@@ -10,13 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * Created by Sid775 on 20.05.2017.
- */
+
 @Controller
 public class CompanyInfoController {
-    final
-    CompanyRepository companyRepository;
+    private final CompanyRepository companyRepository;
 
     @Autowired
     public CompanyInfoController(CompanyRepository companyRepository) {

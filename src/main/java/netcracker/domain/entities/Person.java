@@ -47,7 +47,7 @@ public class Person implements Serializable {
     @Column
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
 
@@ -101,6 +101,14 @@ public class Person implements Serializable {
     public Role getRole() {return role;}
 
     public void setRole(Role role) {this.role = role;}
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     @Override
     public String toString() {

@@ -2,6 +2,7 @@ package netcracker.controllers;
 
 import netcracker.domain.entities.CurrentUser;
 import netcracker.repository.PersonTestRepository;
+import netcracker.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -11,22 +12,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class TestResults {
+public class CreateCertificateController {
 
     private final PersonTestRepository personTestRepository;
 
+    private final TestRepository testRepository;
+
     @Autowired
-    public TestResults(PersonTestRepository personTestRepository) {
+    public CreateCertificateController(PersonTestRepository personTestRepository, TestRepository testRepository) {
         this.personTestRepository = personTestRepository;
+        this.testRepository = testRepository;
     }
 
-    @RequestMapping(value = "/testresults", method = RequestMethod.GET)
-    public ModelAndView getResultOfTestsPageGET(ModelMap modelMap){
+    @RequestMapping(value = "/createsertificate", method = RequestMethod.GET)
+    public ModelAndView getCreateSertificatePageGET(ModelMap modelMap){
         ModelAndView model = new ModelAndView();
         CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Long companyId = currentUser.getUser().getCompany().getId();
-        model.setViewName("testResults");
-        modelMap.put("tests", personTestRepository.findTestByTestCompanyId(companyId));
+        model.setViewName("createCertificate");
+        modelMap.put("tests", personTestRepository.findTestByTestCompanyId(currentUser.getUser().getCompany().getId()));
+        modelMap.put("createdTests", testRepository.findByCompanyId(currentUser.getUser().getCompany().getId()));
         return model;
     }
 }

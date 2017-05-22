@@ -3,9 +3,6 @@ package netcracker.domain.entities;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by Sid775 on 02.02.2017.
- */
 @Entity
 @Table(name = "TEST")
 public class Test {
