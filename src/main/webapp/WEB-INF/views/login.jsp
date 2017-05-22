@@ -42,16 +42,17 @@
                 <button class="btn center" type="submit">Sign in</button>
                 <button type="button" class="btn" onclick="location.href='/signup'">Sign up</button>
             </form>
+            <div>
+                <form action="social">
 
-            <form action="social">
+                    <div class="icon-circle">
+                        <a href="/facebook/signin" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="/hh/signin" class="ihh" title="HeadHunter"><i class="fa fa-headhunter"></i></a>
+                        <a href="/google_oauth2_login" class="igoogle" title="Google+"><i class="fa fa-google-plus"></i></a>
+                    </div>
 
-                <div class="icon-circle">
-                    <a href="/facebook/signin" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="/hh/signin" class="ihh" title="HeadHunter"><i class="fa fa-headhunter"></i></a>
-                    <a href="/google_oauth2_login" class="igoogle" title="Google+"><i class="fa fa-google-plus"></i></a>
-                </div>
-
-            </form>
+                </form>
+            </div>
 
         </div>
         <div class="col-md-5 col-xs-5 text-center">

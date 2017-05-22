@@ -167,7 +167,7 @@
 </head>
 <body>
 <header>
-    <div><img class="pull-left" src="<c:url value="/images/logoold.png" />" alt="Netcracker"></div>
+    <div><img class="pull-left" src="<c:url value="/images/logo.png" />" alt="Netcracker"></div>
 
     <div>
         <nav class="navbar" role="navigation">

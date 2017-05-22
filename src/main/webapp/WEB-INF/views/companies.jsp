@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -22,7 +22,7 @@
 
 <body>
 <header>
-    <div><img class="pull-left" src="<c:url value="/images/logoold.png" />" alt="Netcracker"></div>
+    <div><img class="pull-left" src="<c:url value="/images/logo.png" />" alt="Netcracker"></div>
     <div>
         <nav class="navbar" role="navigation">
             <ul class="nav navbar-nav">
@@ -44,75 +44,24 @@
         <c:forEach items="${companies}" var="company">
 
             <article class="col-md-3 col-xs-4">
-                <div class="text-hide"><img src="<c:url value="/images/apple.png" />" class="img-responsive" alt="Netcracker"></div>
-                <div class="text-info">
-                    <p>
-                        Описание:
-                    </p>
-                    ${company.getTitle()}<br>
-                    <form method="get" action="/company/${company.getId()}"><button class="btn-default">Информация</button></form></div>
+                <div class="left">
+                    <div class="text-hide"><img src="<c:url value="/images/apple.png" />" class="img-responsive"
+                                                alt="Netcracker"></div>
+                    <div class="text-info">
+                        <p>
+                            Описание:
+                        </p>
+                            ${company.getTitle()}<br>
+                    </div>
+                </div>
+                <form method="get" action="/company/${company.getId()}">
+                    <div class="text-primary">
+                        <button class="btn-default">Информация</button>
+                    </div>
+                </form>
             </article>
         </c:forEach>
         <%--</form:form>--%>
-        <article class="col-md-3 col-xs-4">
-            <div class="text-hide"><img src="<c:url value="/images/apple.png" />" class="img-responsive" alt="Netcracker"></div>
-            <div class="text-info">
-                <p>
-                    Описание:
-                </p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy
-                nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
-                <button class="btn-default">Информация</button></div>
-        </article>
-        <article class="col-md-3 col-xs-4">
-            <div class="text-hide"><img src="../../img/android.png" class="img-responsive" alt="Netcracker"></div>
-            <div class="text-info">
-                <p>
-                    Описание:
-                </p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy
-                nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
-                <button class="btn-default">Информация </button></div>
-        </article>
-        <article class="col-md-3 col-xs-4">
-            <div class="text-hide"><img src="../../img/ruby.png" class="img-responsive" alt="Netcracker"></div>
-            <div class="text-info"><p>
-
-                Описание:
-            </p>  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy
-                nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
-                <button class="btn-default">Информация </button></div>
-        </article>
-        <article class="col-md-3 col-xs-4">
-            <div class="text-hide"><img src="../../img/css.png" class="img-responsive" alt="Netcracker"></div>
-            <div class="text-info">
-                <p>
-                    Описание:
-                </p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy
-                nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
-                <button class="btn-default">Информация </button></div>
-        </article>
-        <article class="col-md-3 col-xs-4">
-            <div class="text-hide"><img src="../../img/java.png" class="img-responsive" alt="Netcracker"></div>
-            <div class="text-info">
-                <p>
-                    Описание:
-                </p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy
-                nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
-                <button class="btn-default">Информация </button></div>
-        </article>
-        <article class="col-md-3 col-xs-4">
-            <div class="text-hide"><img src="../../img/ruby.png" class="img-responsive" alt="Netcracker"></div>
-            <div class="text-info">
-                <p> Описание:
-                </p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem nonummy
-                nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.<br>
-                <button class="btn-default">Информация </button></div>
-        </article>
-
     </div>
 </div>
 </body>

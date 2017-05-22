@@ -56,45 +56,31 @@
                 <div class="tab-content clearfix">
                     <div class="tab-pane active" id="1a">
                         <div class="row text-left">
-                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <button class="btn">Перейти к тесту</button>
-                            </article>
-                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <button class="btn">Перейти к тесту</button>
-                            </article>
-                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <button class="btn">Перейти к тесту</button>
+                            <article class="col-xs-5 col-md-5">
+                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                    magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat.
+                                </div>
+                                <div class="text-primary">
+                                    <button class="btn">Перейти к тесту</button>
+                                </div>
                             </article>
                         </div>
                     </div>
                     <div class="tab-pane" id="2a">
                         <div class="row text-left">
-                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <button class="btn">Результаты теста</button>
-                            </article>
-                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <button class="btn">Результаты теста</button>
-                            </article>
-                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <button class="btn">Результаты теста</button>
+                            <article class="col-xs-5 col-md-5">
+                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                    magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat.
+                                </div>
+                                <div class="text-primary">
+                                    <button class="btn">Перейти к тесту</button>
+                                </div>
                             </article>
                         </div>
                     </div>

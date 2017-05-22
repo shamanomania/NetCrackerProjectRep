@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <html>
 <head>
@@ -60,12 +60,17 @@
                     <div class="tab-pane active" id="1a">
                         <div class="row text-left">
                             <c:forEach items="${testsPassedByUser}" var="passedTest" varStatus="t">
-                                <article class="col-xs-5 col-md-5">Тест
-                                    #${passedTest.getTest().getId()}<br>Описание:<br>${passedTest.getTest().getTitle()}
-                                    <br>Результат: ${passedTest.result} <br>
-                                    <button class="btn" onclick="location.href='/test/${passedTest.getTest().getId()}'">
-                                        Перейти к тесту
-                                    </button>
+                                <article class="col-xs-5 col-md-5">
+                                    <div class="left">Тест
+                                        #${passedTest.getTest().getId()}<br>Описание:<br>${passedTest.getTest().getTitle()}
+                                        <br>Результат: ${passedTest.result} <br>
+                                    </div>
+                                    <div class="text-primary">
+                                        <button class="btn"
+                                                onclick="location.href='/test/${passedTest.getTest().getId()}'">
+                                            Перейти к тесту
+                                        </button>
+                                    </div>
                                 </article>
                             </c:forEach>
                             <%--
