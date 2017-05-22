@@ -33,8 +33,13 @@
                     <li><a href="../home">О нас</a></li>
                     <li class="active"><a href="/about/">Тесты</a></li>
                     <li><a href="/companies">Компании</a></li>
+                    <sec:authorize access="isAnonymous()">
                     <li><a href="/login">Вход/Регистрация</a></li>
-                    <li><a href="/login">Личный кабинет</a></li>
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()">
+                    <li><a href="/user">Личный кабинет</a></li>
+                    <li><a href="/logout">Выход</a></li>
+                    </sec:authorize>
                 </ul>
             </nav>
         </div>
