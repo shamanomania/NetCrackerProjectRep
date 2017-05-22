@@ -5,16 +5,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
-<html xmlns="http://www.w3.org/1999/xhtml"
->
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Netcracker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
         <%@include file="/css/stylesForLogin.css"%>
     </style>
     <%--<link href="../../css/stylesForLogin.css" rel="stylesheet"></link>--%>
-    <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet"></link>
+    <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">

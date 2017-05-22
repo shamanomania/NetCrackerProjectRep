@@ -19,8 +19,12 @@ import javax.validation.Valid;
 @RequestMapping("/signup")
 public class UserCreateController {
 
+    private final PersonService userService;
+
     @Autowired
-    private PersonService userService;
+    public UserCreateController(PersonService userService) {
+        this.userService = userService;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public String signUp(ModelMap model){

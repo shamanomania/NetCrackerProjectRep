@@ -14,8 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TestCreateController {
 
-    @Autowired
+    final
     TestService testService;
+
+    @Autowired
+    public TestCreateController(TestService testService) {
+        this.testService = testService;
+    }
 
     @RequestMapping(value = "/tests/create", method = RequestMethod.GET)
     public ModelAndView getTestCreatePageGET(){

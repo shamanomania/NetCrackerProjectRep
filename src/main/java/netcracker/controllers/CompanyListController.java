@@ -14,8 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CompanyListController {
 
-    @Autowired
+    final
     CompanyRepository companyRepository;
+
+    @Autowired
+    public CompanyListController(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+    }
 
     @RequestMapping(value = "/companies", method = RequestMethod.GET)
     public ModelAndView getCompaniesListPageGET(ModelMap modelMap){

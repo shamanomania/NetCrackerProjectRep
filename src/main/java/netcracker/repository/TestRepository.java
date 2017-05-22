@@ -12,6 +12,9 @@ import java.util.List;
  */
 @Repository
 public interface TestRepository extends CrudRepository<Test,Long> {
+
+    List<Test> findByCompanyId(Long id);
+
     @Override
     List<Test> findAll();
 }

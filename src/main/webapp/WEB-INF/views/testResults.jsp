@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<html>
 <head>
     <title>Netcracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/stylesForREsults.css" rel="stylesheet">
+    <style>
+        <%@include file="/css/stylesForREsults.css"%>
+    </style>
+    <%--<link href="../../css/stylesForREsults.css" rel="stylesheet">--%>
     <link href="http://fonts.googleapis.com/css?family=Oswald:400,300" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -32,6 +37,9 @@
     <p class="text-center">Результаты тестов</p>
 </header>
 <div class="container">
+    <c:forEach items="${tests}" var="passedTest">
+        ${passedTest.testId}
+    </c:forEach>
     <div class="row">
         <article>
             <table>

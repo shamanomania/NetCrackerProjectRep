@@ -5,34 +5,27 @@ import netcracker.domain.entities.Person;
 import netcracker.repository.PersonTestRepository;
 import netcracker.viewsForms.UserCreateForm;
 import netcracker.repository.PersonRepository;
-import netcracker.services.impl.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.util.Map;
 
-/**
- * Created by Sid775 on 10.03.2017.
- */
+
 @Controller
 public class UserController {
 
-    @Autowired
-    private PersonTestRepository personTestRepository;
+    private final PersonTestRepository personTestRepository;
 
     private final PersonRepository personRepository;
 
     @Autowired
-    public UserController(PersonRepository personRepository) {
+    public UserController(PersonRepository personRepository, PersonTestRepository personTestRepository) {
         this.personRepository = personRepository;
+        this.personTestRepository = personTestRepository;
     }
 
     @PreAuthorize("@currentUserServiceImpl.canAccessUser(principal, #id)")

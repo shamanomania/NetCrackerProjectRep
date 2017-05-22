@@ -14,9 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by Sid775 on 20.05.2017.
  */
 @Controller
-public class CompanyController {
-    @Autowired
+public class CompanyInfoController {
+    final
     CompanyRepository companyRepository;
+
+    @Autowired
+    public CompanyInfoController(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+    }
 
     @RequestMapping(value = "/company/{id}", method = RequestMethod.GET)
     public ModelAndView getCompanyInfoPageGET(@PathVariable Long id, ModelMap map){

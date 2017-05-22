@@ -18,11 +18,15 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TestController {
 
-    @Autowired
-    private TestRepository testRepository;
+    private final TestRepository testRepository;
+
+    private final TestService testService;
 
     @Autowired
-    private TestService testService;
+    public TestController(TestRepository testRepository, TestService testService) {
+        this.testRepository = testRepository;
+        this.testService = testService;
+    }
 
     @RequestMapping(value ="/test/{id}", method = RequestMethod.GET)
     public ModelAndView getTestPageGET(@PathVariable Long id, ModelMap modelMap){

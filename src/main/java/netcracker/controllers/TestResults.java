@@ -1,6 +1,6 @@
 package netcracker.controllers;
 
-import netcracker.repository.TestRepository;
+import netcracker.repository.PersonTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -8,25 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * Created by Sid775 on 05.05.2017.
- */
 @Controller
-public class TestListController {
+public class TestResults {
 
-    final
-    TestRepository testRepository;
+    private final PersonTestRepository personTestRepository;
 
     @Autowired
-    public TestListController(TestRepository testRepository) {
-        this.testRepository = testRepository;
+    public TestResults(PersonTestRepository personTestRepository) {
+        this.personTestRepository = personTestRepository;
     }
 
-    @RequestMapping(value = "/tests", method = RequestMethod.GET)
+    @RequestMapping(value = "/testresults", method = RequestMethod.GET)
     public ModelAndView getTestListPageGET(ModelMap modelMap){
         ModelAndView model = new ModelAndView();
-        model.setViewName("list_of_tests");
-        modelMap.put("tests", testRepository.findAll());
+        model.setViewName("testResults");
+        modelMap.put("tests", personTestRepository.findTestByTestCompanyId(603L));
         return model;
     }
 }
