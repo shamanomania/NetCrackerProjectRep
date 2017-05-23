@@ -1,8 +1,10 @@
 package netcracker.services.impl;
 
 import netcracker.domain.entities.Answer;
+import netcracker.domain.entities.Images;
 import netcracker.domain.entities.Question;
 import netcracker.domain.entities.Test;
+import netcracker.repository.ImagesRepository;
 import netcracker.repository.PersonTestRepository;
 import netcracker.repository.TestRepository;
 import netcracker.services.ITestService;
@@ -30,6 +32,9 @@ public class TestService implements ITestService {
 
     @Autowired
     PersonTestService personTestService;
+
+    @Autowired
+    ImageService imageService;
 
     @Autowired
     public TestService(TestRepository testRepository){
@@ -69,7 +74,8 @@ public class TestService implements ITestService {
         }
         test.setQuestions(questions);
         test.setTitle(jsonTest.getTitleOfTest());
-
+        Images image = imageService.findTop();
+        test.setImage(image);
         System.out.println(test.toString());
         return testRepository.save(test);
     }
@@ -148,6 +154,7 @@ public class TestService implements ITestService {
         jsonResponse.setAnswers(jsonResponseAnswers);
         System.out.println(countOfAnswers + "   " + countOfCorrectAnswers);
         resultOfTest = countOfCorrectAnswers + "/" + countOfAnswers;
+
         personTestRepository.save(personTestService.matchTestToUser(test,resultOfTest,cPartResult));
 
         return jsonResponse;

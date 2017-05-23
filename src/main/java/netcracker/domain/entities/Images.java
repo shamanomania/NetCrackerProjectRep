@@ -16,14 +16,19 @@ public class Images {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
+    @Lob
     @Column (name = "IMAGE")
-    private BLOB image;
+    private byte[] image;
+
+    @OneToOne
+    @JoinColumn(name = "test_id",referencedColumnName = "id")
+    private Test test;
 
     public Long getId() {return id;}
 
     public void setId(Long id) {this.id = id;}
 
-    public BLOB getImage() {return image;}
+    public byte[] getImage() {return image;}
 
-    public void setImage(BLOB image) {this.image = image;}
+    public void setImage(byte[] image) {this.image = image;}
 }

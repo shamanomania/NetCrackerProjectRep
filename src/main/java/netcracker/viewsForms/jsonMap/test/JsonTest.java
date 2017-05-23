@@ -11,6 +11,7 @@ public class JsonTest {
     private Long id;
     private JsonAnswer[] answers;
     private String cPartResult;
+    private JsonImage image;
 
     public Long getId() {
         return id;
@@ -26,6 +27,14 @@ public class JsonTest {
 
     public void setAnswers(JsonAnswer[] answers) {
         this.answers = answers;
+    }
+
+    public JsonImage getImage(){
+        return image;
+    }
+
+    public void setImage(JsonImage jsonImage){
+        image=jsonImage;
     }
 
     public String getcPartResult() {

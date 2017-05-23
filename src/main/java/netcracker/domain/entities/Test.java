@@ -33,6 +33,10 @@ public class Test {
     @OneToMany(mappedBy = "tests")
     private List<Test> tests;
 
+    @OneToOne
+    @JoinColumn(name = "image_id",referencedColumnName = "id")
+    private Images image;
+
 //    @ManyToOne
 //    @JoinColumns({
 //            @JoinColumn(name = "person_id"),
@@ -56,6 +60,14 @@ public class Test {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setImage(Images image){
+        this.image=image;
+    }
+
+    public Images getImage(){
+        return image;
     }
 
     public List<Certificate> getCertificates() {

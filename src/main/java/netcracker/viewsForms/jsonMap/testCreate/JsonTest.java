@@ -9,6 +9,7 @@ public class JsonTest {
 
     private List<JsonQuestion> questions;
     private String titleOfTest;
+    private JsonImage jsonImage;
 
     public List<JsonQuestion> getQuestions() {
         return questions;

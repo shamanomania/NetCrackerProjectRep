@@ -142,12 +142,7 @@ public class FacebookController {
             person.setPassword(bCryptPasswordEncoder.encode(password));
             personRepository.save(person);
         }
-
-        CurrentUser registeredUser = new CurrentUser(person);
-        CustomOAuth2AuthenticationToken authenticationToken =
-                new CustomOAuth2AuthenticationToken(registeredUser);
-
-        securityService.autologin(email,password);
+        securityService.autologin(person.getEmail(),password);
         return "redirect:/";
     }
 
