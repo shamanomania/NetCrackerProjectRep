@@ -20,20 +20,34 @@
         var cChoosen = false;
 
         function check(){
-            var obj = $("#testCreateForm").serializeJSON();
-            console.log(obj);
-            obj = JSON.stringify(obj);
-            console.log(obj);
-            $.ajax({
-                type: "POST",
-                url: "/tests/create",
-                contentType: "application/json",
-                dataType: "json",
-                data: obj,
-                success: function(obj) {
-                    alert(obj.toString());
-                }
-            });
+            if  (checkInput()) {
+                var obj = $("#testCreateForm").serializeJSON();
+                console.log(obj);
+                obj = JSON.stringify(obj);
+                console.log(obj);
+                $.ajax({
+                    type: "POST",
+                    url: "/tests/create",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: obj,
+                    success: function (obj) {
+                        alert(obj.toString());
+                    }
+                });
+            }else {
+                alert("Выбраны не все верные ответы!");
+            }
+        }
+
+        function checkInput() {
+            if ($('div[id^=answer_]:not(:has(:radio:checked))').filter($('div[id^=answer_]:has(input:radio)')).length) {
+                console.log($('div[id^=answer_]:not(:has(:radio:checked))').filter($('div[id^=answer_]:has(input:radio)')).length);
+                return false;
+            } else {
+                console.log($('div[id^=answer_]:not(:has(:radio:checked))').filter($('div[id^=answer_]:has(input:radio)')).length);
+                return true;
+            }
         }
 
         function addAnswer(field) {
