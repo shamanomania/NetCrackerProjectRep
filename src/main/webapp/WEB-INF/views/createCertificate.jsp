@@ -48,6 +48,7 @@
             <p>Иванова Ивана Ивановича</p>
             <p>Свидетельствующий о том, что Иванов Иван Иванович успешно прошёл тест: тест</p>
             <img class="right" src="../../images/IP.png"/>
+            <input type="submit" value="Создать" class="btn-info"/>
         </div>
     </div>
     <div class=" row text-muted">
