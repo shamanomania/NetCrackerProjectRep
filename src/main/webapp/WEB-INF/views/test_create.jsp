@@ -1,5 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <style>
@@ -7,6 +13,9 @@
     </style>
     <title>Add test page</title>
     <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+    <script src="http://www.xiper.net/examples/js-plugins/forms/autoresize/js/autoresize.jquery.js"></script>
+
+
     <script type="text/javascript">
         <%@include file="/WEB-INF/views/jquery.serializejson.js"%>
     </script>
@@ -72,7 +81,7 @@
             $('#answer_'+choseAddAnswerID[0]).append('<br>');
 
             console.log(choseAddAnswerID);
-            $('<input class="input-lg text-center">')
+            $('<input  class="input-lg text-center">')
                 .attr('type', 'text')
                 .attr('name', 'questions[' + choseAddAnswerID[0] + '][answers][' + choseAddAnswerID[1] + ']')
                 .attr('onclick', 'addAnswer(this)')
@@ -88,19 +97,19 @@
 
 
             $('<div>')
-            .attr('id','answer_'+questionNumber)
+                .attr('id','answer_'+questionNumber)
                 .append(
                     $('<p>')
                         .append('Введите варианты ответа, правильный отметьте чекбоксом:')
                 )
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + questionNumber + '][type]')
                         .attr('value', '1')
                 )
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'text')
                         .attr('name', 'questions[' + questionNumber + '][answers][0]')
                 )
@@ -111,7 +120,7 @@
                         .attr('value','0')
                 ).append('<br>')
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'text')
                         .attr('name', 'questions[' + questionNumber + '][answers][1]')
                 )
@@ -122,7 +131,7 @@
                         .attr('value','1')
                 ).append('<br>')
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'text')
                         .attr('name', 'questions[' + questionNumber + '][answers][2]')
                         .attr('onclick', 'addAnswer(this)')
@@ -144,18 +153,18 @@
                         .append('Введите верный ответ:')
                 )
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<textarea  class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][type]')
                         .attr('value', '2')
                 )
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<textarea  class="input-lg text-center">')
                         .attr('type', 'text')
                         .attr('name', 'questions[' + total + '][answers][0]')
                 )
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<textarea  class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][rightAnswers]')
                         .attr('value', '0')
@@ -177,23 +186,23 @@
                         .append('Введите верный ответ(то, что должна будет вывести программа пользователя):')
                 )
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<textarea  class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][type]')
                         .attr('value', '3')
                 )
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<textarea  class="input-lg text-center">')
                         .attr('type', 'text')
                         .attr('name', 'questions[' + total + '][answers][0]')
                 )/*.append('<br>')*/
                 /*.append(
-                    $('<input>')
-                        .attr('type', 'text')
-                        .attr('name', 'questions[' + total + '][answers][1]')
-                )*/
+                 $('<input>')
+                 .attr('type', 'text')
+                 .attr('name', 'questions[' + total + '][answers][1]')
+                 )*/
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<textarea  class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][rightAnswers]')
                         .attr('value', '0')
@@ -203,7 +212,7 @@
             $('#answer_type_div' + choseTypeFieldID).remove();
         }
 
-            function addQuestionField () {
+        function addQuestionField () {
             total++;
             var $questionBlock = $('<div>')
                 .attr('id','question_'+total)
@@ -217,49 +226,49 @@
                 )
                 .append('</br>')
                 .append(
-                    $('<input class="input-lg text-center">')
+                    $('<textarea  class="input-lg text-center">')
                         .attr('type','text')
                         .attr('name','questions['+total+'][question]')
                 );
 
-                var $typeBlock = $('<div>')
-                    .attr('id','answer_type_div'+total)
-                    .append(
-                        $('<p>')
-                            .append('Выберите вид ответа:')
-                    )
-                    .append(
-                        $('<input>')
-                            .attr('type','radio')
-                            .attr('name','answer_type'+total)
-                            .attr('value','A')
-                            .attr('id','answer_type'+total)
-                            .attr('onclick','chooseAnswerTypeA(this)')
-                    )
-                    .append(
-                        'A'
-                    )
-                    .append(
-                        $('<input>')
-                            .attr('type','radio')
-                            .attr('name','answer_type'+total)
-                            .attr('value','B')
-                            .attr('id','answer_type'+total)
-                            .attr('onclick','chooseAnswerTypeB(this)')
-                    )
-                    .append(
-                        'B'
-                    );
+            var $typeBlock = $('<div>')
+                .attr('id','answer_type_div'+total)
+                .append(
+                    $('<p>')
+                        .append('Выберите вид ответа:')
+                )
+                .append(
+                    $('<input >')
+                        .attr('type','radio')
+                        .attr('name','answer_type'+total)
+                        .attr('value','A')
+                        .attr('id','answer_type'+total)
+                        .attr('onclick','chooseAnswerTypeA(this)')
+                )
+                .append(
+                    'A'
+                )
+                .append(
+                    $('<input >')
+                        .attr('type','radio')
+                        .attr('name','answer_type'+total)
+                        .attr('value','B')
+                        .attr('id','answer_type'+total)
+                        .attr('onclick','chooseAnswerTypeB(this)')
+                )
+                .append(
+                    'B'
+                );
 
             $questionBlock
                 .append(
                     $typeBlock
                 );
 
-                if (!cChoosen){
+            if (!cChoosen){
                 $typeBlock
                     .append(
-                        $('<input>')
+                        $('<input >')
                             .attr('type','radio')
                             .attr('name','answer_type'+total)
                             .attr('value','C')
@@ -269,11 +278,19 @@
                     .append(
                         'C'
                     );
-                }
+            }
 
             $questionBlock
-            .appendTo('#test');
+                .appendTo('#test');
         }
+
+
+        jQuery('textarea').autoResize({
+
+            extraSpace : 0
+
+        });
+
 
     </script>
 </head>
@@ -293,25 +310,29 @@
             </ul>
         </nav>
     </div>
-    <p class="text-center">Создайте свой тест</p>
+
 </header>
 
 <div class="container">
     <div class="row">
-        <div class="text-center">
-        <form:form action="/tests/create" method="post" commandName="testCreateForm" modelAttribute="testCreateForm"
-                   name="testCreateForm" id="testCreateForm">
-            <div id="test">
-                <p>Введите описание теста</p>
-                <input type="text" name="OfTest" class="input-lg text-center">
-            </div>
-            <br/>
-            <input class="btn-defaul" type="button" value="Add question" id="add" onclick="addQuestionField()">
-            <input class="btn-defaul" type="submit" value="Create test" onclick="check()">
-            <input class="btn-defaul" type="button" value="Check" onclick="check()">
-        </form:form>
+        <div class="text-left">
+            <p class="left">Создайте свой тест</p>
+            <form:form action="/tests/create" method="post" commandName="testCreateForm" modelAttribute="testCreateForm"
+                       name="testCreateForm" id="testCreateForm">
+                <div id="test">
+                    <p>Введите описание теста</p>
+                    <textarea  type="text" name="OfTest" class="input-lg text-center"></textarea>
+                </div>
+                <br/>
+                <div class="text-center">
+                    <input class="btn-defaul" type="button" value="Add question" id="add" onclick="addQuestionField()">
+                    <input class="btn-defaul" type="submit" value="Create test" onclick="check()">
+                    <input class="btn-defaul" type="button" value="Check" onclick="check()">
+                </div>
+            </form:form>
         </div>
     </div>
 </div>
 </body>
 </html>
+

@@ -180,11 +180,12 @@
             </ul>
         </nav>
     </div>
-    <p class="text-center">Тест</p>
+
 </header>
 <div class="container">
     <div class="row">
-        <div class="text-center">
+        <div class="text-left">
+            <p class="text-center left">Тест</p>
             <form:form method="post" commandName="testForm" modelAttribute="testForm">
                 <script>id = ${test.getId()};</script>
                 <input type="hidden" name="id" value="${id}">
@@ -203,15 +204,18 @@
 
                         <c:if test="${i.getType() eq '2' }">
                             <div>${i.getTitle()}</div>
-                            <div id="bAnswer_${iterator.index}"><input class="input-lg text-center" type="text" name="answers[${iterator.index}]"/>
+                            <div id="bAnswer_${iterator.index}"><input class="input-lg text-center" type="text"
+                                                                       name="answers[${iterator.index}]"/>
                             </div>
                         </c:if>
 
                         <c:if test="${i.getType() eq '3'}">
                             <div>${i.getTitle()}</div>
-                            <div id="cAnswer_${iterator.index}_1"><input type="text"  class="input-lg text-center" name="cPartResult" id="cPartCode"/>
+                            <div id="cAnswer_${iterator.index}_1"><input type="text" class="input-lg text-center"
+                                                                         name="cPartResult" id="cPartCode"/>
                             </div>
-                            <div id="cAnswer_${iterator.index}_2"><input type="text"  class="input-lg text-center" name="answers[${iterator.index}]"
+                            <div id="cAnswer_${iterator.index}_2"><input type="text" class="input-lg text-center"
+                                                                         name="answers[${iterator.index}]"
                                                                          id="cPartResult" hidden/></div>
                             <script>
                                 testHaveCType = true;
@@ -222,11 +226,16 @@
                 <script>
                     console.log(testHaveCType);
                 </script>
-                <button  class="btn-defaul" type="submit" onclick="passTestWithoutC()">End test</button>
-                <button type="button" class="btn-defaul" onclick="passTest()">Pass test</button>
+                <div class="text-center">
+                    <button class="btn-defaul text-center" type="submit" onclick="passTestWithoutC()">Окончить тест</button>
+                    <button type="button" class="btn-defaul text-center" onclick="passTest()">Пропустить тест</button>
+                </div>
             </form:form>
         </div>
     </div>
 </div>
 </body>
 </html>
+
+
+
