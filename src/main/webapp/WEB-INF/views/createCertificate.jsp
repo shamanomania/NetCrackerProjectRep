@@ -121,19 +121,22 @@
         $('#article_'+div.id)
             .prepend('<button class="btn" id="unselectBtn_'+ div.id +'" onclick="unselectTest('+div.id+')"><img src="../../images/x.png" alt="Netcracker"></button >');
         $('#article_'+div.id)
-            .append('<img src="../../images/yes.png" alt="Netcracker" class="tab-pane">');
+            .append('<img id="choosedImg_'+ div.id +'" src="../../images/yes.png" alt="Netcracker" class="tab-pane">');
         $('#'+div.id)
             .removeAttr('onclick');
     }
     
     function unselectTest(id) {
-        map.delete(id);
+        console.log(id);
+        map.delete(id.toString());
         console.log(map);
-        $('#unselectBtn_'+ id)
+        $('#unselectBtn_'+ id.toString())
             .remove();
-//        $('#article_'+id) удалить галочку.
-        /*$('#'+ id)
-            .attr('onclick','chooseTest(this)');*/
+        $('#choosedImg_'+ id.toString())
+            .remove();
+        setTimeout(function(){$('#'+ id.toString())
+            .attr('onclick','chooseTest(this)')},1000);
+
     }
 </script>
 </body>
