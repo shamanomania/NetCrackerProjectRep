@@ -325,9 +325,8 @@
                 </div>
                 <br/>
                 <div class="text-center">
-                    <input class="btn-defaul" type="button" value="Add question" id="add" onclick="addQuestionField()">
-                    <input class="btn-defaul" type="submit" value="Create test" onclick="check()">
-                    <input class="btn-defaul" type="button" value="Check" onclick="check()">
+                    <input class="btn-defaul" type="button" value="Добавить вопрос" id="add" onclick="addQuestionField()">
+                    <input class="btn-defaul" type="button" value="Завершить" onclick="check()">
                 </div>
             </form:form>
         </div>

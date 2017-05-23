@@ -53,7 +53,7 @@
     <div class=" row text-muted">
         <button class="col-md-1 col-xs-1" id="mybuttonclick1"><img src="../../images/arrow2.png" alt="Netcracker"></button>
         <c:forEach items="${createdTests}" var="createdTest" varStatus="test">
-            <article class="col-xs-2 col-md-2 text-center" id="${test.index}"><img src="../../images/x.png" alt="Netcracker"></button><br>Тест: ${createdTest.getId()}<br><button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button></article>
+            <article class="col-xs-2 col-md-2 text-center" id="${test.index}"><button  class="btn"><img src="../../images/x.png" alt="Netcracker"></button><br>Тест: ${createdTest.getId()}<br><button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button></article>
             <script>
                 var index = ${test.index};
                 if (index > 3){

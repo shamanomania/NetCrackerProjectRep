@@ -135,11 +135,11 @@
                             response.answers[i].id = response.answers[i].id.toString().match(/\d+/g);
                             if (response.answers[i].id[0] != response.answers[i].id[1]) {
                                 $('#aAnswer_' + i + '_' + response.answers[i].id[0])
-                                    .after("Выбранный ответ");
+                                    .after(<img src="../../images/x.png">);
                             }
 
                             $('#aAnswer_' + i + '_' + response.answers[i].id[1])
-                                .after("Верный ответ");
+                                .after(<img src="../../images/x.png">);
                         } else {
                             $('#bAnswer_' + i)
                                 .append(
@@ -228,7 +228,7 @@
                 </script>
                 <div class="text-center">
                     <button class="btn-defaul text-center" type="submit" onclick="passTestWithoutC()">Окончить тест</button>
-                    <button type="button" class="btn-defaul text-center" onclick="passTest()">Пропустить тест</button>
+                    <button type="button" class="btn-defaul text-center" onclick="passTest()">Завершить</button>
                 </div>
             </form:form>
         </div>
