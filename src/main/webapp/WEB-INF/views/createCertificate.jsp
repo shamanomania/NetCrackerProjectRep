@@ -121,7 +121,7 @@
         $('#article_'+div.id)
             .prepend('<button class="btn" id="unselectBtn_'+ div.id +'" onclick="unselectTest('+div.id+')"><img src="../../images/x.png" alt="Netcracker"></button >');
         $('#article_'+div.id)
-            .append('<button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button>');
+            .append('<img src="../../images/yes.png" alt="Netcracker" class="tab-pane">');
         $('#'+div.id)
             .removeAttr('onclick');
     }
