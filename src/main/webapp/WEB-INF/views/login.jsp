@@ -44,7 +44,7 @@
                 </p>
                 <button class="btn center" type="submit">Sign in</button>
                 <button type="button" class="btn" onclick="location.href='/signup'">Sign up</button>
-
+            </form>
                     <div class="icon-circle">
                         <a href="/facebook/signin" class="ifacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
                         <a href="/hh/signin" class="ihh" title="HeadHunter"><i class="fa fa-headhunter"></i></a>

@@ -53,11 +53,11 @@
     <div class=" row text-muted">
         <button class="col-md-1 col-xs-1" id="mybuttonclick1"><img src="../../images/arrow2.png" alt="Netcracker"></button>
         <c:forEach items="${createdTests}" var="createdTest" varStatus="test">
-            <article class="col-xs-2 col-md-2 text-center" id="${test.index}"><button  class="btn"><img src="../../images/x.png" alt="Netcracker"></button ><br>Тест: ${createdTest.getId()}<br><button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button></article>
+            <div id="${createdTest.getId()}" onclick="chooseTest(this)"><article class="col-xs-2 col-md-2 text-center" id="article_${createdTest.getId()}"><%--<button  class="btn"><img src="../../images/x.png" alt="Netcracker"></button >--%><br>Тест: ${createdTest.getId()}<br><%--<button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button>--%></article></div>
             <script>
                 var index = ${test.index};
                 if (index > 3){
-                    $('#${test.index}')
+                    $('#article_'+${createdTest.getId()})
                         .addClass("a");
                 }
             </script>
@@ -111,6 +111,30 @@
         });
     });
 
+</script>
+<script>
+    'use strict';
+    let map = new Map();
+    function chooseTest(div) {
+        map.set(div.id,div.id);
+        console.log(map);
+        $('#article_'+div.id)
+            .prepend('<button class="btn" id="unselectBtn_'+ div.id +'" onclick="unselectTest('+div.id+')"><img src="../../images/x.png" alt="Netcracker"></button >');
+        $('#article_'+div.id)
+            .append('<button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button>');
+        $('#'+div.id)
+            .removeAttr('onclick');
+    }
+    
+    function unselectTest(id) {
+        map.delete(id);
+        console.log(map);
+        $('#unselectBtn_'+ id)
+            .remove();
+//        $('#article_'+id) удалить галочку.
+        /*$('#'+ id)
+            .attr('onclick','chooseTest(this)');*/
+    }
 </script>
 </body>
 </html>

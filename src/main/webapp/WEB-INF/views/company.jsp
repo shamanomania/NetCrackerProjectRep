@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="text-primary">
                                     <button class="btn"
-                                            onclick="location.href='/test/${passedTest.getId()}'">
+                                            onclick="location.href='/test/${createdTest.getId()}'">
                                         Перейти к тесту
                                     </button>
                                 </div>
