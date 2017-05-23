@@ -42,6 +42,14 @@ public class Certificate {
         this.title = title;
     }
 
+    public List<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(List<Test> tests) {
+        this.tests = tests;
+    }
+
     @Override
     public String toString() {
         return "Certificate{" +

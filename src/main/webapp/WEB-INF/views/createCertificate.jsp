@@ -31,8 +31,8 @@
                 <li><a href="../home">О нас</a></li>
                 <li class="active"><a href="/about/">Тесты</a></li>
                 <li><a href="/companies">Компании</a></li>
-                <li><a href="/login">Вход/Регистрация</a></li>
-                <li><a href="/login">Личный кабинет</a></li>
+                <li><a href="/user">Личный кабинет</a></li>
+                <li><a href="/logout">Выход</a></li>
             </ul>
         </nav>
     </div>
@@ -48,7 +48,7 @@
             <p>Иванова Ивана Ивановича</p>
             <p>Свидетельствующий о том, что Иванов Иван Иванович успешно прошёл тест: тест</p>
             <img class="right" src="../../images/IP.png"/>
-            <input type="submit" value="Создать" class="btn-info"/>
+            <input type="submit" value="Создать" class="btn-info" onclick="createSertificate()"/>
         </div>
     </div>
     <div class=" row text-muted">
@@ -138,6 +138,44 @@
         setTimeout(function(){$('#'+ id.toString())
             .attr('onclick','chooseTest(this)')},1000);
 
+    }
+
+
+    function createSertificate() {
+        map = strMapToObj(map);
+        map = objToArray(map);
+        var object = {"tests" : map, "title" : "1234567"};
+        console.log(object);
+        object = JSON.stringify(object);
+        console.log(object);
+        $.ajax({
+            type: "POST",
+            url: "/createcertificate",
+            contentType: "application/json",
+            dataType: "json",
+            data: object,
+            success: function (obj) {
+                alert(object.toString());
+            }
+        });
+    }
+
+    function strMapToObj(strMap) {
+        let obj = Object.create(null);
+        for (let [k,v] of strMap) {
+            // We don’t escape the key '__proto__'
+            // which can cause problems on older engines
+            obj[k] = v;
+        }
+        return obj;
+    }
+
+    function objToArray(object) {
+        var array = [];
+        for (var index in object){
+            array.push(object[index]);
+        }
+        return array;
     }
 </script>
 </body>
