@@ -37,12 +37,12 @@
                 <p class="text-success">e-mail: ${loggedUser.getEmail()}</p>
                 <p class="text-success">Адрес: ${loggedUser.getAddress()}</p>
                 <button class="btn-block" onclick="location.href='/tests'">Тесты</button>
-                <button class="btn-block" onclick="location.href='/testresults'">Результаты тестов</button>
                 <button class="btn-block" onclick="location.href='/companies'">Компании</button>
-<%--                <button class="btn-block" onclick="location.href='/choosecompany'">Присоединиться к компании</button>
-                <button class="btn-block" onclick="location.href='/companyregistration'">Зарегестрировать компанию</button>--%>
+                <c:if test="${loggedUser.getCompany() != null}">
+                <button class="btn-block" onclick="location.href='/testresults'">Результаты тестов</button>
                 <button class="btn-block" onclick="location.href='/createcertificate'">Создать сертификат</button>
                 <button class="btn-block" onclick="location.href='/tests/create'">Создать тест</button>
+                </c:if>
                 <button class="btn-block" onclick="location.href='/'">На главную</button>
             </div>
         </div>

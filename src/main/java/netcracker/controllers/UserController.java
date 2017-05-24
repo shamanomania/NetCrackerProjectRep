@@ -71,9 +71,10 @@ public class UserController {
                 model.put("createdTests", testRepository.findByCompanyId(currentUser.getUser().getCompany().getId()));
                 model.put("createdCertificates", certificateRepository.findByCompanyId(currentUser.getUser().getCompany().getId()));
             }
+            System.out.println("company login");
             return "company";
         }
-        return "login";
+        return "login?error";
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
