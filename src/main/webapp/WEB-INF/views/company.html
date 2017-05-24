@@ -64,6 +64,7 @@
                     <div class="tab-pane active" id="1a">
                         <div class="row text-left">
                             <c:if test="${loggedUser.getCompany() == null}">
+                                <p class="text-left">Для начала работы выберите компанию из предложенных, или зарегестрируйте новую.</p>
                                 <button class="btn-info" onclick="location.href='/choosecompany'">Присоединиться к компании</button>
                                 <button class="btn-info" onclick="location.href='/companyregistration'">Зарегестрировать компанию</button>
                             </c:if>
