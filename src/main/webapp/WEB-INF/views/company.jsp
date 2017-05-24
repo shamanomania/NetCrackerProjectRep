@@ -39,15 +39,17 @@
                 <button class="btn-block" onclick="location.href='/tests'">Тесты</button>
                 <button class="btn-block" onclick="location.href='/testresults'">Результаты тестов</button>
                 <button class="btn-block" onclick="location.href='/companies'">Компании</button>
-                <button class="btn-block" onclick="location.href='/choosecompany'">Присоединиться к компании</button>
-                <button class="btn-block" onclick="location.href='/companyregistration'">Зарегестрировать компанию</button>
+<%--                <button class="btn-block" onclick="location.href='/choosecompany'">Присоединиться к компании</button>
+                <button class="btn-block" onclick="location.href='/companyregistration'">Зарегестрировать компанию</button>--%>
                 <button class="btn-block" onclick="location.href='/createcertificate'">Создать сертификат</button>
                 <button class="btn-block" onclick="location.href='/tests/create'">Создать тест</button>
                 <button class="btn-block" onclick="location.href='/'">На главную</button>
             </div>
         </div>
         <div class="col-md-9 col-xs-4"><p class="text-center">Your contribution</p>
+
             <div id="exTab1">
+                <c:if test="${loggedUser.getCompany() != null}">
                 <ul class="nav nav-pills">
                     <li class="active">
                         <a href="#1a" data-toggle="tab">Пройденные тесты</a>
@@ -57,24 +59,31 @@
                     <li><a href="#3a" data-toggle="tab">Созданные сертификаты</a>
                     </li>
                 </ul>
-
+                </c:if>
                 <div class="tab-content clearfix">
                     <div class="tab-pane active" id="1a">
                         <div class="row text-left">
-                            <c:forEach items="${testsPassedByUser}" var="passedTest" varStatus="t">
-                                <article class="col-xs-5 col-md-5">
-                                    <div class="left">Тест
-                                        #${passedTest.getTest().getId()}<br>Описание:<br>${passedTest.getTest().getTitle()}
-                                        <br>Результат: ${passedTest.result} <br>
-                                    </div>
-                                    <div class="text-primary">
-                                        <button class="btn"
-                                                onclick="location.href='/test/${passedTest.getTest().getId()}'">
-                                            Перейти к тесту
-                                        </button>
-                                    </div>
-                                </article>
-                            </c:forEach>
+                            <c:if test="${loggedUser.getCompany() == null}">
+                                <button class="btn-block" onclick="location.href='/choosecompany'">Присоединиться к компании</button>
+                                <button class="btn-block" onclick="location.href='/companyregistration'">Зарегестрировать компанию</button>
+                            </c:if>
+                            <c:if test="${loggedUser.getCompany() != null}">
+                                <c:forEach items="${testsPassedByUser}" var="passedTest" varStatus="t">
+                                    <article class="col-xs-5 col-md-5">
+                                        <div class="left">Тест
+                                            #${passedTest.getTest().getId()}<br>Описание:<br>${passedTest.getTest().getTitle()}
+                                            <br>Результат: ${passedTest.result} <br>
+                                        </div>
+                                        <div class="text-primary">
+                                            <button class="btn"
+                                                    onclick="location.href='/test/${passedTest.getTest().getId()}'">
+                                                Перейти к тесту
+                                            </button>
+                                        </div>
+                                    </article>
+                                </c:forEach>
+                            </c:if>
+
                             <%--
                             <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
                                 consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna

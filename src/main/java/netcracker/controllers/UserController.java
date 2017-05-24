@@ -63,7 +63,9 @@ public class UserController {
         if ("USER".equals(currentUser.getRole().getTitle())){
             return "user";
         } else if ("ADMIN".equals(currentUser.getRole().getTitle())){
-            model.put("createdTests",testRepository.findByCompanyId(currentUser.getUser().getCompany().getId()));
+            if (currentUser.getUser().getCompany() != null) {
+                model.put("createdTests", testRepository.findByCompanyId(currentUser.getUser().getCompany().getId()));
+            }
             return "company";
         }
         return "login";
