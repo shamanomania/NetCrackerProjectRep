@@ -59,7 +59,7 @@ public class CertificateService implements ICertificateService {
         System.out.println(tests.toString());
         certificate.setTitle(jsonCertificate.getTitle());
         certificate.setTests(tests);
-        certificate.setCompanies(companies);
+        certificate.setCompany(company);
         certificateRepository.save(certificate);
         System.out.println(jsonCertificate.toString());
         return certificate;

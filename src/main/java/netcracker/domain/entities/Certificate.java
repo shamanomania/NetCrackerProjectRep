@@ -21,8 +21,12 @@ public class Certificate {
     @ManyToMany(mappedBy = "certificates")
     private List<Test> tests;
 
-    @ManyToMany(mappedBy = "certificates")
-    private List<Company> companies;
+    /*@ManyToMany(mappedBy = "certificates")
+    private List<Company> companies;*/
+
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 
     public Certificate(){}
 
@@ -50,12 +54,20 @@ public class Certificate {
         this.tests = tests;
     }
 
-    public List<Company> getCompanies() {
+   /* public List<Company> getCompanies() {
         return companies;
     }
 
     public void setCompanies(List<Company> companies) {
         this.companies = companies;
+    }*/
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     @Override

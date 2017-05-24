@@ -14,7 +14,6 @@ import java.util.List;
  */
 @Repository
 public interface ImagesRepository extends CrudRepository<Images,Long> {
-    Images findByTest(Test test);
 
     List<Images> findAll();
 }

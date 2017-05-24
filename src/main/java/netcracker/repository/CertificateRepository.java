@@ -16,7 +16,7 @@ public interface CertificateRepository extends CrudRepository<Certificate, Long>
 
     Certificate findByTitle(String title);
 
-    List<Certificate> findByCompaniesId(Long id);
+    List<Certificate> findByCompanyId(Long id);
 
     @Override
     List<Certificate> findAll();

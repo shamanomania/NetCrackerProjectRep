@@ -27,10 +27,6 @@ public class ImageService implements IImageService {
         imagesRepository.save(images);
     }
 
-    @Override
-    public Images findTestImg(Test test) {
-        return imagesRepository.findByTest(test);
-    }
 
     @Override
     public Images findTop() {

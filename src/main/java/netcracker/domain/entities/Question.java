@@ -27,12 +27,16 @@ public class Question {
     @Column(name = "TYPE", nullable = false)
     private String type;
 
-    @ManyToMany
+    /*@ManyToMany//////////////////////////////////////////////////////////
     @JoinTable(
             name = "TestQuestion",
             joinColumns = @JoinColumn(name = "question_id"),
             inverseJoinColumns = @JoinColumn(name = "test_id"))
-    private List<Test> tests;
+    private List<Test> tests;*/
+
+    @ManyToOne
+    @JoinColumn(name = "test_id")
+    private Test test;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL/*, fetch = FetchType.LAZY*/)
     private List<Answer> answers;
@@ -79,13 +83,21 @@ public class Question {
         this.correctAnswers = correctAnswers;
     }
 
-    public List<Test> getTests() {
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
+    /*    public List<Test> getTests() {
         return tests;
     }
 
     public void setTests(List<Test> tests) {
         this.tests = tests;
-    }
+    }*/
 
     @Override
     public String toString() {

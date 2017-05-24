@@ -55,8 +55,8 @@ public class Person implements Serializable {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @OneToMany(mappedBy = "persons")
-    private List<Person> persons;
+    /*@OneToMany(mappedBy = "persons")??????????????????
+    private List<Person> persons;*/
 
     public Long getId() {return id;}
 

@@ -24,11 +24,14 @@ public class Company implements Serializable{
     private String address;
 
 
-    @ManyToMany
+    /*@ManyToMany
     @JoinTable(
             name = "CertificateCompany",
             joinColumns=@JoinColumn(name = "certificate_id"),
             inverseJoinColumns = @JoinColumn(name = "company_id"))
+    private List<Certificate> certificates;*/
+
+    @OneToMany(mappedBy = "company")
     private List<Certificate> certificates;
 
 //    @ManyToMany
@@ -67,6 +70,14 @@ public class Company implements Serializable{
     public String getAddress(){return address;}
 
     public void setAddress(String address){this.address = address;}
+
+    /*public List<Certificate> getCertificates() {
+        return certificates;
+    }
+
+    public void setCertificates(List<Certificate> certificates) {
+        this.certificates = certificates;
+    }*/
 
     public List<Certificate> getCertificates() {
         return certificates;

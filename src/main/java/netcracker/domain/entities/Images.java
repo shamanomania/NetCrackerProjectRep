@@ -1,8 +1,10 @@
 package netcracker.domain.entities;
 
+import netcracker.viewsForms.validator.FieldEquals;
 import oracle.sql.BLOB;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Sid775 on 02.02.2017.
@@ -20,9 +22,9 @@ public class Images {
     @Column (name = "IMAGE")
     private byte[] image;
 
-    @OneToOne
-    @JoinColumn(name = "test_id",referencedColumnName = "id")
-    private Test test;
+    @OneToMany
+    @JoinColumn(name = "test_id")
+    private List<Test> tests;
 
     public Long getId() {return id;}
 

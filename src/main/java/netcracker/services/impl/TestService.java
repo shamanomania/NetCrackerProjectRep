@@ -68,7 +68,7 @@ public class TestService implements ITestService {
                     }
                 }
                 question.setAnswers(answers);
-                question.setTests(tests);
+                question.setTest(test);
                 questions.add(question);
             }
         }

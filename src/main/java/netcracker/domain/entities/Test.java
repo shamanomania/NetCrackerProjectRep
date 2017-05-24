@@ -27,14 +27,17 @@ public class Test {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    @ManyToMany(mappedBy = "tests",cascade = CascadeType.ALL)
+    /*@ManyToMany(mappedBy = "tests",cascade = CascadeType.ALL)
+    private List<Question> questions;*/
+
+    @OneToMany(mappedBy = "test")
     private List<Question> questions;
 
-    @OneToMany(mappedBy = "tests")
-    private List<Test> tests;
+    /*@OneToMany(mappedBy = "tests")
+    private List<Test> tests;*/
 
-    @OneToOne
-    @JoinColumn(name = "image_id",referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "tests")
     private Images image;
 
 //    @ManyToOne

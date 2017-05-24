@@ -9,6 +9,5 @@ import netcracker.domain.entities.Test;
 public interface IImageService {
     public Images findById(Long id);
     public void save(Images images);
-    public Images findTestImg(Test test);
     public Images findTop();
 }

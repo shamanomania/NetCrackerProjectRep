@@ -69,7 +69,7 @@ public class UserController {
         } else if ("ADMIN".equals(currentUser.getRole().getTitle())){
             if (currentUser.getUser().getCompany() != null) {
                 model.put("createdTests", testRepository.findByCompanyId(currentUser.getUser().getCompany().getId()));
-                model.put("createdCertificates", certificateRepository.findByCompaniesId(currentUser.getUser().getCompany().getId()));
+                model.put("createdCertificates", certificateRepository.findByCompanyId(currentUser.getUser().getCompany().getId()));
             }
             return "company";
         }
