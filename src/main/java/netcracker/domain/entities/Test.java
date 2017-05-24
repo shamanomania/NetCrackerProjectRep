@@ -1,11 +1,12 @@
 package netcracker.domain.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "TEST")
-public class Test {
+public class Test implements Serializable {
 
     @Id
     @Column (name = "ID")
@@ -19,8 +20,8 @@ public class Test {
     @ManyToMany
     @JoinTable(
             name = "CertificateTest",
-            joinColumns = @JoinColumn(name = "certificate_id"),
-            inverseJoinColumns = @JoinColumn(name = "test_id"))
+            joinColumns = @JoinColumn(name = "test_id"),
+            inverseJoinColumns = @JoinColumn(name = "certificate_id"))
     private List<Certificate> certificates;
 
     @ManyToOne
@@ -30,14 +31,14 @@ public class Test {
     /*@ManyToMany(mappedBy = "tests",cascade = CascadeType.ALL)
     private List<Question> questions;*/
 
-    @OneToMany(mappedBy = "test")
+    @OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
     private List<Question> questions;
 
     /*@OneToMany(mappedBy = "tests")
     private List<Test> tests;*/
 
     @ManyToOne
-    @JoinColumn(name = "tests")
+    @JoinColumn(name = "image_id")
     private Images image;
 
 //    @ManyToOne
@@ -49,13 +50,13 @@ public class Test {
 
     public Test(){}
 
-    public Test(String title) {
-        this.title = title;
+    public Long getId() {
+        return id;
     }
 
-    public Long getId(){return id;}
-
-    public void setId(Long id){this.id = id;}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -65,28 +66,36 @@ public class Test {
         this.title = title;
     }
 
-    public void setImage(Images image){
-        this.image=image;
-    }
-
-    public Images getImage(){
-        return image;
-    }
-
     public List<Certificate> getCertificates() {
         return certificates;
-    }
-
-    public List<Question> getQuestions() {
-        return questions;
     }
 
     public void setCertificates(List<Certificate> certificates) {
         this.certificates = certificates;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
+    }
+
+    public Images getImage() {
+        return image;
+    }
+
+    public void setImage(Images image) {
+        this.image = image;
     }
 
     @Override

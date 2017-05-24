@@ -337,7 +337,7 @@
                        name="testCreateForm" id="testCreateForm">
                 <div id="test">
                     <p>Введите описание теста</p>
-                    <textarea  type="text" name="OfTest" class="input-lg text-center"></textarea>
+                    <textarea  type="text" name="titleOfTest" class="input-lg text-center"></textarea>
                 </div>
                 <br/>
                 <div class="text-center">

@@ -1,10 +1,7 @@
 package netcracker.services.impl;
 
-import netcracker.domain.entities.Answer;
-import netcracker.domain.entities.Images;
-import netcracker.domain.entities.Question;
-import netcracker.domain.entities.Test;
-import netcracker.repository.ImagesRepository;
+import netcracker.domain.entities.*;
+import netcracker.repository.PersonRepository;
 import netcracker.repository.PersonTestRepository;
 import netcracker.repository.TestRepository;
 import netcracker.services.ITestService;
@@ -12,7 +9,9 @@ import netcracker.viewsForms.jsonMap.test.JsonResponse;
 import netcracker.viewsForms.jsonMap.test.JsonResponseAnswer;
 import netcracker.viewsForms.jsonMap.test.JsonResponseCorrectAnswer;
 import netcracker.viewsForms.jsonMap.testCreate.JsonTest;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -27,25 +26,29 @@ public class TestService implements ITestService {
 
     private TestRepository testRepository;
 
-    @Autowired
-    PersonTestRepository personTestRepository;
+    private final PersonTestRepository personTestRepository;
+
+    private final PersonTestService personTestService;
+
+    private final ImageService imageService;
+
+    private final PersonRepository personRepository;
 
     @Autowired
-    PersonTestService personTestService;
-
-    @Autowired
-    ImageService imageService;
-
-    @Autowired
-    public TestService(TestRepository testRepository){
+    public TestService(TestRepository testRepository, PersonTestRepository personTestRepository, PersonTestService personTestService, ImageService imageService, PersonRepository personRepository){
+        this.personRepository = personRepository;
         Assert.notNull(testRepository);
         this.testRepository = testRepository;
+        this.personTestRepository = personTestRepository;
+        this.personTestService = personTestService;
+        this.imageService = imageService;
     }
 
     public Test createTest(JsonTest jsonTest){
-        List<Test> tests = new ArrayList<>();
+        CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //List<Test> tests = new ArrayList<>();
         Test test = new Test();
-        tests.add(test);
+        //tests.add(test);
         List<Question> questions = new ArrayList<>();
         for (int i = 0; i < jsonTest.getQuestions().size();i++) {
             if (jsonTest.getQuestions().get(i) != null) {
@@ -69,12 +72,14 @@ public class TestService implements ITestService {
                 }
                 question.setAnswers(answers);
                 question.setTest(test);
+                System.out.println(question.getTest().toString());
                 questions.add(question);
             }
         }
         test.setQuestions(questions);
         test.setTitle(jsonTest.getTitleOfTest());
         Images image = imageService.findTop();
+        test.setCompany(personRepository.findOne(currentUser.getId()).getCompany());
         test.setImage(image);
         System.out.println(test.toString());
         return testRepository.save(test);
@@ -157,7 +162,40 @@ public class TestService implements ITestService {
 
         personTestRepository.save(personTestService.matchTestToUser(test,resultOfTest,cPartResult));
 
+        addCertificateForUser(test);
+
         return jsonResponse;
+    }
+
+    private void addCertificateForUser(Test test) {
+        CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        boolean allTestPassed = true;
+
+        Person person = currentUser.getUser();
+        List<Certificate> certificates = new ArrayList<>();
+        List<Person> users = new ArrayList<>();
+        users.add(currentUser.getUser());
+        for (Certificate certificatei : test.getCertificates()) {
+            for (Test testi : certificatei.getTests()) {
+                System.out.println("Результаты выбора из таблицы: " + personTestRepository.findByPersonIdAndTestId(currentUser.getUser().getId(),testi.getId()));
+                if (personTestRepository.findByPersonIdAndTestId(currentUser.getUser().getId(),testi.getId()).size() == 0){
+                    allTestPassed = false;
+                    System.out.println("Id пользователя: " + currentUser.getUser().getId());
+                    System.out.println("Id теста: " + testi.getId());
+                }
+            }
+            if (allTestPassed == true){
+                System.out.println("Сертификат для присвоения: " + certificatei);
+                System.out.println("Кому присвоить: " + users);
+                certificatei.setPersons(users);
+                certificates.add(certificatei);//добавить сертификат к списку для выдачи
+            }else {
+                allTestPassed = true;
+            }
+        }
+        person.setCertificates(certificates);//выдать все добавленные в список сертификаты
+        personRepository.save(person);
     }
 
 

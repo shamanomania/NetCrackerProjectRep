@@ -45,7 +45,7 @@
             <p class="pager">
                 Сертификат
             </p>
-            <p>Описание: <input type="text" class="input-lg"/></p>
+            <p>Описание: <input id="titleOfCertificate" type="text" class="input-lg"/></p>
             <p style="font-size: 15pt">Пожалуйста, отметьте все тесты, которые будет необходимо пройти для получения данного сертификата</p>
             <img class="right" src="../../images/IP.png"/>
             <input type="submit" value="Создать" class="btn-info" onclick="createSertificate()"/>
@@ -144,7 +144,7 @@
     function createSertificate() {
         map = strMapToObj(map);
         map = objToArray(map);
-        var object = {"tests" : map, "title" : "1234567"};
+        var object = {"tests" : map, "title" : $('#titleOfCertificate').val()};
         console.log(object);
         object = JSON.stringify(object);
         console.log(object);

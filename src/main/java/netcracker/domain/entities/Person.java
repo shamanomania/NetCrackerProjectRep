@@ -55,6 +55,14 @@ public class Person implements Serializable {
     @JoinColumn(name = "role_id")
     private Role role;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "PersonCertificate",
+            joinColumns = @JoinColumn(name = "person_id"),
+            inverseJoinColumns = @JoinColumn(name = "certificate_id")
+    )
+    private List<Certificate> certificates;
+
     /*@OneToMany(mappedBy = "persons")??????????????????
     private List<Person> persons;*/
 
@@ -108,6 +116,14 @@ public class Person implements Serializable {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public List<Certificate> getCertificates() {
+        return certificates;
+    }
+
+    public void setCertificates(List<Certificate> certificates) {
+        this.certificates = certificates;
     }
 
     @Override

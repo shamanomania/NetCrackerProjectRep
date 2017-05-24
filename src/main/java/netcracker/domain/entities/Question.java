@@ -51,13 +51,21 @@ public class Question {
     public Question() {
     }
 
-    public Long getId() {return id;}
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) {this.id = id;}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getTitle() {return title;}
+    public String getTitle() {
+        return title;
+    }
 
-    public void setTitle(String title) {this.title = title;}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getType() {
         return type;
@@ -65,6 +73,14 @@ public class Question {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
     }
 
     public List<Answer> getAnswers() {
@@ -83,13 +99,7 @@ public class Question {
         this.correctAnswers = correctAnswers;
     }
 
-    public Test getTest() {
-        return test;
-    }
 
-    public void setTest(Test test) {
-        this.test = test;
-    }
 
     /*    public List<Test> getTests() {
         return tests;

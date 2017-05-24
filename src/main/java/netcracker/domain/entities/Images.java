@@ -4,6 +4,7 @@ import netcracker.viewsForms.validator.FieldEquals;
 import oracle.sql.BLOB;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  */
 @Entity
 @Table (name = "IMAGES")
-public class Images {
+public class Images implements Serializable {
 
     @Id
     @Column (name = "ID")

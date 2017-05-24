@@ -1,6 +1,7 @@
 package netcracker.domain.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  */
 @Entity
 @Table (name = "CERTIFICATE")
-public class Certificate {
+public class Certificate implements Serializable {
 
     @Id
     @Column (name = "ID")
@@ -27,6 +28,9 @@ public class Certificate {
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
+    @ManyToMany(mappedBy = "certificates")
+    private List<Person> persons;
 
     public Certificate(){}
 
@@ -68,6 +72,14 @@ public class Certificate {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public List<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
     }
 
     @Override

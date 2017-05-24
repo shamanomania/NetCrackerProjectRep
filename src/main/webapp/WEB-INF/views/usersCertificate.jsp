@@ -43,11 +43,11 @@
         <div class="text-success">
             <img class="pull-left" src="../../images/logo.png"/><br>
             <p class="pager">
-                Сертификат
+                Сертификат #${certificate.getId()}
             </p>
-            <p>Свидетельствующий о том, что Иванов Иван Иванович успешно прошёл тесты:<br> вывести все тесты<br></p>
+            <p>${certificate.getTitle()}</p>
             <img class="right" src="../../images/IP.png"/>
-            <input type="submit" value="Создать" class="btn-info" onclick="createSertificate()"/>
+            <%--<input type="submit" value="Создать" class="btn-info" onclick="createSertificate()"/>--%>
         </div>
     </div>
 </div>

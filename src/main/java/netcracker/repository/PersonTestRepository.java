@@ -16,4 +16,6 @@ public interface PersonTestRepository extends CrudRepository<PersonTest,Long> {
 
     List<PersonTest> findTestByTestCompanyId(Long id);
 
+    List<PersonTest> findByPersonIdAndTestId(Long idOfUser, Long idOfTest);
+
 }

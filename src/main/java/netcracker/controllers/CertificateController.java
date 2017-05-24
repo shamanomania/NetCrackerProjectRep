@@ -22,7 +22,7 @@ public class CertificateController {
     @RequestMapping(value = "/certificate/{id}", method = RequestMethod.GET)
     public ModelAndView getCertificatePage(@PathVariable Long id, ModelMap modelMap){
         ModelAndView model = new ModelAndView();
-        model.setViewName("certificate");
+        model.setViewName("usersCertificate");
         modelMap.put("certificate",certificateRepository.findOne(id));
         return model;
     }

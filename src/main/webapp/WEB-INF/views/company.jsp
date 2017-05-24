@@ -115,7 +115,7 @@
                                 <div class="text-primary">
                                     <button class="btn"
                                             onclick="location.href='/certificate/${createdCertificate.getId()}'">
-                                        Перейти к тесту
+                                        Перейти к сертификату
                                     </button>
                                 </div>
                             </article>

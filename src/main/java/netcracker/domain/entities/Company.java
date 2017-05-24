@@ -110,7 +110,6 @@ public class Company implements Serializable{
                 ", name='" + name + '\'' +
                 ", title='" + title + '\'' +
                 ", address='" + address + '\'' +
-                ", persons=" + persons +
                 '}';
     }
 }
