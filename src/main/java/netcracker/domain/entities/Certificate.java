@@ -50,12 +50,19 @@ public class Certificate {
         this.tests = tests;
     }
 
+    public List<Company> getCompanies() {
+        return companies;
+    }
+
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
+    }
+
     @Override
     public String toString() {
         return "Certificate{" +
                 "id=" + id +
-                ", title='" + title +
+                ", title='" + title + '\'' +
                 '}';
     }
-
 }

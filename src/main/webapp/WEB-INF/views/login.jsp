@@ -37,11 +37,11 @@
                 <p>
                     <input class="input-lg" type="password" name="password" id="password"/>
                 </p>
-                <p>
-                    <label class="label" for="remember-me">Remember me</label>
+                <%-- <p>
+                     <label class="label" for="remember-me">Remember me</label>
 
-                    <input class="checkbox-inline" type="checkbox" name="remember-me" id="remember-me"/>
-                </p>
+                     <input class="checkbox-inline" type="checkbox" name="remember-me" id="remember-me"/>
+                 </p>--%>
                 <button class="btn center" type="submit">Sign in</button>
                 <button type="button" class="btn" onclick="location.href='/signup'">Sign up</button>
             </form>

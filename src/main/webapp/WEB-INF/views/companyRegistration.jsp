@@ -20,29 +20,28 @@
     <div class="row">
 
         <div class="col-xs-5 col-md-5 text-left">
-            <form:form method="post" commandName="userCreateForm" modelAttribute="userCreateForm">
+            <form:form method="post" commandName="companyCreateForm" modelAttribute="companyCreateForm">
                 <table>
                     <tr>
-                        <td class="label">Address:<br><form:input class="input-lg lable" path="email"/></td>
+                        <td class="label">Название:<br><form:input class="input-lg lable" path="name"/></td>
 
-                        <td><span class="error"><form:errors path="email"/></span></td>
+                        <td><span class="error"><form:errors path="name"/></span></td>
                     </tr>
                     <tr>
-                        <td class="label"><br>Title:<br><form:password class="input-lg lable" path="password"/></td>
+                        <td class="label">Описание:<br><form:input class="input-lg lable" path="title"/></td>
 
-                        <td><span class="error"><form:errors path="password"/></span></td>
+                        <td><span class="error"><form:errors path="title"/></span></td>
                     </tr>
-
                     <tr>
-                        <td><p>
-                            <input class="checkbox-inline" type="checkbox" name="remember-me" id="remember-me"/>
-                        </p></td>
+                        <td class="label"><br>Адрес:<br><form:input class="input-lg lable" path="address"/></td>
+
+                        <td><span class="error"><form:errors path="address"/></span></td>
                     </tr>
 
                     <tr>
                         <td>
-                            <button class="btn center " type="submit">Sign up</button>
-                            <button type="button" class="btn" onclick="location.href='/signip'">Sign in</button>
+                            <button class="btn center " type="submit">Create</button>
+                            <%--<button type="button" class="btn" onclick="location.href='/signip'">Sign in</button>--%>
                         </td>
                     </tr>
                 </table>

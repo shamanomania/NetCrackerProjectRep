@@ -39,7 +39,7 @@
                 <button class="btn-block" onclick="location.href='/tests'">Тесты</button>
                 <button class="btn-block" onclick="location.href='/testresults'">Результаты тестов</button>
                 <button class="btn-block" onclick="location.href='/companies'">Компании</button>
-                <button class="btn-block" onclick="location.href='/tests'">Присоединиться к компании</button>
+                <button class="btn-block" onclick="location.href='/choosecompany'">Присоединиться к компании</button>
                 <button class="btn-block" onclick="location.href='/companyregistration'">Зарегестрировать компанию</button>
                 <button class="btn-block" onclick="location.href='/createcertificate'">Создать сертификат</button>
                 <button class="btn-block" onclick="location.href='/tests/create'">Создать тест</button>

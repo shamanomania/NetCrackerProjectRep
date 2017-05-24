@@ -14,6 +14,9 @@ public class Company implements Serializable{
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column (name = "NAME")
+    private String name;
+
     @Column (name = "TITLE")
     private String title;
 
@@ -49,6 +52,14 @@ public class Company implements Serializable{
 
     public void setId(Long id){this.id = id;}
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getTitle(){return title;}
 
     public void setTitle(String title){this.title = title;}
@@ -56,4 +67,39 @@ public class Company implements Serializable{
     public String getAddress(){return address;}
 
     public void setAddress(String address){this.address = address;}
+
+    public List<Certificate> getCertificates() {
+        return certificates;
+    }
+
+    public void setCertificates(List<Certificate> certificates) {
+        this.certificates = certificates;
+    }
+
+    public List<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(List<Test> tests) {
+        this.tests = tests;
+    }
+
+    public List<Person> getPersons() {
+        return persons;
+    }
+
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", title='" + title + '\'' +
+                ", address='" + address + '\'' +
+                ", persons=" + persons +
+                '}';
+    }
 }
