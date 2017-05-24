@@ -345,7 +345,7 @@
                     <input class="btn-defaul" type="button" value="Завершить" onclick="check()">
                 </div>
             </form:form>
-            <input id="avatar" type="file" name="avatar" />
+            <input id="avatar" type="file" name="avatar" class="btn-defaul" />
             <input class="btn-defaul" type="submit" id="upload" value="Upload" />
         </div>
     </div>
