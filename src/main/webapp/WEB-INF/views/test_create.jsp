@@ -169,18 +169,18 @@
                         .append('Введите верный ответ:')
                 )
                 .append(
-                    $('<textarea  class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][type]')
                         .attr('value', '2')
                 )
                 .append(
-                    $('<textarea  class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'text')
                         .attr('name', 'questions[' + total + '][answers][0]')
                 )
                 .append(
-                    $('<textarea  class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][rightAnswers]')
                         .attr('value', '0')
@@ -202,13 +202,13 @@
                         .append('Введите верный ответ(то, что должна будет вывести программа пользователя):')
                 )
                 .append(
-                    $('<textarea  class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][type]')
                         .attr('value', '3')
                 )
                 .append(
-                    $('<textarea  class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'text')
                         .attr('name', 'questions[' + total + '][answers][0]')
                 )/*.append('<br>')*/
@@ -218,7 +218,7 @@
                  .attr('name', 'questions[' + total + '][answers][1]')
                  )*/
                 .append(
-                    $('<textarea  class="input-lg text-center">')
+                    $('<input  class="input-lg text-center">')
                         .attr('type', 'hidden')
                         .attr('name', 'questions[' + total + '][rightAnswers]')
                         .attr('value', '0')
