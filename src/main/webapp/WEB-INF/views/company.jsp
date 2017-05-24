@@ -64,8 +64,8 @@
                     <div class="tab-pane active" id="1a">
                         <div class="row text-left">
                             <c:if test="${loggedUser.getCompany() == null}">
-                                <button class="btn-block" onclick="location.href='/choosecompany'">Присоединиться к компании</button>
-                                <button class="btn-block" onclick="location.href='/companyregistration'">Зарегестрировать компанию</button>
+                                <button class="btn-info" onclick="location.href='/choosecompany'">Присоединиться к компании</button>
+                                <button class="btn-info" onclick="location.href='/companyregistration'">Зарегестрировать компанию</button>
                             </c:if>
                             <c:if test="${loggedUser.getCompany() != null}">
                                 <c:forEach items="${testsPassedByUser}" var="passedTest" varStatus="t">
@@ -84,22 +84,7 @@
                                 </c:forEach>
                             </c:if>
 
-                            <%--
-                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <button class="btn">Перейти к тесту</button>
-                            </article>
-                            --%>
-                            <%--
-                            <article class="col-xs-5 col-md-5">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
-                                <button class="btn">Перейти к тесту</button>
-                            </article>
-                            --%>
+
                         </div>
                     </div>
                     <div class="tab-pane" id="2a">
@@ -134,98 +119,6 @@
                                 </div>
                             </article>
                             </c:forEach>
-                            <%--<article class="col-xs-5 col-md-5">
-                                <div class="left">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn"
-                                            onclick="location.href='/test/${createdTest.getId()}'">
-                                        Перейти к тесту
-                                    </button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn"
-                                            onclick="location.href='/test/${createdTest.getId()}'">
-                                        Перейти к тесту
-                                    </button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn"
-                                            onclick="location.href='/test/${createdTest.getId()}'">
-                                        Перейти к тесту
-                                    </button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn"
-                                            onclick="location.href='/test/${createdTest.getId()}'">
-                                        Перейти к тесту
-                                    </button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn"
-                                            onclick="location.href='/test/${createdTest.getId()}'">
-                                        Перейти к тесту
-                                    </button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn"
-                                            onclick="location.href='/test/${createdTest.getId()}'">
-                                        Перейти к тесту
-                                    </button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn"
-                                            onclick="location.href='/test/${createdTest.getId()}'">
-                                        Перейти к тесту
-                                    </button>
-                                </div>
-                            </article>--%>
-
                         </div>
                     </div>
                 </div>
