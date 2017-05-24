@@ -2,6 +2,7 @@ package netcracker.controllers;
 
 import netcracker.domain.entities.CurrentUser;
 import netcracker.domain.entities.Person;
+import netcracker.repository.CertificateRepository;
 import netcracker.repository.PersonTestRepository;
 import netcracker.repository.TestRepository;
 import netcracker.viewsForms.UserCreateForm;
@@ -25,11 +26,14 @@ public class UserController {
 
     private final TestRepository testRepository;
 
+    private final CertificateRepository certificateRepository;
+
     @Autowired
-    public UserController(PersonRepository personRepository, PersonTestRepository personTestRepository, TestRepository testRepository) {
+    public UserController(PersonRepository personRepository, PersonTestRepository personTestRepository, TestRepository testRepository, CertificateRepository certificateRepository) {
         this.personRepository = personRepository;
         this.personTestRepository = personTestRepository;
         this.testRepository = testRepository;
+        this.certificateRepository = certificateRepository;
     }
 
     @PreAuthorize("@currentUserServiceImpl.canAccessUser(principal, #id)")
@@ -65,6 +69,7 @@ public class UserController {
         } else if ("ADMIN".equals(currentUser.getRole().getTitle())){
             if (currentUser.getUser().getCompany() != null) {
                 model.put("createdTests", testRepository.findByCompanyId(currentUser.getUser().getCompany().getId()));
+                model.put("createdCertificates", certificateRepository.findByCompaniesId(currentUser.getUser().getCompany().getId()));
             }
             return "company";
         }
