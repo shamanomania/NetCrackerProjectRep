@@ -1,6 +1,9 @@
 package netcracker.controllers;
 
+import netcracker.services.impl.CompanyService;
+import netcracker.viewsForms.CompanyCreateForm;
 import netcracker.viewsForms.UserCreateForm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -13,21 +16,29 @@ import javax.validation.Valid;
 @Controller
 public class CompanyRegistrationController {
 
+    private CompanyService companyService;
+
+    @Autowired
+    public CompanyRegistrationController(CompanyService companyService) {
+        this.companyService = companyService;
+    }
+
     @RequestMapping(value = "/companyregistration", method = RequestMethod.GET)
     public ModelAndView getCompanyRegistrationPageGET(ModelMap modelMap){
         ModelAndView model = new ModelAndView();
-        UserCreateForm userCreateForm = new UserCreateForm();
-        modelMap.put("userCreateForm",userCreateForm);
+        CompanyCreateForm companyCreateForm = new CompanyCreateForm();
+        modelMap.put("companyCreateForm",companyCreateForm);
         model.setViewName("companyRegistration");
         return model;
     }
 
     @RequestMapping(value = "/companyregistration", method = RequestMethod.POST)
-    public String processSignUp(@Valid UserCreateForm userCreateForm, BindingResult result, ModelMap model){
+    public String processSignUp(@Valid CompanyCreateForm companyCreateForm, BindingResult result, ModelMap model){
         if (result.hasErrors()){
             return "companyRegistration";
         }else {
-            return "user";
+            companyService.create(companyCreateForm);
+            return "/user";
         }
 
     }

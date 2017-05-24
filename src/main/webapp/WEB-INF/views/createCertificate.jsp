@@ -45,11 +45,8 @@
             <p class="pager">
                 Сертификат
             </p>
-            <p>Название: <input type="text" class="input-lg"/></p>
             <p>Описание: <input type="text" class="input-lg"/></p>
             <p style="font-size: 15pt">Пожалуйста, отметьте все тесты, которые будет необходимо пройти для получения данного сертификата</p>
-            <p>Кого: <input type="text"/></p>
-            <p>Свидетельствующий о том, что Иванов Иван Иванович успешно прошёл тесты:<br> вывести все тесты<br></p>
             <img class="right" src="../../images/IP.png"/>
             <input type="submit" value="Создать" class="btn-info" onclick="createSertificate()"/>
         </div>

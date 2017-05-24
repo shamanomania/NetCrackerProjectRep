@@ -1,13 +1,16 @@
 package netcracker.services.impl;
 
 import netcracker.domain.entities.Company;
+import netcracker.domain.entities.CurrentUser;
+import netcracker.domain.entities.Person;
 import netcracker.repository.CompanyRepository;
+import netcracker.repository.PersonRepository;
 import netcracker.services.ICompanyService;
+import netcracker.viewsForms.CompanyCreateForm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-
-import java.util.List;
 
 /**
  * Created by Sid775 on 11.02.2017.
@@ -17,29 +20,33 @@ public class CompanyService implements ICompanyService {
 
     private CompanyRepository companyRepository;
 
+    private PersonRepository personRepository;
+
     @Autowired
-    public CompanyService(CompanyRepository companyRepository){
+    public CompanyService(CompanyRepository companyRepository, PersonRepository personRepository){
+        this.personRepository = personRepository;
         Assert.notNull(companyRepository);
         this.companyRepository = companyRepository;
     }
 
-    @Override
-    public Company findByTitle(String title) {
-        return companyRepository.findByTitle(title);
+
+    public Company create(CompanyCreateForm companyCreateForm){
+        Company company = new Company();
+        company.setName(companyCreateForm.getName());
+        company.setTitle(companyCreateForm.getTitle());
+        company.setAddress(companyCreateForm.getAddress());
+        System.out.println(companyCreateForm.getName()+ companyCreateForm.getTitle()+companyCreateForm.getAddress());
+        companyRepository.save(company);
+        return company;
     }
 
-    @Override
-    public Company findByAddres(String addres) {
-        return companyRepository.findByAddress(addres);
+    public void attachUserToCompany(Long id){
+        CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Person user = new Person();
+        user = currentUser.getUser();
+        user.setCompany(companyRepository.findOne(id));
+        System.out.println(currentUser.getUser().toString());
+        personRepository.save(user);
     }
 
-    @Override
-    public List<Company> getAll() {
-        return companyRepository.findAll();
-    }
-
-    @Override
-    public Company getFirst() {
-        return companyRepository.findAll().iterator().next();
-    }
 }
