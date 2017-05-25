@@ -1,9 +1,11 @@
 package netcracker.controllers;
 
+import netcracker.repository.TestRepository;
 import netcracker.services.impl.TestService;
 import netcracker.viewsForms.jsonMap.testCreate.JsonTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,10 +29,15 @@ public class TestCreateController {
         this.testService = testService;
     }
 
+    @Autowired
+    public TestRepository testRepository;
+
     @RequestMapping(value = "/tests/create", method = RequestMethod.GET)
-    public ModelAndView getTestCreatePageGET(){
+    public ModelAndView getTestCreatePageGET(ModelMap modelMap){
         ModelAndView model = new ModelAndView();
         model.setViewName("test_create");
+        modelMap.put("tests", testRepository.findAll());
+        modelMap.put("images", testRepository.findAll());
         return model;
     }
 
