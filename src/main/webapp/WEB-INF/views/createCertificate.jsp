@@ -158,10 +158,10 @@
             type: "POST",
             url: "/createcertificate",
             contentType: "application/json",
-            dataType: "json",
+            //dataType: "json",
             data: object,
             success: function (obj) {
-                alert(object.toString());
+                location.href='/user';
             }
         });
     }
