@@ -27,6 +27,10 @@ public class Images implements Serializable {
     @JoinColumn(name = "test_id")
     private List<Test> tests;
 
+    @OneToMany
+    @JoinColumn(name = "company_id")
+    private List<Company> companies;
+
     public Long getId() {return id;}
 
     public void setId(Long id) {this.id = id;}
@@ -34,4 +38,12 @@ public class Images implements Serializable {
     public byte[] getImage() {return image;}
 
     public void setImage(byte[] image) {this.image = image;}
+
+    public List<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(List<Test> tests) {
+        this.tests = tests;
+    }
 }

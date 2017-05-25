@@ -46,9 +46,9 @@ public class TestService implements ITestService {
 
     public Test createTest(JsonTest jsonTest){
         CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        //List<Test> tests = new ArrayList<>();
+        List<Test> tests = new ArrayList<>();
         Test test = new Test();
-        //tests.add(test);
+        tests.add(test);
         List<Question> questions = new ArrayList<>();
         for (int i = 0; i < jsonTest.getQuestions().size();i++) {
             if (jsonTest.getQuestions().get(i) != null) {
@@ -79,6 +79,7 @@ public class TestService implements ITestService {
         test.setQuestions(questions);
         test.setTitle(jsonTest.getTitleOfTest());
         Images image = imageService.findTop();
+        image.setTests(tests);
         test.setCompany(personRepository.findOne(currentUser.getId()).getCompany());
         test.setImage(image);
         System.out.println(test.toString());

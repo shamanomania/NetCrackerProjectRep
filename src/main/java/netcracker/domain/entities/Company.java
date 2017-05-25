@@ -44,6 +44,9 @@ public class Company implements Serializable{
     @OneToMany(mappedBy = "company")
     private List<Test> tests;
 
+    @OneToMany(mappedBy = "companies")
+    private Images image;
+
     @OneToMany(mappedBy = "company")//Маппинг происходит на поле(не нейм)
     private List<Person> persons;
 

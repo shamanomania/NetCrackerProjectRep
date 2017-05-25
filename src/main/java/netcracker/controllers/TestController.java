@@ -40,8 +40,6 @@ public class TestController {
     @RequestMapping(value = "/test/{id}", method = RequestMethod.POST, headers = {"Content-type=application/json"})
     public @ResponseBody JsonResponse getTestPage(@PathVariable Long id, @RequestBody JsonTest test, ModelMap modelMap){
         JsonResponse response  = testService.testPassTest(test);
-
-
         //response.setResult("SUCCESS");
         //response = testService.passTest(test);
         return response;

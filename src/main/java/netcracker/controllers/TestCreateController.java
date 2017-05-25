@@ -2,6 +2,7 @@ package netcracker.controllers;
 
 import netcracker.repository.TestRepository;
 import netcracker.services.impl.TestService;
+import netcracker.viewsForms.jsonMap.test.JsonResponse;
 import netcracker.viewsForms.jsonMap.testCreate.JsonTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,13 +44,14 @@ public class TestCreateController {
 
 
     @RequestMapping(value = "/tests/create",method = RequestMethod.POST, headers = {"Content-type=application/json"})
-    public String getTestCreatePageJSON(@RequestBody JsonTest test){
+    public @ResponseBody JsonResponse getTestCreatePageJSON(@RequestBody JsonTest test){
         ModelAndView model = new ModelAndView();
         model.setViewName("test_create");
+        JsonResponse jsonResponse = new JsonResponse();
         //System.out.println(test.getQuestions().get(0).getRightAnswers());
         //System.out.println(test.toString());
         System.out.println(testService.createTest(test));
-        return "redirect:/tests";
+        return jsonResponse;
     }
 
 }
