@@ -51,7 +51,7 @@
 
             <article class="col-md-3 col-xs-4">
                 <div class="left">
-                    <div class="text-hide"><img src="<c:url value="/images/apple.png" />" class="img-responsive"
+                    <div class="text-hide"><img src="/myImage/imageDisplay?id=${company.getImage().getId()}" class="img-responsive"
                                                 alt="Netcracker"></div>
                     <div class="text-info">
                         <p>

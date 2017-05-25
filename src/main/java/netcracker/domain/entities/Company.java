@@ -75,6 +75,14 @@ public class Company implements Serializable{
 
     public void setAddress(String address){this.address = address;}
 
+    public Images getImage(){
+        return image;
+    }
+
+    public void setImage(Images image){
+        this.image=image;
+    }
+
     /*public List<Certificate> getCertificates() {
         return certificates;
     }
