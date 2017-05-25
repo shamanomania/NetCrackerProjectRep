@@ -30,6 +30,7 @@ public class ImageService implements IImageService {
 
     @Override
     public Images findTop() {
-        return imagesRepository.findAll().get(imagesRepository.findAll().size()-1);
+//        return imagesRepository.findAll().get(imagesRepository.findAll().size()-1);
+        return imagesRepository.findAllByOrderByIdDesc().get(0);
     }
 }

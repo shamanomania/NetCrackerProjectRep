@@ -2,6 +2,7 @@ package netcracker.repository;
 
 import netcracker.domain.entities.Images;
 import netcracker.domain.entities.Test;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -16,4 +17,5 @@ import java.util.List;
 public interface ImagesRepository extends CrudRepository<Images,Long> {
 
     List<Images> findAll();
+    List<Images> findAllByOrderByIdDesc();
 }

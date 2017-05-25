@@ -27,8 +27,7 @@ public class Images implements Serializable {
     @JoinColumn(name = "test_id")
     private List<Test> tests;
 
-    @OneToMany
-    @JoinColumn(name = "company_id")
+    @OneToMany(mappedBy = "image")
     private List<Company> companies;
 
     public Long getId() {return id;}

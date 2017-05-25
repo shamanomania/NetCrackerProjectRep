@@ -49,7 +49,7 @@
                 <table>
                     <tr>
                         <td>Номер теста : ${passedTest.getTest().getId()}</td>
-                        <td>Пользователь : <a href="/user/${passedTest.getPerson().getId()}">${passedTest.getPerson().getFirstName()}</a></td>
+                        <td>Пользователь : <a href="/user/${passedTest.getPerson().getId()}"><c:if test="${passedTest.getPerson().getFirstName() != null}">${passedTest.getPerson().getFirstName()}</c:if> <c:if test="${passedTest.getPerson().getFirstName() == null}">${passedTest.getPerson().getId()}</c:if> </a></td>
                         <td>Результат : ${passedTest.getResult()}</td>
                     </tr>
                 </table>
