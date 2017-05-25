@@ -238,7 +238,7 @@
                 </script>
                 <div class="text-center">
                     <input type="button" id="finishButton" class="btn-defaul text-center" onclick="passTest()" value="Завершить" />
-                    <input type="hidden" id="redirectButton" class="btn-defaul text-center" onclick="location.href='/user'" value="Вернуться в личный кабинет" />
+                    <input type="hidden" id="redirectButton" class="btn-defaul text-center" onclick="location.href='/user'" value="Личный кабинет" />
                 </div>
             </form:form>
         </div>

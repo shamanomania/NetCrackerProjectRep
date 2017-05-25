@@ -69,10 +69,10 @@
                 </div>
 
                 <div style="display: -webkit-inline-box;">
-                    <p class="text-success" >Образование:</p>
-                    <input class="right" id="educationField" value="${loggedUser.getEducation()}" readonly/>
+                    <p class="text-success" >Образование:</p><br>
+                    <input class="right" style="margin-left: -60%"  style="margin-top: -5%"id="educationField" value="${loggedUser.getEducation()}" readonly/>
                     <p>
-                        <input class="input-lg" type="hidden" name="" id="education" value="${loggedUser.getEducation()}"/>
+                        <input  class="input-lg" type="hidden" name="" id="education" value="${loggedUser.getEducation()}"/>
                     </p>
                 </div>
 

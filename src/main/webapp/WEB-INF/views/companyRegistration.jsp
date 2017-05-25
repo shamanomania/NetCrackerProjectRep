@@ -95,7 +95,7 @@
                                 $('#avatar').click();
                             }
                         </script>
-                        <input type="button" onclick="chooseFile()" value="Загрузить картинку" class="input-sm"/>
+                        <input type="button" onclick="chooseFile()" value="Загрузить" class="input-sm"/>
 
                         <label for="avatar">
                             <span aria-hidden="true"></span>

@@ -372,9 +372,19 @@
                             <br/>
                             <div class="text-center">
                                 <input class="btn-defaul" type="button" value="Добавить вопрос" id="add" onclick="addQuestionField()">
-                                <input id="avatar" type="file" name="avatar" id="upload" value="Загрузить файл" />
+                                    <script type="application/javascript">
+                                        function chooseFile() {
+                                            $('#avatar').click();
+                                        }
+                                    </script>
+                                    <input type="button" onclick="chooseFile()" value="Загрузить" class="input-sm"/>
+
+                                    <label for="avatar">
+                                        <span aria-hidden="true"></span>
+                                        <input id="avatar" name="avatar" type="file" value="Загрузить файл" style="display:none">
+                                    </label>
                                 <input class="btn-defaul" id="endTest" type="button" value="Завершить" onclick="upload()">
-                                <input class="btn-defaul" id="redirect" type="hidden" value="Вернуться в личный кабинет" onclick="location.href='/user'">
+                                <input class="btn-defaul" id="redirect" type="hidden" value="Личный кабинет" onclick="location.href='/user'">
                             </div>
                         </form:form>
 
