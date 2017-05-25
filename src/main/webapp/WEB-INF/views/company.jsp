@@ -32,10 +32,19 @@
             <div class="text-muted left">
                 <img src="../../images/avatar.png" alt="netckracker"/>
                 <br>
+                <p class="text-success">Личные данные: </p>
+                <p><input class="input-lg" type="text" name="" id=""/></p>
                 <p class="text-success">Фамилия: ${loggedUser.getLastName()}</p>
+                <p><input class="input-lg" type="text" name="" id=""/></p>
                 <p class="text-success">Имя: ${loggedUser.getFirstName()}</p>
+                <p><input class="input-lg" type="text" name="" id=""/></p>
                 <p class="text-success">e-mail: ${loggedUser.getEmail()}</p>
+                <p><input class="input-lg" type="text" name="" id=""/></p>
                 <p class="text-success">Адрес: ${loggedUser.getAddress()}</p>
+                <p><input class="input-lg" type="text" name="" id=""/></p>
+                <p class="text-success">Возраст: <%--${loggedUser.getAge()}--%></p>
+                <p><input class="input-lg" type="text" name="" id=""/></p>
+                <button class="btn-xs">Редактировать информацию</button>
                 <button class="btn-block" onclick="location.href='/tests'">Тесты</button>
                 <button class="btn-block" onclick="location.href='/companies'">Компании</button>
                 <c:if test="${loggedUser.getCompany() != null}">
