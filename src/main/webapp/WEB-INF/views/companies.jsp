@@ -55,7 +55,7 @@
                                                 alt="Netcracker"></div>
                     <div class="text-info">
                         <p>
-                            Описание:
+                                ${company.getName()}
                         </p>
                             ${company.getTitle()}<br>
                     </div>

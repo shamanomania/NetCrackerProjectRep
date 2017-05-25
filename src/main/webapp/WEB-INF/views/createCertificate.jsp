@@ -60,7 +60,7 @@
     <div class=" row text-muted">
         <button class="col-md-1 col-xs-1" id="mybuttonclick1"><img src="../../images/arrow2.png" alt="Netcracker"></button>
         <c:forEach items="${createdTests}" var="createdTest" varStatus="test">
-            <div id="${createdTest.getId()}" onclick="chooseTest(this)"><article class="col-xs-2 col-md-2 text-center" id="article_${createdTest.getId()}"><%--<button  class="btn"><img src="../../images/x.png" alt="Netcracker"></button >--%><br>Тест: ${createdTest.getId()}<br><%--<button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button>--%></article></div>
+            <div id="${createdTest.getId()}" onclick="chooseTest(this)"><article class="col-xs-2 col-md-2 text-center" id="article_${createdTest.getId()}"><%--<button  class="btn"><img src="../../images/x.png" alt="Netcracker"></button >--%><br>Тест: ${createdTest.getId()}<br> ${createdTest.getTitle()}<%--<button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button>--%></article></div>
             <script>
                 var index = ${test.index};
                 if (index > 3){
