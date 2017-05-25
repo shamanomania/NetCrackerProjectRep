@@ -33,18 +33,44 @@
                 <img src="../../images/avatar.png" alt="netckracker"/>
                 <br>
                 <p class="text-success">Личные данные: </p>
-                <p><input class="input-lg" type="text" name="" id=""/></p>
-                <p class="text-success">Фамилия: ${loggedUser.getLastName()}</p>
-                <p><input class="input-lg" type="text" name="" id=""/></p>
-                <p class="text-success">Имя: ${loggedUser.getFirstName()}</p>
-                <p><input class="input-lg" type="text" name="" id=""/></p>
-                <p class="text-success">e-mail: ${loggedUser.getEmail()}</p>
-                <p><input class="input-lg" type="text" name="" id=""/></p>
-                <p class="text-success">Адрес: ${loggedUser.getAddress()}</p>
-                <p><input class="input-lg" type="text" name="" id=""/></p>
-                <p class="text-success">Возраст: <%--${loggedUser.getAge()}--%></p>
-                <p><input class="input-lg" type="text" name="" id=""/></p>
-                <button class="btn-xs">Редактировать информацию</button>
+
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" id="lastNameField">Фамилия:</p>
+                    <input class="right" value="${loggedUser.getLastName() }"/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="lastName"
+                               value="${loggedUser.getLastName()}"/>
+                    </p>
+                </div>
+
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" id="firstNameField">Имя:</p>
+                    <input class="right" value="${loggedUser.getFirstName()}"/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="firstName"
+                               value="${loggedUser.getFirstName()}"/>
+                    </p>
+                </div>
+
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" id="emailField">e-mail:</p>
+                    <input class="right" value="${loggedUser.getEmail()}"/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="email" value="${loggedUser.getEmail()}"/>
+                    </p>
+                </div>
+
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" id="addressField">Адрес:</p>
+                    <input class="right" value="${loggedUser.getAddress()}"/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="address" value="${loggedUser.getAddress()}"/>
+                    </p>
+                </div>
+
+
+                <input class="btn-info" onclick="changeInfo()" type="button" value="Редактировать информацию"/>
+                <input class="btn-info" onclick="changeInfo()" type="button" value="Редактировать информацию"/>
                 <button class="btn-block" onclick="location.href='/tests'">Тесты</button>
                 <button class="btn-block" onclick="location.href='/companies'">Компании</button>
                 <c:if test="${loggedUser.getCompany() != null}">
@@ -55,7 +81,7 @@
                 <button class="btn-block" onclick="location.href='/'">На главную</button>
             </div>
         </div>
-        <div class="col-md-9 col-xs-4"><p class="text-center">Your contribution</p>
+        <div class="col-md-9 col-xs-4"><p class="text-center">Личный кабинет</p>
 
             <div id="exTab1">
                 <c:if test="${loggedUser.getCompany() != null}">
