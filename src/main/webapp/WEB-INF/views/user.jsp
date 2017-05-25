@@ -36,22 +36,42 @@
                 <br>
                 <p class="text-success">Личные данные: </p>
 
-                <p class="text-success" id="lastNameField">Фамилия: ${loggedUser.getLastName()}</p>
-                <p><input class="input-lg" type="hidden" name="" id="lastName" value="${loggedUser.getLastName()}"/></p>
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" id="lastNameField">Фамилия:</p>
+                    <input class="right" value="${loggedUser.getLastName() }"/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="lastName"
+                               value="${loggedUser.getLastName()}"/>
+                    </p>
+                </div>
 
-                <p class="text-success" id="firstNameField">Имя: ${loggedUser.getFirstName()}</p>
-                <p><input class="input-lg" type="hidden" name="" id="firstName" value="${loggedUser.getFirstName()}"/></p>
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" id="firstNameField">Имя:</p>
+                    <input class="right" value="${loggedUser.getFirstName()}"/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="firstName"
+                               value="${loggedUser.getFirstName()}"/>
+                    </p>
+                </div>
 
-                <p class="text-success" id="emailField">e-mail: ${loggedUser.getEmail()}</p>
-                <p><input class="input-lg" type="hidden" name="" id="email" value="${loggedUser.getEmail()}"/></p>
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" id="emailField">e-mail:</p>
+                    <input class="right" value="${loggedUser.getEmail()}"/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="email" value="${loggedUser.getEmail()}"/>
+                    </p>
+                </div>
 
-                <p class="text-success" id="addressField">Адрес: ${loggedUser.getAddress()}</p>
-                <p><input class="input-lg" type="hidden" name="" id="address" value="${loggedUser.getAddress()}"/></p>
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" id="addressField">Адрес:</p>
+                    <input class="right" value="${loggedUser.getAddress()}"/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="address" value="${loggedUser.getAddress()}"/>
+                    </p>
+                </div>
 
-                <p class="text-success" id="ageField">Возраст: ${loggedUser.getAge()}</p>
-                <p><input class="input-lg" type="hidden" name="" id="age" value="${loggedUser.getAge()}"/></p>
 
-                <button class="btn-info" onclick="changeInfo()">Редактировать информацию</button>
+                <input class="btn-info" onclick="changeInfo()" type="button" value="Редактировать информацию"/>
                 <button class="btn-info" onclick="saveChangeInfo()">Редактировать информацию</button>
                 <script type="application/javascript">
                     function changeInfo() {
@@ -115,15 +135,17 @@
                     <div class="tab-pane" id="2a">
                         <div class="row text-left">
                             <c:forEach items="${loggedUser.getCertificates()}" var="getedCertificate" varStatus="t">
-                            <article class="col-xs-5 col-md-5"><div class="left">Сертификат #${getedCertificate.getId()}<br>Описание:<br>${getedCertificate.getTitle()}
-                            </div>
-                                <div class="text-primary">
-                                    <button class="btn"
-                                            onclick="location.href='/certificate/${getedCertificate.getId()}'">
-                                        Перейти к сертификату
-                                    </button>
-                                </div>
-                            </article>
+                                <article class="col-xs-5 col-md-5">
+                                    <div class="left">Сертификат
+                                        #${getedCertificate.getId()}<br>Описание:<br>${getedCertificate.getTitle()}
+                                    </div>
+                                    <div class="text-primary">
+                                        <button class="btn"
+                                                onclick="location.href='/certificate/${getedCertificate.getId()}'">
+                                            Перейти к сертификату
+                                        </button>
+                                    </div>
+                                </article>
                             </c:forEach>
                         </div>
                     </div>
