@@ -12,10 +12,6 @@ import java.util.List;
 @Repository
 public interface PersonRepository extends CrudRepository<Person,Long> {
 
-    Person findByName(String name);
-
-    List<Person> findBySex(int sex);
-
     Person findByMail(String mail);
 
     @Override

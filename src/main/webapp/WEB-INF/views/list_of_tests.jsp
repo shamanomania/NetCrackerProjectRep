@@ -62,7 +62,7 @@
                         </div>
                             <form method="get" action="/test/${passedTest.getId()}">
                                 <div class="text-primary">
-                                <button class="btn-default">Пройти тест <img src="<c:url value="/images/certificate.png" />" class="img-responsive" alt="Netcracker" ></button>
+                                    <button class="btn-default">Пройти тест <c:if test="${passedTest.getCertificates().size() != 0}"><img src="<c:url value="/images/certificate.png" />" class="img-responsive" alt="Netcracker" ></c:if></button>
                                 </div>
                             </form>
 

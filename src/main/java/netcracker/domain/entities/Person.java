@@ -1,16 +1,9 @@
 package netcracker.domain.entities;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Sid775 on 02.02.2017.
- */
 @Entity
 @Table (name = "PERSON")
 public class Person implements Serializable {
@@ -23,17 +16,8 @@ public class Person implements Serializable {
     @Column (name = "FIRST_NAME")
     private String firstName;
 
-    @Column (name = "NAME")
-    private String name;
-
     @Column (name = "LAST_NAME")
     private String lastName;
-
-    @Column (name = "AGE")
-    private Integer age;
-
-    @Column (name = "SEX")
-    private int sex;
 
     @Column (name = "ADDRESS")
     private String address;
@@ -63,8 +47,6 @@ public class Person implements Serializable {
     )
     private List<Certificate> certificates;
 
-    /*@OneToMany(mappedBy = "persons")??????????????????
-    private List<Person> persons;*/
 
     public Long getId() {return id;}
 
@@ -74,21 +56,10 @@ public class Person implements Serializable {
 
     public void setFirstName(String firstName) {this.firstName = firstName;}
 
-    public String getName() {return name;}
-
-    public void setName(String name) {this.name = name;}
-
     public String getLastName() {return lastName;}
 
     public void setLastName(String lastName) {this.lastName = lastName;}
 
-    public int getAge() {return age;}
-
-    public void setAge(int age) {this.age = age;}
-
-    public int getSex() {return sex;}
-
-    public void setSex(int sex) {this.sex = sex;}
 
     public String getAddress() {return address;}
 
@@ -131,10 +102,7 @@ public class Person implements Serializable {
         return "Person{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                ", sex=" + sex +
                 ", address='" + address + '\'' +
                 ", education='" + education + '\'' +
                 ", mail='" + mail + '\'' +

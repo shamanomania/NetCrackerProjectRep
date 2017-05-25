@@ -37,17 +37,8 @@
                 <p class="text-success">Личные данные: </p>
 
                 <div style="display: -webkit-inline-box;">
-                    <p class="text-success" id="lastNameField">Фамилия:</p>
-                    <input class="right" value="${loggedUser.getLastName() }"/>
-                    <p>
-                        <input class="input-lg" type="hidden" name="" id="lastName"
-                               value="${loggedUser.getLastName()}"/>
-                    </p>
-                </div>
-
-                <div style="display: -webkit-inline-box;">
-                    <p class="text-success" id="firstNameField">Имя:</p>
-                    <input class="right" value="${loggedUser.getFirstName()}"/>
+                    <p class="text-success" >Имя:</p>
+                    <input class="right" id="firstNameField" value="${loggedUser.getFirstName()}" readonly/>
                     <p>
                         <input class="input-lg" type="hidden" name="" id="firstName"
                                value="${loggedUser.getFirstName()}"/>
@@ -55,31 +46,100 @@
                 </div>
 
                 <div style="display: -webkit-inline-box;">
-                    <p class="text-success" id="emailField">e-mail:</p>
-                    <input class="right" value="${loggedUser.getEmail()}"/>
+                    <p class="text-success" >Фамилия:</p>
+                    <input class="right" id="lastNameField" value="${loggedUser.getLastName()}" readonly/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="lastName"
+                               value="${loggedUser.getLastName()}"/>
+                    </p>
+                </div>
+
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" >e-mail:</p>
+                    <input class="right" id="emailField" value="${loggedUser.getEmail()}" readonly/>
                     <p>
                         <input class="input-lg" type="hidden" name="" id="email" value="${loggedUser.getEmail()}"/>
                     </p>
                 </div>
 
                 <div style="display: -webkit-inline-box;">
-                    <p class="text-success" id="addressField">Адрес:</p>
-                    <input class="right" value="${loggedUser.getAddress()}"/>
+                    <p class="text-success" >Адрес:</p>
+                    <input class="right" id="addressField" value="${loggedUser.getAddress()}" readonly/>
                     <p>
                         <input class="input-lg" type="hidden" name="" id="address" value="${loggedUser.getAddress()}"/>
                     </p>
                 </div>
 
+                <div style="display: -webkit-inline-box;">
+                    <p class="text-success" >Образование:</p>
+                    <input class="right" id="educationField" value="${loggedUser.getEducation()}" readonly/>
+                    <p>
+                        <input class="input-lg" type="hidden" name="" id="education" value="${loggedUser.getEducation()}"/>
+                    </p>
+                </div>
 
-                <input class="btn-info" onclick="changeInfo()" type="button" value="Редактировать информацию"/>
-                <button class="btn-info" onclick="saveChangeInfo()">Редактировать информацию</button>
+
+                <input class="btn-info" id="changeButton" onclick="changeInfo()" type="button" value="Редактировать информацию"/>
+                <input class="btn-info" id="saveChangeButton" onclick="saveChangeInfo()" type="hidden" value="Сохранить"/>
                 <script type="application/javascript">
                     function changeInfo() {
+                        $('#lastNameField')
+                            .removeAttr('readonly');
+                        $('#firstNameField')
+                            .removeAttr('readonly');
+                        $('#emailField')
+                            .removeAttr('readonly');
+                        $('#addressField')
+                            .removeAttr('readonly');
+                        $('#educationField')
+                            .removeAttr('readonly');
 
+                        $('#changeButton')
+                            .attr('type','hidden');
+                        $('#saveChangeButton')
+                            .attr('type','button');
                     }
 
                     function saveChangeInfo() {
+                        var data ={
+                            "firstName" :  $('#firstNameField').val(),
+                            "lastName"  :  $('#lastNameField').val(),
+                            "email"     :  $('#emailField').val(),
+                            "address"   :  $('#addressField').val(),
+                            "education" :  $('#educationField').val()
+                        };
 
+                        data = JSON.stringify(data);
+                        console.log(data);
+                        $.ajax({
+                            url: "/user",
+                            data: data,
+                            //dataType: 'json',
+                            contentType: "application/json",
+                            type: 'post',
+                            success: function (data) {
+                                console.log("данные изменены");
+                            },
+                            error: function () {
+                                console.log("error!")
+                            }
+                        });
+
+                        $('#lastNameField')
+                            .attr('readonly');
+                        $('#firstNameField')
+                            .attr('readonly');
+                        $('#emailField')
+                            .attr('readonly');
+                        $('#addressField')
+                            .attr('readonly');
+                        $('#educationField')
+                            .attr('readonly');
+
+                        $('#changeButton')
+                            .attr('type','button');
+                        $('#saveChangeButton')
+                            .attr('type','hidden');
                     }
                 </script>
                 <button class="btn-block" onclick="location.href='/tests'">Тесты</button>

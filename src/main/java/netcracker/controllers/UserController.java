@@ -5,8 +5,10 @@ import netcracker.domain.entities.Person;
 import netcracker.repository.CertificateRepository;
 import netcracker.repository.PersonTestRepository;
 import netcracker.repository.TestRepository;
+import netcracker.services.impl.PersonService;
 import netcracker.viewsForms.UserCreateForm;
 import netcracker.repository.PersonRepository;
+import netcracker.viewsForms.jsonMap.JsonUserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,12 +30,15 @@ public class UserController {
 
     private final CertificateRepository certificateRepository;
 
+    private final PersonService personService;
+
     @Autowired
-    public UserController(PersonRepository personRepository, PersonTestRepository personTestRepository, TestRepository testRepository, CertificateRepository certificateRepository) {
+    public UserController(PersonRepository personRepository, PersonTestRepository personTestRepository, TestRepository testRepository, CertificateRepository certificateRepository, PersonService personService) {
         this.personRepository = personRepository;
         this.personTestRepository = personTestRepository;
         this.testRepository = testRepository;
         this.certificateRepository = certificateRepository;
+        this.personService = personService;
     }
 
     @PreAuthorize("@currentUserServiceImpl.canAccessUser(principal, #id)")
@@ -42,21 +47,11 @@ public class UserController {
         ModelAndView model = new ModelAndView();
         model.setViewName("user");
         return model;
-
-        /*return new ModelAndView("user", "user", userService.findById(id)
-                *//*.orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id)))*//*);*/
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)//////////////////////////////////
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String getUserPage(Map<String,Object> model) {
 
-       /* if(SecurityContextHolder.getContext().getAuthentication().getPrincipal().getClass().getSimpleName().equals("String")) {
-            String currName = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            Person user = personRepository.findByMail(currName);
-            model.put("loggedUser",user);
-            model.put("userEmail",user.getEmail());
-            return "user";
-        }*/
 
         CurrentUser currentUser = (CurrentUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Long id = currentUser.getUser().getId();
@@ -78,6 +73,16 @@ public class UserController {
         return "login?error";
     }
 
+
+    @RequestMapping(value = "/user", method = RequestMethod.POST, headers = {"Content-type=application/json"})
+    public String getUserPageChange(@RequestBody JsonUserData jsonUserData){
+        //response.setResult("SUCCESS");
+        //response = testService.passTest(test);
+        personService.changeUserInfo(jsonUserData);
+        return "redirect:/user";
+    }
+
+
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/user/create", method = RequestMethod.GET)
     public ModelAndView getUserCreatePage() {
@@ -85,20 +90,5 @@ public class UserController {
     }
 
 
-    //@PreAuthorize("hasAuthority('ADMIN')")
-    /*@RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "user_create";
-        }
-        try {
-            userService.create(form);
-            System.out.println(form.getEmail() + " " + form.getRole());
-        } catch (DataIntegrityViolationException e) {
-            bindingResult.reject("email.exists", "Email already exists");
-            return "user_create";
-        }
-        return "redirect:/users";
-    }*/
 
 }

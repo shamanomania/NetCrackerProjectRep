@@ -46,7 +46,12 @@ public class Images implements Serializable {
         this.tests = tests;
     }
 
+    public List<Company> getCompanies() {
+        return companies;
+    }
+
     public void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
+
 }
