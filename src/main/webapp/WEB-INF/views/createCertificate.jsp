@@ -29,8 +29,8 @@
     <div>
         <nav class="navbar" role="navigation">
             <ul class="nav navbar-nav">
-                <li><a href="../home">О нас</a></li>
-                <li class="active"><a href="/about/">Тесты</a></li>
+                <li><a href="/">О нас</a></li>
+                <li class="active"><a href="/tests">Тесты</a></li>
                 <li><a href="/companies">Компании</a></li>
                 <sec:authorize access="isAnonymous()">
                     <li><a href="/login">Вход/Регистрация</a></li>
@@ -60,7 +60,7 @@
     <div class=" row text-muted">
         <button class="col-md-1 col-xs-1" id="mybuttonclick1"><img src="../../images/arrow2.png" alt="Netcracker"></button>
         <c:forEach items="${createdTests}" var="createdTest" varStatus="test">
-            <div id="${createdTest.getId()}" onclick="chooseTest(this)"><article class="col-xs-2 col-md-2 text-center" id="article_${createdTest.getId()}"><%--<button  class="btn"><img src="../../images/x.png" alt="Netcracker"></button >--%><br>Тест: ${createdTest.getId()}<br><%--<button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button>--%></article></div>
+            <div id="${createdTest.getId()}" onclick="chooseTest(this)"><article class="col-xs-2 col-md-2 text-center" id="article_${createdTest.getId()}"><%--<button  class="btn"><img src="../../images/x.png" alt="Netcracker"></button >--%><br>Тест: ${createdTest.getId()}<br> ${createdTest.getTitle()}<%--<button  class="btn-default"><img src="../../images/yes.png" alt="Netcracker"></button>--%></article></div>
             <script>
                 var index = ${test.index};
                 if (index > 3){
@@ -158,10 +158,10 @@
             type: "POST",
             url: "/createcertificate",
             contentType: "application/json",
-            dataType: "json",
+            //dataType: "json",
             data: object,
             success: function (obj) {
-                alert(object.toString());
+                location.href='/user';
             }
         });
     }

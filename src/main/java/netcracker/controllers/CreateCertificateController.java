@@ -41,10 +41,10 @@ public class CreateCertificateController {
     }
 
     @RequestMapping(value = "/createcertificate", method = RequestMethod.POST, headers = {"Content-type=application/json"})
-    public ModelAndView getCreateSertificatePagePOST(@RequestBody JsonCertificate jsonCertificate){
+    public String getCreateSertificatePagePOST(@RequestBody JsonCertificate jsonCertificate){
         ModelAndView model = new ModelAndView();
         model.setViewName("createCertificate");
         certificateService.createCertificate(jsonCertificate);
-        return model;
+        return "redirect:/user";
     }
 }
