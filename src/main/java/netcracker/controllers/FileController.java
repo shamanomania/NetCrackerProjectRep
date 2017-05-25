@@ -56,7 +56,7 @@ public class FileController {
 
                 Images image = new Images();
                 image.setImage(bytes);
-                image.setId((long) 12);
+           //     image.setId((long) 12);
                 imageService.save(image);
                 name = file.getOriginalFilename();
 

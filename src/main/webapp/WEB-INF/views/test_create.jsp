@@ -28,21 +28,26 @@
         var choseTypeFieldID;
         var cChoosen = false;
 
-        $(document).on("click", "#upload", function() {
-            var file_data = $("#avatar").prop("files")[0];   // Getting the properties of file from file field
-            var form_data = new FormData();                  // Creating object of FormData class
-            form_data.append("file", file_data)              // Appending parameter named file with properties of file_field to form_data
-            form_data.append("test_id", 123)                 // Adding extra parameters to form_data
-            $.ajax({
-                url: "/uploadImage1",
-                dataType: 'script',
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: form_data,                         // Setting the data attribute of ajax with file_data
-                type: 'post'
-            })
-        });
+        function upload(){
+            $(document).on("click", "#upload", function() {
+                var file_data = $("#avatar").prop("files")[0];   // Getting the properties of file from file field
+                var form_data = new FormData();                  // Creating object of FormData class
+                form_data.append("file", file_data)              // Appending parameter named file with properties of file_field to form_data
+                form_data.append("test_id", 123)                 // Adding extra parameters to form_data
+                $.ajax({
+                    url: "/uploadImage1",
+                    dataType: 'script',
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: form_data,                         // Setting the data attribute of ajax with file_data
+                    type: 'post',
+                    success: function (form_data) {
+
+                    }
+                });
+            });
+        }
 
         function check(){
             if  (checkInput() ) {
@@ -58,6 +63,7 @@
                     data: obj,
                     success: function (obj) {
                         alert(obj.toString());
+                        upload();
                     }
                 });
 
@@ -335,6 +341,29 @@
 
 </header>
 
+            <div class="container">
+                <div class="row">
+                    <div class="text-left">
+                        <p class="left">Создайте свой тест</p>
+                        <form:form action="/tests/create" method="post" commandName="testCreateForm" modelAttribute="testCreateForm"
+                                   name="testCreateForm" id="testCreateForm">
+                            <div id="test">
+                                <p>Введите описание теста</p>
+                                <textarea  type="text" name="OfTest" class="input-lg text-center"></textarea>
+                            </div>
+                            <br/>
+                            <div class="text-center">
+                                <input class="btn-defaul" type="button" value="Добавить вопрос" id="add" onclick="addQuestionField()">
+                                <input id="avatar" type="file" name="avatar" id="upload" value="Загрузить файл" />
+                                <input class="btn-defaul" type="button" value="Завершить" onclick="check()">
+                            </div>
+                        </form:form>
+
+
+                      <!--  <input class="btn-defaul" type="submit" id="upload" value="Загрузить" /> -->
+                    </div>
+                </div>
+            </div>
 <div class="container">
     <div class="row">
         <div class="text-left">

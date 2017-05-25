@@ -32,16 +32,12 @@
                 <img src="../../images/avatar.png" alt="netckracker"/>
                 <br>
                 <p class="text-success">Личные данные: </p>
-                <p class="text-success">Фамилия: Иванов</p>
-                <p class="text-success">Имя: Иван</p>
-                <p class="text-success">Отчество: Иванович</p>
-                <p class="text-success">e-mail: 1@mail.ru</p>
-                <p class="text-success">Адрес: ул.Свободы, 1</p>
-                <p class="text-success">Возраст: 35 лет</p>
-                <p class="text-success">Образование: высшее</p>
-                <button class="btn-block">Тесты</button>
-                <button class="btn-block">Компании</button>
-                <button class="btn-block">На главную</button>
+                <p class="text-success">Фамилия: ${user.getLastName()}</p>
+                <p class="text-success">Имя: ${user.getFirstName()}</p>
+                <p class="text-success">e-mail: ${user.getEmail()}</p>
+                <button class="btn-block" onclick="location.href='/tests'">Тесты</button>
+                <button class="btn-block" onclick="location.href='/companies'">Компании</button>
+                <button class="btn-block" onclick="location.href='/'">На главную</button>
             </div>
         </div>
         <div class="col-md-9 col-xs-9"><p class="text-center">Пройденные тесты</p>
@@ -57,110 +53,30 @@
                 <div class="tab-content clearfix">
                     <div class="tab-pane active" id="1a">
                         <div class="row text-left">
+                            <c:forEach items="${passedTests}" var="passedTest" varStatus="t">
                             <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
+                                <div class="left">Тест #${passedTest.getTest().getId()}<br>Описание:<br>${passedTest.getTest().getTitle()}
                                 </div>
                                 <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
+                                    <button class="btn" onclick="location.href='/test/${passedTest.getTest().getId()}'">Перейти к тесту</button>
                                 </div>
                             </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
-                                </div>
-                            </article>
-                            <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
-                                </div>
-                                <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
-                                </div>
-                            </article>
+                            </c:forEach>
                         </div>
                     </div>
                     <div class="tab-pane" id="2a">
                         <div class="row text-left">
-                            <article class="col-xs-5 col-md-5"><div class="left">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
+                            <c:forEach items="${user.getCertificates()}" var="gettedCertificate" varStatus="t">
+                            <article class="col-xs-5 col-md-5"><div class="left">Сертификат #${gettedCertificate.getId()}<br>Описание:<br>${gettedCertificate.getTitle()}
                             </div>
                                 <div class="text-primary">
                                     <button class="btn"
-                                            onclick="location.href='/test/${createdTest.getId()}'">
-                                        Перейти к тесту
+                                            onclick="location.href='/certificate/${gettedCertificate.getId()}'">
+                                        Перейти к сертификату
                                     </button>
                                 </div>
                             </article>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>

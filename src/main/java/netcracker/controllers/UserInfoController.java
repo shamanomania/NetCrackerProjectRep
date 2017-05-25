@@ -2,6 +2,7 @@ package netcracker.controllers;
 
 import netcracker.domain.entities.Person;
 import netcracker.repository.PersonRepository;
+import netcracker.repository.PersonTestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,9 +17,12 @@ public class UserInfoController {
 
     private final PersonRepository personRepository;
 
+    private final PersonTestRepository personTestRepository;
+
     @Autowired
-    public UserInfoController(PersonRepository personRepository) {
+    public UserInfoController(PersonRepository personRepository, PersonTestRepository personTestRepository) {
         this.personRepository = personRepository;
+        this.personTestRepository = personTestRepository;
     }
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
@@ -27,6 +31,7 @@ public class UserInfoController {
         Person person = personRepository.findOne(id);
         model.setViewName("userForCompany");
         map.put("user", person);
+        map.put("passedTests", personTestRepository.findByPersonId(id));
         return model;
     }
 }
