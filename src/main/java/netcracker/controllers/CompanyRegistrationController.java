@@ -1,5 +1,6 @@
 package netcracker.controllers;
 
+import netcracker.domain.entities.Company;
 import netcracker.services.impl.CompanyService;
 import netcracker.viewsForms.CompanyCreateForm;
 import netcracker.viewsForms.UserCreateForm;
@@ -37,8 +38,9 @@ public class CompanyRegistrationController {
         if (result.hasErrors()){
             return "companyRegistration";
         }else {
-            companyService.create(companyCreateForm);
-            return "/user";
+            Company company = companyService.create(companyCreateForm);
+            companyService.attachUserToCompany(company.getId());
+            return "redirect:/user";
         }
 
     }

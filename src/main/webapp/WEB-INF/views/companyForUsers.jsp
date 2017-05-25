@@ -33,11 +33,12 @@
                 <img src="../../images/avatar.png" alt="netckracker"/>
                 <br>
                 <p class="text-success">Данные о компании: </p>
-                <p class="text-success">Юр адрес: Иванов</p>
-                <p class="text-success">Описание: Иван</p>
-                <button class="btn-block">Тесты</button>
-                <button class="btn-block">Компании</button>
-                <button class="btn-block">На главную</button>
+                <p class="text-success">Название: ${company.getName()}</p>
+                <p class="text-success">Описание: ${company.getTitle()}</p>
+                <p class="text-success">Юр адрес: ${company.getAddress()}</p>
+                <button class="btn-block" onclick="location.href='/tests'">Тесты</button>
+                <button class="btn-block" onclick="location.href='/companies'">Компании</button>
+                <button class="btn-block" onclick="location.href='/'">На главную</button>
             </div>
         </div>
         <div class="col-md-9 col-xs-9"><p class="text-center">Предлагаемые тесты и сертификаты</p>
@@ -52,33 +53,30 @@
                 <div class="tab-content clearfix ">
                     <div class="tab-pane active" id="1a">
                         <div class="row text-left">
+                            <c:forEach items="${company.getTests()}" var="createdTest" varStatus="t">
                             <article class="col-xs-5 col-md-5">
-                                <div class="left">Тест<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna
-                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                    aliquip ex ea commodo consequat.
+                                <div class="left">Тест<br>Описание:<br>${createdTest.getTitle()}
                                 </div>
                                 <div class="text-primary">
-                                    <button class="btn">Перейти к тесту</button>
+                                    <button class="btn" onclick="location.href='/test/${createdTest.getId()}'">Перейти к тесту</button>
                                 </div>
                             </article>
+                            </c:forEach>
                         </div>
                     </div>
                     <div class="tab-pane" id="2a">
                         <div class="row text-left">
-                            <article class="col-xs-5 col-md-5"><div class="left">Сертификат<br>Описание:<br>"Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat.
+                            <c:forEach items="${company.getCertificates()}" var="createdCertificate" varStatus="t">
+                            <article class="col-xs-5 col-md-5"><div class="left">Сертификат<br>Описание:<br>${createdCertificate.getTitle()}
                             </div>
                                 <div class="text-primary">
                                     <button class="btn"
-                                            onclick="location.href='/test/${createdTest.getId()}'">
-                                        Перейти к тесту
+                                            onclick="location.href='/certificate/${createdCertificate.getId()}'">
+                                        Перейти к сертификату
                                     </button>
                                 </div>
                             </article>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>

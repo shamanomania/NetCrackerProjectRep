@@ -43,21 +43,13 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
                         <td class="label"><br>Role:<br><%--<form:password class="input-lg" path="role"/>--%>
                             <form:select path="role" size="1" class="input-lg lable">
                                 <form:option value="1">USER</form:option>
-                                <form:option value="2">ADMIN</form:option>
+                                <form:option value="2">Company</form:option>
                             </form:select></td>
 
                         <td><span class="error"><form:errors path="role"/>
                             </span></td>
 
                     </tr>
-                    <tr>
-                        <td><p>
-                            <label class="label" for="remember-me">Remember me</label>
-
-                            <input class="checkbox-inline" type="checkbox" name="remember-me" id="remember-me"/>
-                        </p></td>
-                    </tr>
-
                     <tr>
                         <td>
                             <button class="btn center" type="submit">Sign up</button>
