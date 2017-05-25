@@ -89,7 +89,21 @@
                     </tr>
 
                     <tr>
-                        <td class="label"><br>Загрузить картинку:</br><input id="avatar" type="file" name="avatar" id="upload" value="Загрузить файл" /></td>
+                        <td class="label"><br>Загрузить картинку:</br>
+                        <script type="application/javascript">
+                            function chooseFile() {
+                                $('#avatar').click();
+                            }
+                        </script>
+                        <input type="button" onclick="chooseFile()" value="Загрузить картинку" class="input-sm"/>
+
+                        <label for="avatar">
+                            <span aria-hidden="true"></span>
+                            <input id="avatar" name="avatar" type="file" value="Загрузить файл" style="display:none">
+                        </label>
+
+                        </td>
+                        <%--<td class="label"><br>Загрузить картинку:</br><input id="avatar" type="file" name="avatar" id="upload" value="Загрузить файл" /></td>--%>
                     </tr>
 
 

@@ -28,6 +28,10 @@
             console.log(obj);
             if (checkInput()) {
                 blockInput();
+                $('#finishButton')
+                    .attr('type','hidden');
+                $('#redirectButton')
+                    .attr('type','button');
                 if (testHaveCType) {
                     passTestWithC();
                 } else {
@@ -233,7 +237,8 @@
                     console.log(testHaveCType);
                 </script>
                 <div class="text-center">
-                    <button type="button" class="btn-defaul text-center" onclick="passTest()">Завершить</button>
+                    <input type="button" id="finishButton" class="btn-defaul text-center" onclick="passTest()" value="Завершить" />
+                    <input type="hidden" id="redirectButton" class="btn-defaul text-center" onclick="location.href='/user'" value="Вернуться в личный кабинет" />
                 </div>
             </form:form>
         </div>

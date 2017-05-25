@@ -27,18 +27,6 @@ public class TestListController {
         ModelAndView model = new ModelAndView();
         model.setViewName("list_of_tests");
         modelMap.put("tests", testRepository.findAll());
-        System.out.println(testRepository.findAll().get(0).getCertificates());
-        if (testRepository.findAll().get(0).getCertificates() == null){
-            System.out.println("//////////////////////////////////////////////////////////////");
-        }
-        System.out.println(testRepository.findAll().get(1).getCertificates());
-        if (testRepository.findAll().get(1).getCertificates() == null){
-            System.out.println("//////////////////////////////////////////////////////////////");
-        }
-        System.out.println(testRepository.findAll().get(2).getCertificates());
-        if (testRepository.findAll().get(2).getCertificates() == null){
-            System.out.println("//////////////////////////////////////////////////////////////");
-        }
         return model;
     }
 }

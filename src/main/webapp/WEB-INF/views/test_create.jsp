@@ -67,6 +67,10 @@
 
         function check(){
             if  (checkInput() ) {
+                $('#endTest')
+                    .attr('type','hidden');
+                $('#redirect')
+                    .attr('type','button');
                 var obj = $("#testCreateForm").serializeJSON();
                 console.log(obj);
                 obj = JSON.stringify(obj);
@@ -369,7 +373,8 @@
                             <div class="text-center">
                                 <input class="btn-defaul" type="button" value="Добавить вопрос" id="add" onclick="addQuestionField()">
                                 <input id="avatar" type="file" name="avatar" id="upload" value="Загрузить файл" />
-                                <input class="btn-defaul" type="button" value="Завершить" onclick="upload()">
+                                <input class="btn-defaul" id="endTest" type="button" value="Завершить" onclick="upload()">
+                                <input class="btn-defaul" id="redirect" type="hidden" value="Вернуться в личный кабинет" onclick="location.href='/user'">
                             </div>
                         </form:form>
 
